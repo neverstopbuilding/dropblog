@@ -5,8 +5,8 @@ FactoryGirl.define do
     content do
       content = ''
       4.times do
-        content += "## #{Faker::Lorem.sentence}"
-        content += Faker::Lorem.paragraph(2)
+        content += "## #{Faker::Lorem.sentence}\n"
+        content += Faker::Lorem.paragraph(2) + "\n"
       end
       content
     end

@@ -13,30 +13,34 @@ RSpec.describe Api::DropboxController, type: :controller do
 
   describe 'POST dropbox' do
     it 'should reject request without signature' do
-      data = { delta: { users: [12345678] }}.to_json
-      post :webhook, data, format: :json
+      post :webhook, sample_webhook_data, format: :json
       expect(response.code).to eq '400'
       expect(response.body).to eq 'Missing X-Dropbox-Signature'
     end
 
     it 'should reject a request with a bad signature' do
-      data = { delta: { users: [12345678] }}.to_json
-      request.headers['X-Dropbox-Signature'] = sign_request(data, 'bad_app_secret')
-      post :webhook, data, format: :json
+      execute_signed_request 'bad_app_secret'
       expect(response.code).to eq '403'
       expect(response.body).to eq 'Unauthorized'
     end
 
     it 'should accept a properly signed request' do
-      data = { delta: { users: [12345678] }}.to_json
-      request.headers['X-Dropbox-Signature'] = sign_request(data, ENV['dropbox_app_secret'])
-      post :webhook, data, format: :json
+      execute_signed_request ENV['dropbox_app_secret']
       expect(response.code).to eq '200'
     end
 
     def sign_request(data, secret)
       digest = OpenSSL::Digest::SHA256.new
       OpenSSL::HMAC.hexdigest(digest, secret, data)
+    end
+
+    def sample_webhook_data
+      { delta: { users: [12345678] } }.to_json
+    end
+
+    def execute_signed_request(secret)
+      request.headers['X-Dropbox-Signature'] = sign_request(sample_webhook_data, secret)
+      post :webhook, sample_webhook_data, format: :json
     end
 
   end

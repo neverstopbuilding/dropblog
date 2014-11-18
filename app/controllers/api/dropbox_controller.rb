@@ -9,24 +9,23 @@ module Api
     end
 
     def webhook
+      validate_request_is_signed
+      validate_signature
+      render(json: 'Success')
+    rescue Api::Dropbox::Errors::Error => error
+      render(json: error, status: error.status)
+    end
 
-      secret = ENV['dropbox_app_secret']
+    private
 
-      data = request.body.read
+    def validate_request_is_signed
+      fail Api::Dropbox::Errors::UnsignedRequestError unless request.headers['X-Dropbox-Signature']
+    end
 
-      digest = OpenSSL::Digest::SHA256.new
-      signature = OpenSSL::HMAC.hexdigest(digest, secret, data)
-
-      unless request.headers['X-Dropbox-Signature']
-        render(json: 'Missing X-Dropbox-Signature', status: 400)
-        return
-      end
-      unless request.headers['X-Dropbox-Signature'] == signature
-        render(json: 'Unauthorized', status: 403)
-        return
-      end
-      render(json: 'Success', status: 200)
-
+    def validate_signature
+      calculated_signature = OpenSSL::HMAC.hexdigest(OpenSSL::Digest::SHA256.new, ENV['dropbox_app_secret'], request.body.read)
+      provided_signature = request.headers['X-Dropbox-Signature']
+      fail Api::Dropbox::Errors::UnauthorizedAccessError unless provided_signature == calculated_signature
     end
   end
 end

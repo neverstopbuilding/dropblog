@@ -1,0 +1,6 @@
+h1 Projects#index
+p Find me in app/views/projects/index.html.slim
+
+- for project in @projects do
+  h2 = project.title
+  a href="#{short_project_path(project)}" =project.slug

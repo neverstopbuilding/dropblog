@@ -1,4 +1,8 @@
 test:
-  adapter: sqlite3
-  database: ":memory:"
-  timeout: 500
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  host: localhost
+  template: template0
+  database: dropblog_test
+  username: postgres

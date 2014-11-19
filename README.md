@@ -1,6 +1,6 @@
 #DropBlog
 
-[![Build Status](https://travis-ci.org/neverstopbuilding/dropblog.svg?branch=master)](https://travis-ci.org/neverstopbuilding/dropblog)
+[![Build Status](https://travis-ci.org/neverstopbuilding/dropblog.svg?branch=master)](https://travis-ci.org/neverstopbuilding/dropblog) [![Code Climate](https://codeclimate.com/github/neverstopbuilding/dropblog/badges/gpa.svg)](https://codeclimate.com/github/neverstopbuilding/dropblog) [![Test Coverage](https://codeclimate.com/github/neverstopbuilding/dropblog/badges/coverage.svg)](https://codeclimate.com/github/neverstopbuilding/dropblog)
 
 I'm kinda lazy and updating my blog is the last thing I really want to do. However, I do keep documentation on the projects I work on, and there has got to be a way to use software to manage the actual blog part. 
 

@@ -9,3 +9,5 @@ gemfile:
 addons:
   code_climate:
     repo_token: 232cbe99dfd802bf915eac4bc660c511cba71551f94df8541bd6f25a5f8fca24
+before_script:
+  - echo "test:\n  adapter: sqlite3\n  database: \":memory:\"\n  timeout: 500" > config/database.yml

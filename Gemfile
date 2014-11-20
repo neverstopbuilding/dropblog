@@ -31,6 +31,7 @@ group :development do
   gem 'sqlite3'
 end
 group :development, :test do
+  gem 'spring-commands-rspec'
   gem 'factory_girl_rails'
   gem 'faker'
   gem 'rspec-rails'
@@ -44,4 +45,5 @@ group :test do
   gem 'launchy'
   gem 'selenium-webdriver'
   gem 'codeclimate-test-reporter', require: nil
+  gem 'shoulda-matchers', require: false
 end

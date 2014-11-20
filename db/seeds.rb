@@ -11,5 +11,4 @@
 
 # Create 4 projects with articles and 5 stand alone articles
 
-4.times { FactoryGirl.create(:project_with_articles) }
 5.times { FactoryGirl.create(:article) }

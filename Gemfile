@@ -37,6 +37,7 @@ group :development, :test do
 end
 group :production do
   gem 'rails_12factor'
+  gem 'newrelic_rpm'
 end
 group :test do
   gem 'capybara'

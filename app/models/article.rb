@@ -9,6 +9,7 @@ class Article < ActiveRecord::Base
     slug
   end
 
+    # TODO: Refactor this render out somewhere else
     class InsertImageRenderer < Redcarpet::Render::HTML
 
       def pictures=(pictures)

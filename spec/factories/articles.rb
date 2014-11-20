@@ -15,10 +15,5 @@ FactoryGirl.define do
     factory :private_article do
       public false
     end
-
-    factory :article_with_for_project do
-      project
-    end
-
   end
 end

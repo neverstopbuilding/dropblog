@@ -15,3 +15,4 @@ before_script:
   - cp config/database.yml.travis config/database.yml
   - psql -c 'create database dropblog_test;' -U postgres
   - bundle exec rake db:migrate RAILS_ENV=test
+secure: "gTCOVqHYS1L6j6rq7Gmrm9EuCaBRM2X7MGHba3lpqj1oRZHO/YkFxToDSTPR57BF7N3SJfLLyU2cF90OW2p5JZmSfbsgyIKkNiY2YaZFVHkbaHc02c9W4fuTG2PqB23j3KeCrDYi7JNGayRnTIV99dizTeDJqkwuTc1ywMCqbhw="

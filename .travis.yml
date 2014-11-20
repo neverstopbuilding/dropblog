@@ -1,17 +1,16 @@
 language: ruby
 cache: bundler
 before_install:
-- sed -i '2d' Gemfile
+  - sed -i '2d' Gemfile
 rvm:
-- 2.1.5
-- ruby-head
+  - 2.1.5
 bundler_args: "--without production"
 gemfile:
-- Gemfile
+  - Gemfile
 before_script:
-- psql -c 'create database tap_test;' -U postgres
-- psql -U postgres -q -d tap_test -f db/structure.sql
-- cp config/database.travis.yml config/database.yml
+  - psql -c 'create database dropblog_test;' -U postgres
+  - psql -U postgres -q -d dropblog_test -f db/structure.sql
+  - cp config/database.travis.yml config/database.yml
 script: bundle exec rake
 addons:
   code_climate:

@@ -67,6 +67,9 @@ Rails.application.configure do
   # Send deprecation notices to registered listeners.
   config.active_support.deprecation = :notify
 
+  # Use migration schema as ruby for environments where it won't matter
+  config.active_record.schema_format = :ruby
+
   # Disable automatic flushing of the log to improve performance.
   # config.autoflush_log = false
 

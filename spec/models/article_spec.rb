@@ -36,4 +36,20 @@ RSpec.describe Article, type: :model do
     expect(build(:article, content: '# Title').render).to eq "<h1>Title</h1>\n"
   end
 
+  it { should have_many(:pictures) }
+
+  it 'should render an image short tag to an associated image path' do
+    article = create(:article_picture).pictureable
+    article.content = "![](../#{article.pictures[0].file_name})"
+    article.save
+    expect(article.render).to eq "<p><img src=\"#{article.pictures[0].path}\" alt=\"\"></p>\n"
+  end
+
+  it 'should not render an image if the image is not found' do
+    article = create(:article_picture).pictureable
+    article.content = "![](../wont-exist.jpg)"
+    article.save
+    expect(article.render).to eq ""
+  end
+
 end

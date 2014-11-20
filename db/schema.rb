@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141118211958) do
+ActiveRecord::Schema.define(version: 20141120044053) do
 
   create_table "articles", force: true do |t|
     t.string   "title"
@@ -24,10 +24,10 @@ ActiveRecord::Schema.define(version: 20141118211958) do
   end
 
   create_table "pictures", force: true do |t|
-    t.string   "slug"
+    t.string   "file_name"
     t.string   "path"
-    t.integer  "imageable_id"
-    t.string   "imageable_type"
+    t.integer  "pictureable_id"
+    t.string   "pictureable_type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

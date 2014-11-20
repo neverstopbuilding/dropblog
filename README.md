@@ -58,6 +58,7 @@ That is, we are rendering some article and know some file name, so we can say "h
 
 - http://dev.iron.io/solutions/image-processing/
 - https://github.com/iron-io/iron_worker_examples/tree/master/ruby_ng/image_processing
+- https://github.com/iron-io/iron_worker_rails_example
 
 ###Testing Concerns and Models
 - http://stackoverflow.com/questions/16525222/how-to-test-a-concern-in-rails

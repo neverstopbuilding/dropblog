@@ -15,11 +15,13 @@ Because I think in terms of "projects" as well as have one off articles, I'd lik
     blog
         projects
             project-one-slug
+                project.md
                 articles
                     article-one-slug.md
                 pictures
                     photo-one.jpg
             project-two-slug
+                project.md
                 articles
                     another-article-one-slug.md
                 pictures

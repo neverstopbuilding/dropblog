@@ -1,0 +1,56 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.dropbox.com/1/delta
+    body:
+      encoding: US-ASCII
+      string: cursor=AAE_SobujJRM3kEAQWd4YdV4y0zd_JOU5rYnR8YZFJ5X9y1toIzsIQRPkg6hQRIgFfR1z0Stv3bhRTB_byIQzVfd_ooNzNKVHy0GVaXyMS0G5wQujJzuRA8RzEKiISLF17A&path_prefix=%2Fdropblog-test
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - OfficialDropboxRubySDK/1.6.4
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Authorization:
+      - Bearer zxKD5LR01akAAAAAAAAu4MmgCGJ01_PMVg9CCdRhyRqFTDjwNeMx1HUO1B-3QZ32
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Tue, 02 Dec 2014 06:32:04 GMT
+      Content-Type:
+      - text/javascript
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - gvc=MjI0MzMxODE1MDIzMjIwNDE1MzkyNjc3MTUwMTQzNjk5NzA5MTYw; expires=Sun, 01
+        Dec 2019 06:32:04 GMT; Path=/; httponly
+      X-Server-Response-Time:
+      - '64'
+      X-Dropbox-Request-Id:
+      - cfb17f7a759e8d4f2f2f776fcab04ec8
+      Pragma:
+      - no-cache
+      Cache-Control:
+      - no-cache
+      X-Dropbox-Http-Protocol:
+      - None
+      X-Frame-Options:
+      - SAMEORIGIN
+    body:
+      encoding: UTF-8
+      string: '{"has_more": false, "cursor": "AAHpY1xjKbXE4K-nmUKxU3SujQfXPAgqgmVLj0RaRRdVL_C6t44m3kVe0SCBA1pV5Hd7TbJ6EhHE671gULkXzgR3CXgXUg03WvSWkc2IJskYJ0DxKwdgnswRbQmsYAHwRGE",
+        "entries": [], "reset": false}'
+    http_version: 
+  recorded_at: Tue, 02 Dec 2014 06:32:04 GMT
+recorded_with: VCR 2.9.3

@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 ruby '2.1.5'
-gem 'rails', '4.1.8'
+gem 'rails', '4.2.0.rc1'
 gem 'sass-rails', '~> 4.0.3'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
@@ -17,6 +17,9 @@ gem 'unicorn-rails'
 gem 'redcarpet'
 gem 'pg'
 gem 'timers'
+gem 'redis'
+gem 'sidekiq'
+gem 'dropbox-sdk'
 
 group :development do
   gem 'better_errors'
@@ -35,6 +38,8 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'faker'
   gem 'rspec-rails'
+  gem 'vcr'
+  gem 'webmock'
 end
 group :production do
   gem 'rails_12factor'
@@ -47,4 +52,5 @@ group :test do
   gem 'selenium-webdriver'
   gem 'codeclimate-test-reporter', require: nil
   gem 'shoulda-matchers', require: false
+  gem 'responders'
 end

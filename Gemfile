@@ -16,6 +16,7 @@ gem 'unicorn'
 gem 'unicorn-rails'
 gem 'redcarpet'
 gem 'pg'
+gem 'timers'
 
 group :development do
   gem 'better_errors'

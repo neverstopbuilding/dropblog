@@ -56,6 +56,31 @@ Later when the stored markdown with the simple paths is rendered, we can key off
 
 That is, we are rendering some article and know some file name, so we can say "hey give me the path for this article's image with the file name xyz." File names are of course unique for any article/project folder.
 
+##Configuration
+Most of the variables are stored in a `application.yml` file and used with figaro:
+
+```
+dropbox_user_id: ~~~
+dropbox_access_token: ~~~
+dropbox_app_key: ~~~
+dropbox_app_secret: ~~~
+dropbox_blog_dir: dropblog-test
+
+production:
+  dropbox_blog_dir: never-stop-building
+  DOMAIN_NAME: ~~~
+  SECRET_KEY_BASE: ~~~
+
+development:
+  REDISTOGO_URL: 'redis://localhost:6379'
+  RACK_ENV: development
+  PORT: '3000'
+```
+
+Be sure to restart spring if you update the variables locally. And for loading them to heroku:
+
+    figaro heroku:set -e production
+
 ###Processing
 
 - http://dev.iron.io/solutions/image-processing/

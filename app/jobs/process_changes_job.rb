@@ -5,8 +5,7 @@ class ProcessChangesJob < ActiveJob::Base
   def perform(*args)
     # Do something later
 
-
-
+    dropbox_blog_dir = ENV['dropbox_blog_dir']
     access_token = ENV['dropbox_access_token']
 
     client = DropboxClient.new(access_token)
@@ -18,7 +17,7 @@ class ProcessChangesJob < ActiveJob::Base
     # TODO: you could put a time since last request checker or something
 
     cursor = REDIS.get 'dropbox_delta_cursor'
-    delta = client.delta(cursor, '/dropblog-test')
+    delta = client.delta(cursor, "/#{dropbox_blog_dir}")
     REDIS.set 'dropbox_delta_cursor', delta['cursor']
 
     if delta['entries'].empty?
@@ -26,7 +25,7 @@ class ProcessChangesJob < ActiveJob::Base
     else
       delta['entries'].each do |entry|
         path = entry[0]
-        if entry[0] =~ /\/dropblog-test\/articles\/(.+)\/article.md/
+        if entry[0] =~ /\/#{dropbox_blog_dir}\/articles\/(.+)\/article.md/
           logger.info "Processing updated or new article: #{$1}"
           contents, metadata = client.get_file_and_metadata(path)
           Article.process_raw_file($1, contents)

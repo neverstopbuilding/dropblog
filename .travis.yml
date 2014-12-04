@@ -23,7 +23,7 @@ env:
   global:
     - secure: gTCOVqHYS1L6j6rq7Gmrm9EuCaBRM2X7MGHba3lpqj1oRZHO/YkFxToDSTPR57BF7N3SJfLLyU2cF90OW2p5JZmSfbsgyIKkNiY2YaZFVHkbaHc02c9W4fuTG2PqB23j3KeCrDYi7JNGayRnTIV99dizTeDJqkwuTc1ywMCqbhw=
     - secure: trKrdt+PVZfzjiKgOjUsrbP7eImjK/Zgx8EOXa+3k40MAFolIWFHAqrY6/iFtu4E3UV1TjMM2kGXnCr2X5nryufx/0VHJ1kAXj/C1DTXs6jBmq7jOSaWHAsAzl9+EIjyV8hAD/ZQRvlI8VzfdQvXSFgpLWWejKxb4R48WCgE7Gw=
-    - secure: R/9Tu/Er2WmlsfMBbIV5okpN90mHk7RSN36K4hIo528y9GoaB4mlFy1fJcfHKKEUNk7vsAVQhWb4P4PsPNqSbD68ODtPPT2B6tlg/r0HPw2qBjIpSodfSVjzog2bDBSzOgGaGxQQDoPqKLIjOrXgBnvs6bTEQJDXywtqsrwf0AQ=
+    - DROPBOX_BLOG_ROOT=dropblog-test
 deploy:
   provider: heroku
   api_key:

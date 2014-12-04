@@ -12,8 +12,6 @@ gem 'spring',        group: :development
 gem 'figaro', '>= 1.0.0.rc1'
 gem 'foundation-rails'
 gem 'slim-rails'
-gem 'unicorn'
-gem 'unicorn-rails'
 gem 'redcarpet'
 gem 'pg'
 gem 'timers'
@@ -45,6 +43,8 @@ end
 group :production do
   gem 'rails_12factor'
   gem 'newrelic_rpm'
+  gem 'unicorn'
+  gem 'unicorn-rails'
 end
 group :test do
   gem 'capybara'

@@ -16,18 +16,18 @@ class ProcessChangesJob < ActiveJob::Base
     # cursor = cursor.empty? ? nil : cursor
     # TODO: you could put a time since last request checker or something
 
-    path_prefix = REDIS.get 'path_prefix'
-    if path_prefix != dropbox_blog_dir
-      logger.info "Current prefix of '#{path_prefix}' does not match configured value of '#{dropbox_blog_dir}' updating..."
-      path_prefix = dropbox_blog_dir
-      REDIS.set 'path_prefix', path_prefix
-      cursor = nil
-    else
-      cursor = REDIS.get 'dropbox_delta_cursor'
-    end
+    # path_prefix = REDIS.get 'path_prefix'
+    # if path_prefix != dropbox_blog_dir
+    #   logger.info "Current prefix of '#{path_prefix}' does not match configured value of '#{dropbox_blog_dir}' updating..."
+    #   path_prefix = dropbox_blog_dir
+    #   REDIS.set 'path_prefix', path_prefix
+    #   cursor = nil
+    # else
+    #   cursor = REDIS.get 'dropbox_delta_cursor'
+    # end
 
-
-    delta = client.delta(cursor, "/#{path_prefix}")
+    cursor = REDIS.get 'dropbox_delta_cursor'
+    delta = client.delta(cursor, "/#{dropbox_blog_dir}")
     REDIS.set 'dropbox_delta_cursor', delta['cursor']
 
     if delta['entries'].empty?

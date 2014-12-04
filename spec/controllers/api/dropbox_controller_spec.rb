@@ -12,6 +12,7 @@ RSpec.describe Api::DropboxController, type: :controller do
   end
 
   describe 'POST dropbox' do
+    Sidekiq::Testing.fake!
     it 'should reject request without signature' do
       post :webhook, sample_webhook_data, format: :json
       expect(response.code).to eq '400'

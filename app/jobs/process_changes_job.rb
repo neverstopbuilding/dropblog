@@ -16,30 +16,34 @@ class ProcessChangesJob < ActiveJob::Base
     # cursor = cursor.empty? ? nil : cursor
     # TODO: you could put a time since last request checker or something
 
-    cursor = REDIS.get 'dropbox_delta_cursor'
-    delta = client.delta(cursor, "/#{dropbox_blog_dir}")
+    path_prefix = REDIS.get 'path_prefix'
+    if path_prefix != dropbox_blog_dir
+      REDIS.set path_prefix, dropbox_blog_dir
+      cursor = nil
+    else
+      path_prefix = dropbox_blog_dir
+      cursor = REDIS.get 'dropbox_delta_cursor'
+    end
+
+
+    delta = client.delta(cursor, "/#{path_prefix}")
     REDIS.set 'dropbox_delta_cursor', delta['cursor']
 
     if delta['entries'].empty?
       return []
     else
-
-      puts delta['entries'].inspect
-
       delta['entries'].each do |entry|
         path = entry[0]
-
-        puts "--> #{path} \n"
-
-        if entry[0] =~ /\/dropblog-test\/articles\/([^\/]+)$/ && entry[1] == nil
+        if entry[0] =~ /\/dropblog-test\/articles\/([a-z\-0-9]+)$/ && entry[1] == nil
           # remove article
           logger.info "Removing deleted article: #{$1}"
-          Article.find_by_slug($1).destroy
+          to_delete = Article.find_by_slug($1)
+          to_delete.destroy if to_delete
         end
         if entry[0] =~ /\/#{dropbox_blog_dir}\/articles\/(.+)\/article.md/ && entry[1] != nil
-            logger.info "Processing updated or new article: #{$1}"
-            contents, metadata = client.get_file_and_metadata(path)
-            Article.process_raw_file($1, contents)
+          logger.info "Processing updated or new article: #{$1}"
+          contents, metadata = client.get_file_and_metadata(path)
+          Article.process_raw_file($1, contents)
         end
       end
     end

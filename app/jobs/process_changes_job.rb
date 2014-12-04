@@ -21,14 +21,25 @@ class ProcessChangesJob < ActiveJob::Base
     REDIS.set 'dropbox_delta_cursor', delta['cursor']
 
     if delta['entries'].empty?
-      puts 'nothing changed'
+      return []
     else
+
+      puts delta['entries'].inspect
+
       delta['entries'].each do |entry|
         path = entry[0]
-        if entry[0] =~ /\/#{dropbox_blog_dir}\/articles\/(.+)\/article.md/
-          logger.info "Processing updated or new article: #{$1}"
-          contents, metadata = client.get_file_and_metadata(path)
-          Article.process_raw_file($1, contents)
+
+        puts "--> #{path} \n"
+
+        if entry[0] =~ /\/dropblog-test\/articles\/([^\/]+)$/ && entry[1] == nil
+          # remove article
+          logger.info "Removing deleted article: #{$1}"
+          Article.find_by_slug($1).destroy
+        end
+        if entry[0] =~ /\/#{dropbox_blog_dir}\/articles\/(.+)\/article.md/ && entry[1] != nil
+            logger.info "Processing updated or new article: #{$1}"
+            contents, metadata = client.get_file_and_metadata(path)
+            Article.process_raw_file($1, contents)
         end
       end
     end

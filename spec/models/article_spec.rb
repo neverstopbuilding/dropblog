@@ -72,4 +72,16 @@ RSpec.describe Article, type: :model do
     expect(updated_article.title).to eq 'This Title'
   end
 
+  it 'will simply not create a blank article' do
+    slug = 'some-slug'
+    contents = ''
+    expect(Article.process_raw_file(slug, contents)).to be_nil
+  end
+
+  it 'will simply not create a blank article' do
+    slug = 'some-slug'
+    contents = '# asdfasdf'
+    expect(Article.process_raw_file(slug, contents)).to be_nil
+  end
+
 end

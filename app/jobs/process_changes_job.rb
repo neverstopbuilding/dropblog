@@ -18,10 +18,10 @@ class ProcessChangesJob < ActiveJob::Base
 
     path_prefix = REDIS.get 'path_prefix'
     if path_prefix != dropbox_blog_dir
-      REDIS.set path_prefix, dropbox_blog_dir
+      logger.info "Current prefix of '#{path_prefix}' does not match configured value of '#{dropbox_blog_dir}' updating..."
+      REDIS.set 'path_prefix', dropbox_blog_dir
       cursor = nil
     else
-      path_prefix = dropbox_blog_dir
       cursor = REDIS.get 'dropbox_delta_cursor'
     end
 

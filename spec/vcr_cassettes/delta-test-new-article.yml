@@ -5,7 +5,7 @@ http_interactions:
     uri: https://api.dropbox.com/1/delta
     body:
       encoding: US-ASCII
-      string: cursor=AAHpY1xjKbXE4K-nmUKxU3SujQfXPAgqgmVLj0RaRRdVL_C6t44m3kVe0SCBA1pV5Hd7TbJ6EhHE671gULkXzgR3CXgXUg03WvSWkc2IJskYJ0DxKwdgnswRbQmsYAHwRGE&path_prefix=%2Fdropblog-test
+      string: cursor=AAE_SobujJRM3kEAQWd4YdV4y0zd_JOU5rYnR8YZFJ5X9y1toIzsIQRPkg6hQRIgFfR1z0Stv3bhRTB_byIQzVfd_ooNzNKVHy0GVaXyMS0G5wQujJzuRA8RzEKiISLF17A&path_prefix=%2Fdropblog-test
     headers:
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
@@ -25,7 +25,7 @@ http_interactions:
       Server:
       - nginx
       Date:
-      - Tue, 02 Dec 2014 06:53:24 GMT
+      - Thu, 04 Dec 2014 03:55:37 GMT
       Content-Type:
       - text/javascript
       Transfer-Encoding:
@@ -33,12 +33,12 @@ http_interactions:
       Connection:
       - keep-alive
       Set-Cookie:
-      - gvc=MjkzNDA0MzYxOTUxNTExMTA3MzgyOTY5NTY2OTM5OTk0MDU0NjQ%3D; expires=Sun, 01
-        Dec 2019 06:53:24 GMT; Path=/; httponly
+      - gvc=MjA3OTQzODcwNzkyNjg1NjQ4NzUyODkxNDQ1NzQyMDMxOTQ4MTgz; expires=Tue, 03
+        Dec 2019 03:55:37 GMT; Path=/; httponly
       X-Server-Response-Time:
-      - '65'
+      - '69'
       X-Dropbox-Request-Id:
-      - ffeab1048112e1e3ec333fdc38ce4644
+      - 058ad67d4fbf705776f7cbe08d817235
       Pragma:
       - no-cache
       Cache-Control:
@@ -49,7 +49,7 @@ http_interactions:
       - SAMEORIGIN
     body:
       encoding: UTF-8
-      string: '{"has_more": false, "cursor": "AAFFw7Ym_ZYYmM8GhQ4a86k_tFYE0IvzBBC5xEIoclAi1jON9t4mmH7nuhZGtaRYV2BmpLiVM4t7T7Jb3OE9nU4_N7JwWZ5owxnS7-2i11UzljUf9qiAGbbAaKjV3Dcl91Q",
+      string: '{"has_more": false, "cursor": "AAEVt-9PrAfOALbT2GCA2l1D4d5bUThhB6HTFk9wmeu7EanSyN1C4iSNE8beiBb2SyHnpZuGA5jb9-qkpFhg-fOTztliTSCiT4UC_3TgpT05aCVZUQbKolbw-c6EeRZWgG0",
         "entries": [["/dropblog-test/untitled folder", null], ["/dropblog-test/articles",
         {"bytes": 0, "rev": "bc0f500db7498", "revision": 770293, "icon": "folder",
         "path": "/dropblog-test/articles", "is_dir": true, "thumb_exists": false,
@@ -59,11 +59,80 @@ http_interactions:
         "path": "/dropblog-test/articles/one-off-article-slug", "is_dir": true, "thumb_exists":
         false, "root": "dropbox", "modified": "Tue, 02 Dec 2014 06:51:11 +0000", "size":
         "0 bytes"}], ["/dropblog-test/articles/one-off-article-slug/article.md", {"rev":
-        "bc0fd00db7498", "thumb_exists": false, "path": "/dropblog-test/articles/one-off-article-slug/article.md",
-        "is_dir": false, "client_mtime": "Tue, 02 Dec 2014 06:51:24 +0000", "icon":
-        "page_white_text", "bytes": 0, "modified": "Tue, 02 Dec 2014 06:51:27 +0000",
-        "size": "0 bytes", "root": "dropbox", "mime_type": "application/octet-stream",
-        "revision": 770301}]], "reset": false}'
+        "bc14400db7498", "thumb_exists": false, "path": "/dropblog-test/articles/one-off-article-slug/article.md",
+        "is_dir": false, "client_mtime": "Thu, 04 Dec 2014 03:55:07 +0000", "icon":
+        "page_white_text", "bytes": 130, "modified": "Thu, 04 Dec 2014 03:55:10 +0000",
+        "size": "130 bytes", "root": "dropbox", "mime_type": "application/octet-stream",
+        "revision": 770372}]], "reset": false}'
     http_version: 
-  recorded_at: Tue, 02 Dec 2014 06:53:24 GMT
+  recorded_at: Thu, 04 Dec 2014 03:55:37 GMT
+- request:
+    method: get
+    uri: https://api-content.dropbox.com/1/files/auto/dropblog-test/articles/one-off-article-slug/article.md
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - OfficialDropboxRubySDK/1.6.4
+      Authorization:
+      - Bearer zxKD5LR01akAAAAAAAAu4MmgCGJ01_PMVg9CCdRhyRqFTDjwNeMx1HUO1B-3QZ32
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Thu, 04 Dec 2014 03:55:38 GMT
+      Content-Type:
+      - text/plain; charset=utf-8
+      Content-Length:
+      - '130'
+      Connection:
+      - keep-alive
+      Content-Security-Policy:
+      - sandbox allow-scripts allow-forms allow-popups allow-top-navigation
+      Accept-Ranges:
+      - bytes
+      X-Dropbox-Metadata:
+      - '{"rev": "bc14400db7498", "thumb_exists": false, "path": "/dropblog-test/articles/one-off-article-slug/article.md",
+        "is_dir": false, "client_mtime": "Thu, 04 Dec 2014 03:55:07 +0000", "icon":
+        "page_white_text", "bytes": 130, "modified": "Thu, 04 Dec 2014 03:55:10 +0000",
+        "size": "130 bytes", "root": "dropbox", "mime_type": "application/octet-stream",
+        "revision": 770372}'
+      X-Server-Response-Time:
+      - '466'
+      Content-Security-Policy-Report-Only:
+      - default-src *; script-src 'none'; report-uri https://www.dropbox.com/csp_log
+      Etag:
+      - 770372n
+      X-Dropbox-Request-Id:
+      - c0f87d82b79db7bdbc02e85d89b7a4ee
+      Pragma:
+      - public
+      Cache-Control:
+      - max-age=0
+      X-Content-Security-Policy:
+      - sandbox allow-scripts allow-forms allow-popups allow-top-navigation
+      X-Webkit-Csp:
+      - sandbox allow-scripts allow-forms allow-popups allow-top-navigation
+      X-Robots-Tag:
+      - noindex, nofollow, noimageindex
+    body:
+      encoding: UTF-8
+      string: |-
+        # The title of the article
+
+        thaskdlfaslkdjf asdljkf  lsdkfjasldkf asdfkj asdlfk as
+        lasdfjk asdfkl sajdflkas dfklasdf
+
+        ## Some data
+    http_version: 
+  recorded_at: Thu, 04 Dec 2014 03:55:38 GMT
 recorded_with: VCR 2.9.3

@@ -11,6 +11,7 @@ module Api
     def webhook
       validate_request_is_signed
       validate_signature
+      ProcessChangesJob.perform_later
       render(json: 'Success')
     rescue Api::Dropbox::Errors::Error => error
       render(json: error, status: error.status)

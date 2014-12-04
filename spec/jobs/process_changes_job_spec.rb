@@ -17,6 +17,7 @@ RSpec.describe ProcessChangesJob, :type => :job do
   it 'adds a new one off article' do
     VCR.use_cassette 'delta-test-new-article' do
       ProcessChangesJob.new.perform
+      expect(Article.find_by_slug('one-off-article-slug').title).to eq 'The Title Of The Article'
     end
   end
 end

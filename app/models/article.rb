@@ -35,4 +35,14 @@ class Article < ActiveRecord::Base
     markdown = Redcarpet::Markdown.new(renderer, autolink: true, tables: true)
     markdown.render content
   end
+
+  def self.process_raw_file(slug, content)
+    title = /^#\s?(.+)\n/.match(content)[1].titleize
+    content.gsub!(/^#\s?.+\n/, '').strip!
+    article = self.find_or_initialize_by(slug: slug)
+    article.title = title
+    article.content = content
+    article.save
+    article
+  end
 end

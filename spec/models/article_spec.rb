@@ -52,4 +52,24 @@ RSpec.describe Article, type: :model do
     expect(article.render).to eq ""
   end
 
+  it 'can process raw contents to create a new article' do
+    slug = 'some-slug'
+    contents = '# this title
+    some other stuff
+    ## some section'
+    article = Article.process_raw_file(slug, contents)
+    expect(article.title).to eq 'This Title'
+    expect(article.content).to eq "some other stuff\n    ## some section"
+    expect(Article.find_by_slug('some-slug')).to eq article
+  end
+
+  it 'can process raw contents to update an existing article' do
+    contents = '# this title
+    some other stuff
+    ## some section'
+    article = Article.process_raw_file(@article.slug, contents)
+    updated_article = Article.find_by_slug(@article.slug)
+    expect(updated_article.title).to eq 'This Title'
+  end
+
 end

@@ -20,6 +20,7 @@ gem 'timers'
 gem 'redis'
 gem 'sidekiq'
 gem 'dropbox-sdk'
+gem 'responders'
 
 group :development do
   gem 'better_errors'
@@ -52,5 +53,5 @@ group :test do
   gem 'selenium-webdriver'
   gem 'codeclimate-test-reporter', require: nil
   gem 'shoulda-matchers', require: false
-  gem 'responders'
+
 end

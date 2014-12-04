@@ -37,7 +37,6 @@ class Article < ActiveRecord::Base
   end
 
   def self.process_raw_file(slug, content)
-
     title_match = /^#\s?(.+)\n/.match(content)
     return nil unless title_match
     content.gsub!(/^#\s?.+\n/, '').strip!

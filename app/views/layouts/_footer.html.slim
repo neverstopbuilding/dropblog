@@ -1,0 +1,14 @@
+footer.site-footer
+  .row
+    .full-width-centered
+      .row.pad-2-bottom
+        = link_to image_tag('design/footer-logo.png', alt: 'Never Stop Building Logo'), root_path
+      .row.pad-1-bottom
+        ul.large-block-grid-7.medium-block-grid-3.small-block-grid-2
+          - for social_link in Settings.social_links do
+            li
+              = link_to fa_icon("#{social_link.icon} 3x"), social_link.link, title: social_link.name, class: 'social-link'
+      .row.pad-1-bottom
+        small
+          == "&copy; #{Time.new.year} #{Settings.company_name}  |  #{Settings.address.street}, #{Settings.address.city}, #{Settings.address.state} #{Settings.address.zip_code}  |  #{Settings.phone_number}"
+    / TODO: Add micro data to the footer address

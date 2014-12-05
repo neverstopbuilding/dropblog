@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 ruby '2.1.5'
 gem 'rails', '4.2.0.rc1'
 gem 'sass-rails', '~> 4.0.3'
+gem 'compass-rails'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
@@ -11,6 +12,7 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
 gem 'figaro', '>= 1.0.0.rc1'
 gem 'foundation-rails'
+gem 'font-awesome-rails'
 gem 'slim-rails'
 gem 'redcarpet'
 gem 'pg'
@@ -19,6 +21,7 @@ gem 'redis'
 gem 'sidekiq'
 gem 'dropbox-sdk'
 gem 'responders'
+gem 'rails_config'
 
 group :development do
   gem 'better_errors'
@@ -31,6 +34,7 @@ group :development do
   gem 'rb-fchange', :require=>false
   gem 'rb-fsevent', :require=>false
   gem 'rb-inotify', :require=>false
+  gem 'guard-livereload', require: false
 end
 group :development, :test do
   gem 'spring-commands-rspec'

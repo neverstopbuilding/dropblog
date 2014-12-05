@@ -14,8 +14,8 @@ end
 
 Rails.application.routes.draw do
 
-
-  get 'projects', to: 'projects#index'
+  get 'projects', to: 'projects#index', as: 'projects'
+  get 'articles', to: 'articles#index', as: 'articles'
 
   namespace :api do
     get 'dropbox', to: 'dropbox#challenge'
@@ -24,14 +24,9 @@ Rails.application.routes.draw do
 
   root to: 'visitors#index'
 
-
-
-
   constraints(AuthorUrlConstrainer.new) do
     get '/:id', to: "projects#show", as: 'short_project'
   end
-
-
 
   constraints(PostUrlConstrainer.new) do
     get '/:id', to: "articles#show", as: 'short_article'

@@ -1,1 +1,27 @@
 / TODO: Add video background here: http://demosthenes.info/blog/777/Create-Fullscreen-HTML5-Page-Background-Video
+section.front-banner
+  = video_tag poster: 'design/static-banner.png', autoplay: true, loop:true
+  .row
+    .full-width-centered
+      h1
+        = image_tag 'design/large-logo.png', alt: 'Never Stop Building'
+section.intro
+  .row
+    .full-width-centered
+      h2 We care about the well made. Our focus is providing unique custom parts and furniture, advising on software best practices, and growing spaces of shared learning.
+section.about
+  .row
+    .half-width-centered
+      = fa_icon 'gears 4x'
+      h3 Custom Fabrication
+      p Building is at our core, we specialize in doing what others say shouldn't be done. If you have an idea, we can help you build it. Welding, machining, electronics prototyping are all part of the fun.
+    .half-width-centered
+      = fa_icon 'code 4x'
+      h3 Software Consulting
+      p Whether you are a start-up or large firm we can provide process analysis, coaching, and architectural guidance. We think of software as another craft, and bring the same care to it.
+section.content-preview
+  .row
+    .half-width-centered
+      h3 Recent Articles
+    .half-width-centered
+      h3 Active Projects

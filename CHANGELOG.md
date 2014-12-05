@@ -1,3 +1,7 @@
+## December 4, 2014
+- fixed errors and deployed a working article version
+- started building out the new home page
+
 ## December 2, 2014
 - started hacking on a job to check the delta for the folder for appropriate files per the folder structure
 - got side tracked on some sort of timed runner thing, that was a waste of time, and is pre-mature in terms of optimization

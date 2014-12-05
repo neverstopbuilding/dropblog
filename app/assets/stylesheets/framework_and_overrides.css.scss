@@ -3,8 +3,10 @@ $header-font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif
 @import "foundation";
 @import "font-awesome";
 @import "compass/css3/transition";
+@import "compass/css3/background-size";
 
 $dark-red: #440000;
+$dark-blue: #000022;
 
 @mixin full-width-centered {
     @extend .large-12;
@@ -12,8 +14,19 @@ $dark-red: #440000;
     @extend .text-center;
 }
 
+@mixin half-width-centered {
+    @extend .large-6;
+    @extend .small-12;
+    @extend .columns;
+    @extend .text-center;
+}
+
 .full-width-centered {
     @include full-width-centered;
+}
+
+.half-width-centered {
+    @include half-width-centered;
 }
 
 .pad-2-bottom {
@@ -34,6 +47,37 @@ $dark-red: #440000;
     }
 }
 
+.front-banner {
+    video {
+        position: absolute;
+        right: 0;
+        min-width: 100%;
+        width: auto;
+        height: auto;
+        z-index: -100;
+        background: url(image_path("design/static-banner.png")) no-repeat;
+        @include background-size(cover);
+    }
+    img{
+        min-width: 15%;
+        width: 26%;
+    }
+}
+
+.intro {
+    background-color: $dark-blue;
+    padding-top: 2em;
+    padding-bottom: 2em;
+    margin-bottom: 2em;
+    h2 {
+        font-size: 2em;
+        line-height: 1.2em;
+        letter-spacing: 5px;
+        font-weight: 100;
+        color: #fff;
+    }
+}
+
 a.social-link {
     color: #7E2A2A;
     @include single-transition(all 0.5s ease 0s);
@@ -41,34 +85,3 @@ a.social-link {
         color: #ddd;
     }
 }
-
-// @mixin six-columns-centered {
-//   @extend .small-6;
-//   @extend .columns;
-//   @extend .text-center;
-//   }
-// // create your own classes
-// // to make views framework-neutral
-// .column {
-//   @include six-columns-centered;
-//   }
-// .form {
-//   @include grid-column(6);
-//   }
-// .form-centered {
-//   @include six-columns-centered;
-//   }
-// .submit {
-//   @extend .button;
-//   @extend .radius;
-//   }
-// // apply styles to HTML elements
-// // to make views framework-neutral
-// main {
-//   @include twelve-columns;
-//   background-color: #eee;
-//   }
-// section {
-//   @extend .row;
-//   margin-top: 20px;
-//   }

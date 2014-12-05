@@ -1,0 +1,30 @@
+company_name: Never Stop Building LLC
+address:
+  street: 3720 Hickory Avenue
+  city: Baltimore
+  state: MD
+  zip_code: 21211
+phone_number: (747) 666-5369
+social_links:
+  - name: twitter
+    link: //twitter.com/jasonrobertfox
+    icon: twitter
+  - name: github
+    link: //github.com/jasonrobertfox
+    icon: github-alt
+  - name: youtube
+    link: //www.youtube.com/user/neverstopbuildingtv
+    icon: youtube
+  - name: facebook
+    link: //www.facebook.com/NeverStopBuildingOnline
+    icon: facebook-square
+  - name: email
+    link: mailto:jasonrobertfox@gmail.com
+    icon: envelope
+  - name: instagram
+    link: //instagram.com/neverstopbuilding
+    icon: instagram
+  - name: google plus
+    link: //plus.google.com/109774408645971700391?rel=author
+    icon: google-plus
+

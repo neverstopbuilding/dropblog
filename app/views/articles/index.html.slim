@@ -1,5 +1,4 @@
-h1 Articles#index
-p Find me in app/views/articles/index.html.slim
+h1 Articles
 
-  - for article in articles do
-      h2 article.title
+- for article in @articles do
+  h2=link_to article.title, short_article_path(article)

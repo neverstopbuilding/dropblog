@@ -10,4 +10,20 @@ feature 'Home page' do
     expect(page).to have_content 'Articles'
   end
 
+  scenario '5 most recently created articles' do
+    titles = []
+    6.times do
+      article = create(:article)
+      titles << article.title
+    end
+
+    visit root_path
+    titles.last(5).each do |title|
+      expect(page).to have_content title
+    end
+
+    expect(page).to_not have_content titles.first
+
+  end
+
 end

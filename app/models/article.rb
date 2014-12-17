@@ -5,6 +5,8 @@ class Article < ActiveRecord::Base
   validates :title, :slug, :content, presence: true
   validates :slug, uniqueness: true
 
+  scope :recent, -> { order(created_at: :desc).limit(5) }
+
   def to_param
     slug
   end

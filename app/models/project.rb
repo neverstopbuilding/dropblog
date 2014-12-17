@@ -1,5 +1,5 @@
 class Project < ActiveRecord::Base
-  has_many :pictures, as: :imageable
+  has_many :pictures, as: :pictureable
   has_many :articles
 
   def to_param

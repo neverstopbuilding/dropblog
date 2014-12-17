@@ -23,5 +23,6 @@ section.content-preview
   .row
     .half-width-centered
       h3 Recent Articles
+      == render partial: 'layouts/documentable_summary', collection: @articles, as: :documentable
     .half-width-centered
       h3 Active Projects

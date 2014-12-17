@@ -16,14 +16,22 @@ feature 'Home page' do
       article = create(:article)
       titles << article.title
     end
-
     visit root_path
     titles.last(5).each do |title|
       expect(page).to have_content title
     end
-
     expect(page).to_not have_content titles.first
-
   end
 
+  scenario '5 most recently updated articles' do
+    articles = []
+    6.times do
+      article = create(:article)
+      articles << article
+    end
+    articles.first.title = 'Changed Title'
+    articles.first.save
+    visit root_path
+    expect(page).to have_content 'Changed Title'
+  end
 end

@@ -5,10 +5,14 @@ class Article < ActiveRecord::Base
   validates :title, :slug, :content, presence: true
   validates :slug, uniqueness: true
 
-  scope :recent, -> { order(created_at: :desc).limit(5) }
+  scope :recent, -> { order(updated_at: :desc).limit(5) }
 
   def to_param
     slug
+  end
+
+  def updated_type
+    updated_at == created_at ? 'Published on' : 'Last Updated on'
   end
 
     # TODO: Refactor this render out somewhere else

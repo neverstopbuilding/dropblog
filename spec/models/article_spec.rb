@@ -84,4 +84,11 @@ RSpec.describe Article, type: :model do
     expect(Article.process_raw_file(slug, contents)).to be_nil
   end
 
+  it 'will report its updated status' do
+    expect(@article.updated_type).to eq 'Published on'
+    @article.title = 'Changed title'
+    @article.save
+    expect(@article.updated_type).to eq 'Last Updated on'
+  end
+
 end

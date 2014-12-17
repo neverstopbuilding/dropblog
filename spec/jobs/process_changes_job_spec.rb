@@ -38,4 +38,30 @@ RSpec.describe ProcessChangesJob, :type => :job do
       expect(Article.find_by_slug('existing-article-to-delete')).to be_nil
     end
   end
+
+  it 'will create a project for a specific project page' do
+    VCR.use_cassette 'create-new-project' do
+      ProcessChangesJob.new.perform
+      expect(Project.find_by_slug('simple-project').title).to eq 'Simple Project'
+    end
+  end
+
+  it 'will create a intelligently titled temporary project if only an article for the project is created' do
+    VCR.use_cassette 'create-temp-project-from-article' do
+      ProcessChangesJob.new.perform
+      project =  Project.find_by_slug('temp-project-slug')
+      expect(project.title).to eq 'Temp Project Slug'
+      expect(project.articles[0].title).to eq 'Project Started'
+    end
+  end
+
+  it 'will revert to the real name of the article if an article file is created after' do
+    Project.create(title: 'Temp Project Slug', slug: 'temp-project-slug', content: 'asdf')
+    VCR.use_cassette 'update-project-title-after-article' do
+      ProcessChangesJob.new.perform
+      project =  Project.find_by_slug('temp-project-slug')
+      expect(project.title).to eq 'Title In Project File'
+      expect(project.articles[0].title).to eq 'Project Started Changed'
+    end
+  end
 end

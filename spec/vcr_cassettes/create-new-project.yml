@@ -1,0 +1,139 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.dropbox.com/1/delta
+    body:
+      encoding: US-ASCII
+      string: cursor=AAE21VmTTrX1Puc6KbwkiUJZDPOSgrGIubOaofNDS-_1xTdAgdXt2te5O1Wc3BRWbWQ-AT5zc3haGdl4cjuzjtdGoBIxCZD7HIK4TDcr6e9f0hcUcX4kxhcSrgBQiNPPN5o&path_prefix=%2Fdropblog-test
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - OfficialDropboxRubySDK/1.6.4
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Authorization:
+      - Bearer zxKD5LR01akAAAAAAAAu4MmgCGJ01_PMVg9CCdRhyRqFTDjwNeMx1HUO1B-3QZ32
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Wed, 17 Dec 2014 21:57:16 GMT
+      Content-Type:
+      - text/javascript
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - gvc=MTI4NTE2NDk2NTg2Mjg0OTkyODM4NDY3MjI2MzI4MzY2NTQwNjE%3D; expires=Mon, 16
+        Dec 2019 21:57:16 GMT; Path=/; httponly
+      X-Server-Response-Time:
+      - '99'
+      X-Dropbox-Request-Id:
+      - b6c6bc9e8f71e5e598f70085fb95050f
+      Pragma:
+      - no-cache
+      Cache-Control:
+      - no-cache
+      X-Dropbox-Http-Protocol:
+      - None
+      X-Frame-Options:
+      - SAMEORIGIN
+    body:
+      encoding: UTF-8
+      string: '{"has_more": false, "cursor": "AAGom8L8flhIF7tcw5jPZT4yir-TxkS_bnYwFMxa3H9U-64VoxrInKqJEXsMdyHV_OZHEOIZjXJsXYPI1L71-ZbppLhuNTJjBgxTjVNhPRIAsVqoI9Cnj09ZII7tGWL6IlI",
+        "entries": [["/dropblog-test/articles/untitled folder", null], ["/dropblog-test/articles/existing-article-to-delete/article.md",
+        null], ["/dropblog-test/articles/existing-article-to-delete", null], ["/dropblog-test/projects/untitled
+        folder", null], ["/dropblog-test/projects/public", {"bytes": 0, "rev": "bc26a00db7498",
+        "revision": 770666, "icon": "folder", "path": "/dropblog-test/projects/public",
+        "is_dir": true, "thumb_exists": false, "root": "dropbox", "modified": "Wed,
+        17 Dec 2014 21:52:31 +0000", "size": "0 bytes"}], ["/dropblog-test/projects/public/simple-project",
+        {"bytes": 0, "rev": "bc26b00db7498", "revision": 770667, "icon": "folder",
+        "path": "/dropblog-test/projects/public/simple-project", "is_dir": true, "thumb_exists":
+        false, "root": "dropbox", "modified": "Wed, 17 Dec 2014 21:52:31 +0000", "size":
+        "0 bytes"}], ["/dropblog-test/projects/public/simple-project/articles", {"bytes":
+        0, "rev": "bc26c00db7498", "revision": 770668, "icon": "folder", "path": "/dropblog-test/projects/public/simple-project/articles",
+        "is_dir": true, "thumb_exists": false, "root": "dropbox", "modified": "Wed,
+        17 Dec 2014 21:52:31 +0000", "size": "0 bytes"}], ["/dropblog-test/projects/simple-project",
+        null], ["/dropblog-test/projects/public/simple-project/project.md", {"rev":
+        "bc26f00db7498", "thumb_exists": false, "path": "/dropblog-test/projects/public/simple-project/project.md",
+        "is_dir": false, "client_mtime": "Wed, 17 Dec 2014 21:55:51 +0000", "icon":
+        "page_white_text", "bytes": 16, "modified": "Wed, 17 Dec 2014 21:55:51 +0000",
+        "size": "16 bytes", "root": "dropbox", "mime_type": "application/octet-stream",
+        "revision": 770671}]], "reset": false}'
+    http_version:
+  recorded_at: Wed, 17 Dec 2014 21:57:17 GMT
+- request:
+    method: get
+    uri: https://api-content.dropbox.com/1/files/auto/dropblog-test/projects/public/simple-project/project.md
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - OfficialDropboxRubySDK/1.6.4
+      Authorization:
+      - Bearer zxKD5LR01akAAAAAAAAu4MmgCGJ01_PMVg9CCdRhyRqFTDjwNeMx1HUO1B-3QZ32
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Wed, 17 Dec 2014 22:09:05 GMT
+      Content-Type:
+      - text/plain; charset=utf-8
+      Content-Length:
+      - '16'
+      Connection:
+      - keep-alive
+      Content-Security-Policy:
+      - sandbox allow-scripts allow-forms allow-popups allow-top-navigation
+      Accept-Ranges:
+      - bytes
+      X-Dropbox-Metadata:
+      - '{"rev": "bc26f00db7498", "thumb_exists": false, "path": "/dropblog-test/projects/public/simple-project/project.md",
+        "is_dir": false, "client_mtime": "Wed, 17 Dec 2014 21:55:51 +0000", "icon":
+        "page_white_text", "bytes": 16, "modified": "Wed, 17 Dec 2014 21:55:51 +0000",
+        "size": "16 bytes", "root": "dropbox", "mime_type": "application/octet-stream",
+        "revision": 770671}'
+      X-Server-Response-Time:
+      - '218'
+      Content-Security-Policy-Report-Only:
+      - default-src *; script-src 'none'; report-uri https://www.dropbox.com/csp_log
+      Etag:
+      - 770671n
+      X-Dropbox-Request-Id:
+      - f80c23a794cb20363aef10788f37dc1d
+      Pragma:
+      - public
+      Cache-Control:
+      - max-age=0
+      X-Content-Security-Policy:
+      - sandbox allow-scripts allow-forms allow-popups allow-top-navigation
+      X-Webkit-Csp:
+      - sandbox allow-scripts allow-forms allow-popups allow-top-navigation
+      X-Robots-Tag:
+      - noindex, nofollow, noimageindex
+    body:
+      encoding: UTF-8
+      string: |-
+        # Simple Project
+        something else
+    http_version:
+  recorded_at: Wed, 17 Dec 2014 22:09:06 GMT
+recorded_with: VCR 2.9.3

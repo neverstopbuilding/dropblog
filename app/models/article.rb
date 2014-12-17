@@ -1,6 +1,6 @@
 class Article < ActiveRecord::Base
   has_many :pictures, as: :pictureable
-  belongs_to :project
+  belongs_to :project, touch: true
 
   validates :title, :slug, :content, presence: true
   validates :slug, uniqueness: true

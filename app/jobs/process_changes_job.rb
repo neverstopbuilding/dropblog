@@ -10,16 +10,22 @@ class ProcessChangesJob < ActiveJob::Base
 
     client = DropboxClient.new(access_token)
 
-    cursor = REDIS.get 'dropbox_delta_cursor'
-    delta = client.delta(cursor, "/#{dropbox_blog_dir}")
-    REDIS.set 'dropbox_delta_cursor', delta['cursor']
+    if Rails.env == 'development' || Rails.env == 'test'
+      cursor = File.open('cursor.txt', 'rb') { |f| f.read }.strip.chomp
+      delta = client.delta(cursor, "/#{dropbox_blog_dir}")
+      File.open('cursor_last.txt', 'w+') { |f| f.write(delta['cursor']) }
+    else
+      cursor = REDIS.get 'dropbox_delta_cursor'
+      delta = client.delta(cursor, "/#{dropbox_blog_dir}")
+      REDIS.set 'dropbox_delta_cursor', delta['cursor']
+    end
 
     if delta['entries'].empty?
       return []
     else
       delta['entries'].each do |entry|
         path = entry[0]
-        if entry[0] =~ /\/dropblog-test\/articles\/([a-z\-0-9]+)$/ && entry[1] == nil
+        if entry[0] =~ /\/#{dropbox_blog_dir}\/articles\/([a-z\-0-9]+)$/ && entry[1] == nil
           # remove article
           logger.info "Removing deleted article: #{$1}"
           to_delete = Article.find_by_slug($1)
@@ -29,6 +35,16 @@ class ProcessChangesJob < ActiveJob::Base
           logger.info "Processing updated or new article: #{$1}"
           contents, metadata = client.get_file_and_metadata(path)
           Article.process_raw_file($1, contents)
+        end
+        if entry[0] =~ /\/#{dropbox_blog_dir}\/projects\/public\/([a-z\-0-9]+)\/project.md/ && entry[1] != nil
+          logger.info "Processing updated or new project: #{$1}"
+          contents, metadata = client.get_file_and_metadata(path)
+          Project.process_raw_file($1, contents)
+        end
+        if entry[0] =~ /\/#{dropbox_blog_dir}\/projects\/public\/([a-z\-0-9]+)\/articles\/([a-z\-0-9]+).md$/ && entry[1] != nil
+          logger.info "Processing updated or new project article: #{$1} - #{$2}"
+          contents, metadata = client.get_file_and_metadata(path)
+          Project.process_raw_article_file($1, $2, contents)
         end
       end
     end

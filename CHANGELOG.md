@@ -1,3 +1,9 @@
+## December 17, 2014
+- added some project functionality that is the same as articles
+- showed recent scope articles and projects on the home page
+- updating a project's article makes the project recently updated
+
+
 ## December 4, 2014
 - fixed errors and deployed a working article version
 - started building out the new home page

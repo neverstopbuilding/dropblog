@@ -34,4 +34,21 @@ feature 'Home page' do
     visit root_path
     expect(page).to have_content 'Changed Title'
   end
+
+  scenario '5 most recently updated projects' do
+    projects = []
+    7.times do
+      project = create(:project_with_articles)
+      projects << project
+    end
+    projects.first.title = 'New Project Title'
+    projects.first.save
+
+    article = projects[1].articles.first
+    article.title = 'Updated Title'
+    article.save
+    visit root_path
+    expect(page).to have_content 'New Project Title'
+    expect(page).to have_content projects.second.title
+  end
 end

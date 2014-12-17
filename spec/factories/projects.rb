@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :project do
     sequence(:title) { |n| "Project #{n}" }
-    sequence(:slug) { |n| Faker::Lorem.words(n, true).join('-') }
+    sequence(:slug) { |n| "project-#{n}-slug-#{Time.now.to_i}" }
     content do
       content = ''
       4.times do

@@ -18,10 +18,6 @@ RSpec.describe Project, type: :model do
     expect(build(:project, slug: nil)).to_not be_valid
   end
 
-  it 'is invalid without content' do
-    expect(build(:project, content: nil)).to_not be_valid
-  end
-
   it 'should validate that slugs are unique' do
     project_1 = build(:project, slug: 'unique-post')
     expect { project_1.save }.to_not raise_error
@@ -43,6 +39,17 @@ RSpec.describe Project, type: :model do
     @project.title = 'Changed title'
     @project.save
     expect(@project.updated_type).to eq 'Last Updated on'
+  end
+
+  it 'can process raw contents to create a new project' do
+    slug = 'some-slug'
+    contents = '# this title
+    some other stuff
+    ## some section'
+    project = Project.process_raw_file(slug, contents)
+    expect(project.title).to eq 'This Title'
+    expect(project.content).to eq "some other stuff\n    ## some section"
+    expect(Project.find_by_slug('some-slug')).to eq project
   end
 
 

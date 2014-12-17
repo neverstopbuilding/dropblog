@@ -1,0 +1,197 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.dropbox.com/1/delta
+    body:
+      encoding: US-ASCII
+      string: cursor=AAEgsMN5X-wJH4RnweB1vCXatP5haj5wb4-9hXRHU7amPuKZiliOtZzlz2Ht9Ijl9W6AL2XwP7Cn7ekmOovkxsy6Wg0Hz6_MIq76AF3ewhILSRy_-tWmqqPcBeNm1QHyxyg&path_prefix=%2Fdropblog-test
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - OfficialDropboxRubySDK/1.6.4
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Authorization:
+      - Bearer zxKD5LR01akAAAAAAAAu4MmgCGJ01_PMVg9CCdRhyRqFTDjwNeMx1HUO1B-3QZ32
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Wed, 17 Dec 2014 23:01:51 GMT
+      Content-Type:
+      - text/javascript
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - gvc=MTA4NTQ1NjM1OTA1NTMyMTIwNjkyNTUxNzM5OTQ0NzE2NTAxMzUw; expires=Mon, 16
+        Dec 2019 23:01:51 GMT; Path=/; httponly
+      X-Server-Response-Time:
+      - '54'
+      X-Dropbox-Request-Id:
+      - 26e7c7b1946d6b9ec19921072953f3a1
+      Pragma:
+      - no-cache
+      Cache-Control:
+      - no-cache
+      X-Dropbox-Http-Protocol:
+      - None
+      X-Frame-Options:
+      - SAMEORIGIN
+    body:
+      encoding: UTF-8
+      string: '{"has_more": false, "cursor": "AAEY5P4FB5Myv103iUKXw2C9X6eUlpOveqb9ne41O2rr2E1sw3jLPEO7kfxPsNb3y7U-SIPbHYdfUIeUtUa9iMDbUNxoj-R8sFQjKNDDrONO6jW_kO0lctC_w-htfZe7eUY",
+        "entries": [["/dropblog-test/projects/public/temp-project-slug/project.md",
+        {"rev": "bc27500db7498", "thumb_exists": false, "path": "/dropblog-test/projects/public/temp-project-slug/project.md",
+        "is_dir": false, "client_mtime": "Wed, 17 Dec 2014 23:01:02 +0000", "icon":
+        "page_white_text", "bytes": 28, "modified": "Wed, 17 Dec 2014 23:01:02 +0000",
+        "size": "28 bytes", "root": "dropbox", "mime_type": "application/octet-stream",
+        "revision": 770677}], ["/dropblog-test/projects/public/temp-project-slug/articles/some-article.md",
+        {"rev": "bc27600db7498", "thumb_exists": false, "path": "/dropblog-test/projects/public/temp-project-slug/articles/some-article.md",
+        "is_dir": false, "client_mtime": "Wed, 17 Dec 2014 23:01:13 +0000", "icon":
+        "page_white_text", "bytes": 76, "modified": "Wed, 17 Dec 2014 23:01:14 +0000",
+        "size": "76 bytes", "root": "dropbox", "mime_type": "application/octet-stream",
+        "revision": 770678}]], "reset": false}'
+    http_version:
+  recorded_at: Wed, 17 Dec 2014 23:01:52 GMT
+- request:
+    method: get
+    uri: https://api-content.dropbox.com/1/files/auto/dropblog-test/projects/public/temp-project-slug/project.md
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - OfficialDropboxRubySDK/1.6.4
+      Authorization:
+      - Bearer zxKD5LR01akAAAAAAAAu4MmgCGJ01_PMVg9CCdRhyRqFTDjwNeMx1HUO1B-3QZ32
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Wed, 17 Dec 2014 23:01:52 GMT
+      Content-Type:
+      - text/plain; charset=utf-8
+      Content-Length:
+      - '28'
+      Connection:
+      - keep-alive
+      Content-Security-Policy:
+      - sandbox allow-scripts allow-forms allow-popups allow-top-navigation
+      Accept-Ranges:
+      - bytes
+      X-Dropbox-Metadata:
+      - '{"rev": "bc27500db7498", "thumb_exists": false, "path": "/dropblog-test/projects/public/temp-project-slug/project.md",
+        "is_dir": false, "client_mtime": "Wed, 17 Dec 2014 23:01:02 +0000", "icon":
+        "page_white_text", "bytes": 28, "modified": "Wed, 17 Dec 2014 23:01:02 +0000",
+        "size": "28 bytes", "root": "dropbox", "mime_type": "application/octet-stream",
+        "revision": 770677}'
+      X-Server-Response-Time:
+      - '218'
+      Content-Security-Policy-Report-Only:
+      - default-src *; script-src 'none'; report-uri https://www.dropbox.com/csp_log
+      Etag:
+      - 770677n
+      X-Dropbox-Request-Id:
+      - d760d04092208d8b5b103b6599b05db4
+      Pragma:
+      - public
+      Cache-Control:
+      - max-age=0
+      X-Content-Security-Policy:
+      - sandbox allow-scripts allow-forms allow-popups allow-top-navigation
+      X-Webkit-Csp:
+      - sandbox allow-scripts allow-forms allow-popups allow-top-navigation
+      X-Robots-Tag:
+      - noindex, nofollow, noimageindex
+    body:
+      encoding: UTF-8
+      string: |-
+        # Title In Project File
+        asdf
+    http_version:
+  recorded_at: Wed, 17 Dec 2014 23:01:53 GMT
+- request:
+    method: get
+    uri: https://api-content.dropbox.com/1/files/auto/dropblog-test/projects/public/temp-project-slug/articles/some-article.md
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - OfficialDropboxRubySDK/1.6.4
+      Authorization:
+      - Bearer zxKD5LR01akAAAAAAAAu4MmgCGJ01_PMVg9CCdRhyRqFTDjwNeMx1HUO1B-3QZ32
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Wed, 17 Dec 2014 23:01:52 GMT
+      Content-Type:
+      - text/plain; charset=utf-8
+      Content-Length:
+      - '76'
+      Connection:
+      - keep-alive
+      Content-Security-Policy:
+      - sandbox allow-scripts allow-forms allow-popups allow-top-navigation
+      Accept-Ranges:
+      - bytes
+      X-Dropbox-Metadata:
+      - '{"rev": "bc27600db7498", "thumb_exists": false, "path": "/dropblog-test/projects/public/temp-project-slug/articles/some-article.md",
+        "is_dir": false, "client_mtime": "Wed, 17 Dec 2014 23:01:13 +0000", "icon":
+        "page_white_text", "bytes": 76, "modified": "Wed, 17 Dec 2014 23:01:14 +0000",
+        "size": "76 bytes", "root": "dropbox", "mime_type": "application/octet-stream",
+        "revision": 770678}'
+      X-Server-Response-Time:
+      - '221'
+      Content-Security-Policy-Report-Only:
+      - default-src *; script-src 'none'; report-uri https://www.dropbox.com/csp_log
+      Etag:
+      - 770678n
+      X-Dropbox-Request-Id:
+      - 62340fe95a2f1255de61d4b442a19dc4
+      Pragma:
+      - public
+      Cache-Control:
+      - max-age=0
+      X-Content-Security-Policy:
+      - sandbox allow-scripts allow-forms allow-popups allow-top-navigation
+      X-Webkit-Csp:
+      - sandbox allow-scripts allow-forms allow-popups allow-top-navigation
+      X-Robots-Tag:
+      - noindex, nofollow, noimageindex
+    body:
+      encoding: UTF-8
+      string: |
+        # Project Started Changed
+
+        So I started the project today and it was grand!
+    http_version:
+  recorded_at: Wed, 17 Dec 2014 23:01:54 GMT
+recorded_with: VCR 2.9.3

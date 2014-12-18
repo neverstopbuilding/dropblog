@@ -95,7 +95,7 @@ RSpec.describe Article, type: :model do
     article_1 = build(:article, slug: '1985-06-08-unique-post')
     article_1.save
     expect(article_1.slug).to eq 'unique-post'
-    expect(article_1.created_at).to eq Time.new('1985-06-08')
+    expect(article_1.created_at).to eq '1985-06-08 04:00:00.000000000 +0000'
   end
 
 end

@@ -2,6 +2,7 @@
 - added some project functionality that is the same as articles
 - showed recent scope articles and projects on the home page
 - updating a project's article makes the project recently updated
+- handle updates to project tree
 
 
 ## December 4, 2014

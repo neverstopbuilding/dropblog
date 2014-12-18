@@ -8,7 +8,7 @@
 # Environment variables (ENV['...']) can be set in the file config/application.yml.
 # See http://railsapps.github.io/rails-environment-variables.html
 
-# Create 4 projects with articles and 5 stand alone articles
+# Seeds the database with content
 
 FactoryGirl.create(:project_with_articles)
 FactoryGirl.create(:article)

@@ -1,4 +1,6 @@
 class ArticlesController < ApplicationController
+  layout 'page'
+
   def index
     @articles = Article.all
   end

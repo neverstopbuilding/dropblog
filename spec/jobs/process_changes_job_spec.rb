@@ -42,7 +42,9 @@ RSpec.describe ProcessChangesJob, :type => :job do
   it 'will create a project for a specific project page' do
     VCR.use_cassette 'create-new-project' do
       ProcessChangesJob.new.perform
-      expect(Project.find_by_slug('simple-project').title).to eq 'Simple Project'
+      project = Project.find_by_slug('simple-project')
+      expect(project.title).to eq 'Simple Project'
+      expect(project.render).to eq "<p>some text</p>\n\n<h2>Some Heading</h2>\n"
     end
   end
 

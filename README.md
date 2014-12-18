@@ -4,7 +4,7 @@
 
 I'm kinda lazy and updating my blog is the last thing I really want to do. However, I do keep documentation on the projects I work on, and there has got to be a way to use software to manage the actual blog part. 
 
-The idea for this is that I could create a simple folder structure in drop box, with some basic rules, and write a set of tools that would automate the publication of the blog with pictures and all that jazz.
+The idea for this is that I could create a simple folder structure in DropBox, with some basic rules, and write a set of tools that would automate the publication of the blog with pictures and all that jazz.
 
 There are some good tools, like the DropBox API, RMagick and Jekyll that I could use to manage the blog itself. So I should only need to write markdown, put pictures in a folder, and add some sort of meta data to the pictures.
 
@@ -14,18 +14,19 @@ Because I think in terms of "projects" as well as have one off articles, I'd lik
 ```
     blog
         projects
-            project-one-slug
-                project.md
-                articles
-                    article-one-slug.md
-                pictures
-                    photo-one.jpg
-            project-two-slug
-                project.md
-                articles
-                    another-article-one-slug.md
-                pictures
-                    another-photo-one.png
+            public
+                project-one-slug
+                    project.md
+                    articles
+                        article-one-slug.md
+                    pictures
+                        photo-one.jpg
+                project-two-slug
+                    project.md
+                    articles
+                        another-article-one-slug.md
+                    pictures
+                        another-photo-one.png
         articles
             one-off-article-slug
                 article.md

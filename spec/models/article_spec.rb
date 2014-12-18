@@ -91,4 +91,11 @@ RSpec.describe Article, type: :model do
     expect(@article.updated_type).to eq 'Last Updated on'
   end
 
+  it 'will set the created date if the slug includes a date' do
+    article_1 = build(:article, slug: '1985-06-08-unique-post')
+    article_1.save
+    expect(article_1.slug).to eq 'unique-post'
+    expect(article_1.created_at).to eq Time.new('1985-06-08')
+  end
+
 end

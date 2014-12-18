@@ -13,7 +13,7 @@ class ProcessChangesJob < ActiveJob::Base
     if Rails.env == 'development' || Rails.env == 'test'
       cursor = File.open('cursor.txt', 'rb') { |f| f.read }.strip.chomp
       delta = client.delta(cursor, "/#{dropbox_blog_dir}")
-      File.open('cursor_last.txt', 'w+') { |f| f.write(delta['cursor']) }
+      File.open('cursor.txt', 'w+') { |f| f.write(delta['cursor']) }
     else
       cursor = REDIS.get 'dropbox_delta_cursor'
       delta = client.delta(cursor, "/#{dropbox_blog_dir}")
@@ -31,7 +31,19 @@ class ProcessChangesJob < ActiveJob::Base
           to_delete = Article.find_by_slug($1)
           to_delete.destroy if to_delete
         end
-        if entry[0] =~ /\/#{dropbox_blog_dir}\/articles\/(.+)\/article.md/ && entry[1] != nil
+        if entry[0] =~ /\/#{dropbox_blog_dir}\/projects\/public\/([a-z\-0-9]+)$/ && entry[1] == nil
+          # remove article
+          logger.info "Removing deleted project: #{$1}"
+          to_delete = Project.find_by_slug($1)
+          to_delete.destroy if to_delete
+        end
+        if entry[0] =~ /\/#{dropbox_blog_dir}\/projects\/public\/([a-z\-0-9]+)\/articles\/([a-z\-0-9]+).md$/ && entry[1] == nil
+          # remove article from project
+          logger.info "Removing deleted project article: #{$1} - #{$2}"
+          to_delete = Article.find_by_slug($2)
+          to_delete.destroy if to_delete
+        end
+        if entry[0] =~ /\/#{dropbox_blog_dir}\/articles\/([a-z\-0-9]+)\/article.md/ && entry[1] != nil
           logger.info "Processing updated or new article: #{$1}"
           contents, metadata = client.get_file_and_metadata(path)
           Article.process_raw_file($1, contents)
@@ -48,5 +60,7 @@ class ProcessChangesJob < ActiveJob::Base
         end
       end
     end
+
+
   end
 end

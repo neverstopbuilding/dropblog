@@ -64,4 +64,33 @@ RSpec.describe ProcessChangesJob, :type => :job do
       expect(project.articles[0].title).to eq 'Project Started Changed'
     end
   end
+
+  it 'will remove a project article if the slug changes and create a new one' do
+    article = Article.create(title: 'Change Slug', slug: 'slug-before-change', content: 'asdf')
+    project = Project.create(title: 'Change Article Slug Project', slug: 'project-for-article-slug-change', content: 'asdf')
+    project.articles << article
+    project.save
+
+    VCR.use_cassette('project-article-slug-change') do
+      ProcessChangesJob.new.perform
+      expect(Article.find_by_slug('slug-before-change')).to be_nil
+      project =  Project.find_by_slug('project-for-article-slug-change')
+      expect(project.articles[0].slug).to eq 'slug-after-change'
+    end
+  end
+
+  it 'will remove a project and update the associated articles on project slug change' do
+    project = Project.new(title: 'Change Project Slug', slug: 'project-slug-before-change', content: 'asdf')
+    project.articles << Article.create(title: 'Article 1', slug: 'article-1', content: 'asdf')
+    project.articles << Article.create(title: 'Article 2', slug: 'article-2', content: 'asdf')
+    project.save
+
+    VCR.use_cassette('project-slug-change') do
+      ProcessChangesJob.new.perform
+      expect(Project.find_by_slug('project-slug-before-change')).to be_nil
+      project = Project.find_by_slug('project-slug-after-change')
+      expect(project.articles[0].title).to eq 'Article 1'
+      expect(project.articles[1].title).to eq 'Article 2'
+    end
+  end
 end

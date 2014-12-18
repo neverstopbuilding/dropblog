@@ -2,14 +2,7 @@ FactoryGirl.define do
   factory :project do
     sequence(:title) { |n| "Project #{n}" }
     sequence(:slug) { |n| "project-#{n}-slug-#{Time.now.to_i}" }
-    content do
-      content = ''
-      4.times do
-        content += "## #{Faker::Lorem.sentence}\n"
-        content += Faker::Lorem.paragraph(2) + "\n"
-      end
-      content
-    end
+    content { complex_markdown }
     public true
 
     factory :private_project do

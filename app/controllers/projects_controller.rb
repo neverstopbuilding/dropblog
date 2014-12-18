@@ -1,4 +1,6 @@
 class ProjectsController < ApplicationController
+  layout 'page'
+
   def index
     @projects = Project.all
   end

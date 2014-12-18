@@ -3,7 +3,8 @@
 - showed recent scope articles and projects on the home page
 - updating a project's article makes the project recently updated
 - handle updates to project tree
-
+- started work on layout improvements for page standardization
+- made a universal project / article summary partial
 
 ## December 4, 2014
 - fixed errors and deployed a working article version

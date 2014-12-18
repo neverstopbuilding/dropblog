@@ -1,8 +1,3 @@
-h1 = @project.title
-p Find me in app/views/projects/show.html.slim
-
-p = @project.content
-
-- for article in @project.articles
-  h2 = article.title
-  a href="#{short_article_path(article)}" =article.slug
+= content_for(:title) { @project.title }
+== @project.render
+== render partial: 'layouts/documentable_summary', collection: @project.articles, as: :documentable

@@ -1,3 +1,2 @@
-h1 = @article.title
-
+= content_for(:title) { @article.title }
 == @article.render

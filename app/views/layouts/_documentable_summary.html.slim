@@ -1,2 +1,7 @@
 h4
   = link_to documentable.title, polymorphic_url([:short, documentable])
+p
+  = documentable.updated_type
+  = documentable.updated_at
+p
+  = truncate(documentable.content, length: 150, separator: ' ') { link_to "Read More", polymorphic_url([:short, documentable]) }

@@ -1,9 +1,11 @@
-class Project < ActiveRecord::Base
+class Project < Document
 
   include Documentable
   include Picturable
 
-  has_many :articles
+
+  has_many :articles, -> { where type: 'Article' }, class_name: 'Article', foreign_key: 'document_id'
+
 
   def self.process_raw_article_file(project_slug, article_slug, content)
     project = self.find_or_initialize_by(slug: project_slug)
@@ -13,3 +15,5 @@ class Project < ActiveRecord::Base
     project
   end
 end
+
+

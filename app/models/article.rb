@@ -1,9 +1,9 @@
-class Article < ActiveRecord::Base
+class Article < Document
 
   include Documentable
   include Picturable
 
-  belongs_to :project, touch: true
+  belongs_to :project, -> {where type: 'Project'}, class_name: 'Project', foreign_key: 'document_id', touch: true
 
   validates :content, presence: true
 
@@ -16,6 +16,5 @@ class Article < ActiveRecord::Base
       self.slug = slug_match[2]
     end
   end
-
-
 end
+

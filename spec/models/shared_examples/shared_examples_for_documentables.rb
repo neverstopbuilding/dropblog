@@ -47,7 +47,7 @@ shared_examples 'a documentable' do |model, factory|
     expect(model.find_by_slug(slug)).to eq documentable
   end
 
-  it 'can process raw contents to update an existing article' do
+  it 'can process raw contents to update an existing documentable' do
     documentable = create(factory)
     contents = '# this title
     some other stuff
@@ -56,5 +56,14 @@ shared_examples 'a documentable' do |model, factory|
     updated_documentable = model.find_by_slug(documentable.slug)
     expect(updated_documentable.title).to eq 'This Title'
   end
+
+  it 'supports the recent scope' do
+    older = create(factory, updated_at: 5.years.ago)
+    newer = create(factory)
+    expect(model.recent(1)).to eq [newer]
+    expect(model.recent(2)).to eq [newer, older]
+  end
+
+
 
 end

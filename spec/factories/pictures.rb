@@ -9,6 +9,10 @@ FactoryGirl.define do
     end
 
     association :pictureable, factory: :article
+
+    factory :project_picture, class: 'Picture' do
+      association :pictureable, factory: :project
+    end
   end
 
 end

@@ -4,25 +4,10 @@ require 'rails_helper'
 RSpec.describe Article, type: :model do
 
   it_behaves_like 'a documentable', Article, :article
-  it_behaves_like 'a picturable', Article, :article
-
+  it_behaves_like 'a picturable', Article, :article_picture
 
   it 'is invalid without content' do
     expect(build(:article, content: nil)).to_not be_valid
-  end
-
-  it 'should render an image short tag to an associated image path' do
-    article = create(:article_picture).pictureable
-    article.content = "![](../#{article.pictures[0].file_name})"
-    article.save
-    expect(article.render).to eq "<p><img src=\"#{article.pictures[0].path}\" alt=\"\"></p>\n"
-  end
-
-  it 'should not render an image if the image is not found' do
-    article = create(:article_picture).pictureable
-    article.content = "![](../wont-exist.jpg)"
-    article.save
-    expect(article.render).to eq ""
   end
 
   it 'will simply not create a blank article' do
@@ -36,8 +21,6 @@ RSpec.describe Article, type: :model do
     contents = '# asdfasdf'
     expect(Article.process_raw_file(slug, contents)).to be_nil
   end
-
-
 
   it 'will set the created date if the slug includes a date' do
     article_1 = build(:article, slug: '1985-06-08-unique-post')

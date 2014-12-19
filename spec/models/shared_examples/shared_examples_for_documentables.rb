@@ -1,4 +1,5 @@
 shared_examples 'a documentable' do |model, factory|
+  it { should have_many(:pictures) }
 
   it 'has a valid factory' do
     expect(create(factory)).to be_valid

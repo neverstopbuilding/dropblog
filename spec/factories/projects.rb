@@ -3,11 +3,6 @@ FactoryGirl.define do
     sequence(:title) { |n| "Project #{n}" }
     sequence(:slug) { |n| "project-#{n}-slug-#{Time.now.to_i}" }
     content { complex_markdown }
-    public true
-
-    factory :private_project do
-      public false
-    end
 
     factory :project_with_articles do
       transient do

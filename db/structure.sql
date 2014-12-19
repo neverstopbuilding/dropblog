@@ -65,6 +65,42 @@ ALTER SEQUENCE articles_id_seq OWNED BY articles.id;
 
 
 --
+-- Name: documents; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE TABLE documents (
+    id integer NOT NULL,
+    slug character varying,
+    title character varying,
+    content text,
+    type character varying,
+    category character varying,
+    document_id integer,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+--
+-- Name: documents_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE documents_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: documents_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE documents_id_seq OWNED BY documents.id;
+
+
+--
 -- Name: pictures; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -152,6 +188,13 @@ ALTER TABLE ONLY articles ALTER COLUMN id SET DEFAULT nextval('articles_id_seq':
 -- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
+ALTER TABLE ONLY documents ALTER COLUMN id SET DEFAULT nextval('documents_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
 ALTER TABLE ONLY pictures ALTER COLUMN id SET DEFAULT nextval('pictures_id_seq'::regclass);
 
 
@@ -171,6 +214,14 @@ ALTER TABLE ONLY articles
 
 
 --
+-- Name: documents_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+--
+
+ALTER TABLE ONLY documents
+    ADD CONSTRAINT documents_pkey PRIMARY KEY (id);
+
+
+--
 -- Name: pictures_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -187,10 +238,32 @@ ALTER TABLE ONLY projects
 
 
 --
+-- Name: index_documents_on_document_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_documents_on_document_id ON documents USING btree (document_id);
+
+
+--
+-- Name: index_documents_on_slug; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE UNIQUE INDEX index_documents_on_slug ON documents USING btree (slug);
+
+
+--
 -- Name: unique_schema_migrations; Type: INDEX; Schema: public; Owner: -; Tablespace: 
 --
 
 CREATE UNIQUE INDEX unique_schema_migrations ON schema_migrations USING btree (version);
+
+
+--
+-- Name: fk_rails_539390703b; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY documents
+    ADD CONSTRAINT fk_rails_539390703b FOREIGN KEY (document_id) REFERENCES documents(id);
 
 
 --
@@ -208,4 +281,6 @@ INSERT INTO schema_migrations (version) VALUES ('20141118211958');
 INSERT INTO schema_migrations (version) VALUES ('20141120032916');
 
 INSERT INTO schema_migrations (version) VALUES ('20141120044053');
+
+INSERT INTO schema_migrations (version) VALUES ('20141219175329');
 

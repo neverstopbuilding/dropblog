@@ -20,5 +20,29 @@ class Article < Document
     #Override parent method to return correct picture set
     self.project ? self.project.pictures : super
   end
-end
 
+  class << self
+
+
+    def process_article_from_file(slug, content)
+      article = self.find_or_initialize_by(slug: slug)
+      title = extract_title_from_content(content)
+      content = strip_meta_from_content(content)
+      article.title = title
+      article.content = content
+      if article.valid?
+        article.save
+        article
+      end
+    end
+
+    def process_project_article_from_file(slug, content, project)
+      article = process_article_from_file(slug, content)
+      if article
+        project.articles << article
+        project.save
+        article
+      end
+    end
+  end
+end

@@ -15,5 +15,10 @@ class Article < Document
       self.slug = slug_match[2]
     end
   end
+
+  def pictures
+    #Override parent method to return correct picture set
+    self.project ? self.project.pictures : super
+  end
 end
 

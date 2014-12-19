@@ -2,14 +2,33 @@ class Project < Document
 
   has_many :articles, -> { where type: 'Article' }, class_name: 'Article', foreign_key: 'document_id'
 
+  class << self
 
-  def self.process_raw_article_file(project_slug, article_slug, content)
-    project = self.find_or_initialize_by(slug: project_slug)
-    project.title = project_slug.gsub!(/-/, ' ').titleize unless project.title
-    project.articles << Article.process_raw_file(article_slug, content)
-    project.save
-    project
+    def find_or_make_temp(slug)
+      project = self.find_or_initialize_by(slug: slug)
+      title = project.title || temp_title_from_slug(slug)
+      project.title = title
+      if project.valid?
+        project.save
+        project
+      end
+    end
+
+    def temp_title_from_slug(slug)
+      slug.gsub!(/-/, ' ').titleize
+    end
+
+    def process_project_from_file(slug, content)
+      project = self.find_or_initialize_by(slug: slug)
+      title = extract_title_from_content(content) || temp_title_from_slug(slug)
+      content = strip_meta_from_content(content)
+      project.title = title
+      project.content = content
+      if project.valid?
+        project.save
+        project
+      end
+    end
+
   end
 end
-
-

@@ -1,5 +1,4 @@
 class Document < ActiveRecord::Base
-  include Documentable
 
   has_many :pictures
 
@@ -23,5 +22,21 @@ class Document < ActiveRecord::Base
     markdown.render content
   end
 
+  class << self
 
+    def destroy_by_slug(slug)
+      to_delete = self.find_by_slug(slug)
+      to_delete.destroy if to_delete
+    end
+
+    def extract_title_from_content(content)
+      title_match = /^#\s?(.+)\n/.match(content)
+      return nil unless title_match
+      title_match[1].titleize
+    end
+
+    def strip_meta_from_content(content)
+      content.sub(/^#\s?.+\n/, '').strip unless content.empty?
+    end
+  end
 end

@@ -36,26 +36,12 @@ shared_examples 'a documentable' do |model, factory|
     expect(documentable.updated_type).to eq 'Last Updated on'
   end
 
-  it 'can be created with raw content and a slug' do
-    slug = 'some-slug'
-    contents = '# this title
-    some other stuff
-    ## some section'
-    documentable_params = attributes_for(factory)
-    documentable = model.process_raw_file(slug, contents)
-    expect(documentable.title).to eq 'This Title'
-    expect(documentable.content).to eq "some other stuff\n    ## some section"
-    expect(model.find_by_slug(slug)).to eq documentable
-  end
 
-  it 'can process raw contents to update an existing documentable' do
+
+  it 'can be destroyed by slug' do
     documentable = create(factory)
-    contents = '# this title
-    some other stuff
-    ## some section'
-    model.process_raw_file(documentable.slug, contents)
-    updated_documentable = model.find_by_slug(documentable.slug)
-    expect(updated_documentable.title).to eq 'This Title'
+    model.destroy_by_slug(documentable.slug)
+    expect(model.find_by_slug(documentable.slug)).to be_nil
   end
 
   it 'supports the recent scope' do

@@ -1,9 +1,5 @@
 class Project < Document
 
-  include Documentable
-  include Picturable
-
-
   has_many :articles, -> { where type: 'Article' }, class_name: 'Article', foreign_key: 'document_id'
 
 

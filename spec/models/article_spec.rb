@@ -4,7 +4,7 @@ require 'rails_helper'
 RSpec.describe Article, type: :model do
 
   it_behaves_like 'a documentable', Article, :article
-  it_behaves_like 'a picturable', Article, :article_picture
+  # it_behaves_like 'a picturable', Article, :article_picture
 
   it 'is invalid without content' do
     expect(build(:article, content: nil)).to_not be_valid

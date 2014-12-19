@@ -1,3 +1,5 @@
 class Document < ActiveRecord::Base
-  # belongs_to :document
+  include Documentable
+
+  has_many :pictures
 end

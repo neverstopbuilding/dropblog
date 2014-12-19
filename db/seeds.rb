@@ -13,5 +13,6 @@
 FactoryGirl.create(:project_with_articles)
 FactoryGirl.create(:article)
 FactoryGirl.create(:project)
-4.times { FactoryGirl.create(:project_with_articles) }
-5.times { FactoryGirl.create(:article) }
+FactoryGirl.create(:article_with_picture)
+FactoryGirl.create(:project_with_picture)
+FactoryGirl.create(:project_with_picture_article)

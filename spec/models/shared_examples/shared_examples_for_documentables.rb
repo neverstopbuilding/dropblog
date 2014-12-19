@@ -65,6 +65,12 @@ shared_examples 'a documentable' do |model, factory|
     expect(model.recent(2)).to eq [newer, older]
   end
 
+  it 'should not do a path replace for a normal link' do
+    documentable = create(factory)
+    documentable.content = "![some comment](http://cool.com/image.png)"
+    documentable.save
+    expect(documentable.render).to eq "<p><img src=\"http://cool.com/image.png\" alt=\"some comment\" title=\"\"></p>\n"
+  end
 
 
 end

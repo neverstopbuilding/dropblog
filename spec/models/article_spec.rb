@@ -28,4 +28,28 @@ RSpec.describe Article, type: :model do
     expect(article_1.created_at).to eq '1985-06-08 04:00:00.000000000 +0000'
   end
 
+  it 'can have a picture' do
+    article = create(:article_with_picture)
+    expect(article.pictures).to_not be_empty
+  end
+
+  it 'should render a project level image for a project article' do
+    project = create(:project_with_picture_article)
+    expect(project.articles[0].render).to include "<p><img src=\"#{project.pictures[0].public_path}\" alt=\"\" title=\"\"></p>\n"
+  end
+
+  # TODO: these might be pulled out as they are rather similar with just different factories
+
+  it 'should render an image short tag to an associated image path' do
+    article = create(:article_with_picture)
+    expect(article.render).to include "<p><img src=\"#{article.pictures[0].public_path}\" alt=\"\" title=\"\"></p>\n"
+  end
+
+  it 'should not render an image if the image is not found' do
+    article = create(:article_with_picture)
+    article.content = "![](../wont-exist.jpg)"
+    article.save
+    expect(article.render).to eq ''
+  end
+
 end

@@ -11,7 +11,7 @@ module Dropblog
           link = Pathname.new(link).basename.to_s
           picture = @pictures.find_by_file_name(link)
           if picture
-            "<img src=\"#{picture.path}\" alt=\"#{alt_text}\" title=\"#{title}\">"
+            "<img src=\"#{picture.public_path}\" alt=\"#{alt_text}\" title=\"#{title}\">"
           else
             ""
           end

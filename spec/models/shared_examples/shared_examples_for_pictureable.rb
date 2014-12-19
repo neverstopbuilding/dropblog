@@ -7,7 +7,14 @@ shared_examples 'a picturable' do |model, factory|
     documentable = create(factory).pictureable
     documentable.content = "![](../#{documentable.pictures[0].file_name})"
     documentable.save
-    expect(documentable.render).to eq "<p><img src=\"#{documentable.pictures[0].path}\" alt=\"\"></p>\n"
+    expect(documentable.render).to eq "<p><img src=\"#{documentable.pictures[0].path}\" alt=\"\" title=\"\"></p>\n"
+  end
+
+  it 'should not do a path replace for a normal link' do
+    documentable = create(factory).pictureable
+    documentable.content = "![some comment](http://cool.com/image.png)"
+    documentable.save
+    expect(documentable.render).to eq "<p><img src=\"http://cool.com/image.png\" alt=\"some comment\" title=\"\"></p>\n"
   end
 
   it 'should not render an image if the image is not found' do

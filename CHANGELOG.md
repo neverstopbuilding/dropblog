@@ -1,3 +1,9 @@
+## December 19, 2014
+- several updates including the basic image handling portion of the application
+- added category and manual date to a simple title parsing
+- this is pretty much ready for styling and front end tweaks and could be good for prime time.
+- still need to do a lot of the fancy efficiency tweaks and things.
+
 ## December 17, 2014
 - added some project functionality that is the same as articles
 - showed recent scope articles and projects on the home page

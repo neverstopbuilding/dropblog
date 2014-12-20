@@ -12,6 +12,7 @@
 
 FactoryGirl.create(:project_with_articles)
 FactoryGirl.create(:article)
+3.times { FactoryGirl.create(:article_with_category) }
 FactoryGirl.create(:project)
 FactoryGirl.create(:article_with_picture)
 FactoryGirl.create(:project_with_picture)

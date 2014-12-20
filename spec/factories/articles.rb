@@ -4,6 +4,10 @@ FactoryGirl.define do
     sequence(:slug) { |n| "article-#{n}-slug-#{Time.now.to_i}" }
     content { complex_markdown }
 
+    factory :article_with_category do
+      category Faker::Lorem.word
+    end
+
     factory :article_with_picture do
 
       transient do

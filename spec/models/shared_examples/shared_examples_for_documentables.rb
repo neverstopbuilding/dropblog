@@ -36,8 +36,6 @@ shared_examples 'a documentable' do |model, factory|
     expect(documentable.updated_type).to eq 'Last Updated on'
   end
 
-
-
   it 'can be destroyed by slug' do
     documentable = create(factory)
     model.destroy_by_slug(documentable.slug)
@@ -58,5 +56,23 @@ shared_examples 'a documentable' do |model, factory|
     expect(documentable.render).to eq "<p><img src=\"http://cool.com/image.png\" alt=\"some comment\" title=\"\"></p>\n"
   end
 
+  it 'should pull out a basic unix date from the title string' do
+    documentable = create(factory, title: '2012-05-08 The real Title')
+    expect(documentable.title).to eq 'The Real Title'
+    expect(documentable.created_at).to eq Time.parse('2012-05-08')
+  end
+
+  it 'should pull out a category from the title string' do
+    documentable = create(factory, title: 'The real Title (SoFtware)')
+    expect(documentable.title).to eq 'The Real Title'
+    expect(documentable.category).to eq 'software'
+  end
+
+  it 'should extract meta data from title' do
+    documentable = create(factory, title: '2012-05-08 The real Title (SoFtware)')
+    expect(documentable.title).to eq 'The Real Title'
+    expect(documentable.category).to eq 'software'
+    expect(documentable.created_at).to eq Time.parse('2012-05-08')
+  end
 
 end

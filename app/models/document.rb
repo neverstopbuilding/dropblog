@@ -7,6 +7,17 @@ class Document < ActiveRecord::Base
 
   scope :recent, ->(how_many) { order(updated_at: :desc).limit(how_many) }
 
+  before_validation :extract_meta_data_from_title
+
+  def extract_meta_data_from_title
+    meta_match = /^(?:(\d{4}-\d{2}-\d{2})\s)?(.+?)(?:\s\((\w+)\))?$/.match(title)
+    if meta_match
+      self.created_at = Time.parse(meta_match[1]) if meta_match[1]
+      self.category = meta_match[3].downcase if meta_match[3]
+      self.title = meta_match[2].titleize
+    end
+  end
+
   def updated_type
     updated_at == created_at ? 'Published on' : 'Last Updated on'
   end

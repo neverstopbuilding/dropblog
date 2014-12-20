@@ -95,4 +95,15 @@ RSpec.describe ProcessChangesJob, :type => :job do
       expect(project.articles[1].title).to eq 'Article 2'
     end
   end
+
+  it 'will update an picture record for an article' do
+    article = Article.create(title: 'Picture Article', slug: 'picture-article', content: 'asdf')
+    VCR.use_cassette('add-picture-to-article', record: :new_episodes) do
+      ProcessChangesJob.new.perform
+      expect(article.pictures[0].file_name).to eq 'jason-fox-small.jpg'
+      expect(article.pictures[0].public_path).to_not be_empty
+    end
+  end
+
+
 end

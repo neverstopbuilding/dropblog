@@ -4,8 +4,6 @@ class Article < Document
 
   belongs_to :project, -> {where type: 'Project'}, class_name: 'Project', foreign_key: 'document_id', touch: true
 
-  validates :content, presence: true
-
   before_validation :check_slug
 
   def check_slug
@@ -23,6 +21,15 @@ class Article < Document
 
   class << self
 
+    def find_or_make_temp(slug)
+      article = self.find_or_initialize_by(slug: slug)
+      title = article.title || temp_title_from_slug(slug)
+      article.title = title
+      if article.valid?
+        article.save
+        article
+      end
+    end
 
     def process_article_from_file(slug, content)
       article = self.find_or_initialize_by(slug: slug)

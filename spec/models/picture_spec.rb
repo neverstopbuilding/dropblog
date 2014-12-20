@@ -58,7 +58,9 @@ RSpec.describe Picture, :type => :model do
 
   it 'will destroy a picture by file name' do
     picture = create(:article_picture)
-    Picture.destroy_by_file_name(picture.file_name)
+    article = picture.document
+    Picture.destroy_by_file_name(picture.file_name, article)
     expect(Picture.find_by_file_name(picture.file_name)).to be_nil
+    expect(article.pictures).to be_empty
   end
 end

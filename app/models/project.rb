@@ -14,9 +14,7 @@ class Project < Document
       end
     end
 
-    def temp_title_from_slug(slug)
-      slug.gsub!(/-/, ' ').titleize
-    end
+
 
     def process_project_from_file(slug, content)
       project = self.find_or_initialize_by(slug: slug)

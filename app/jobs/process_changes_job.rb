@@ -11,6 +11,7 @@ class ProcessChangesJob < ActiveJob::Base
     access_token = ENV['dropbox_access_token']
 
     client = DropboxClient.new(access_token)
+    bucket = S3.buckets[ENV['S3_BUCKET']]
 
     if Rails.env == 'development' || Rails.env == 'test'
       cursor = File.open('cursor.txt', 'rb') { |f| f.read }.strip.chomp
@@ -62,27 +63,44 @@ class ProcessChangesJob < ActiveJob::Base
           Article.process_project_article_from_file($2, contents, project)
         end
 
-        if entry[0] =~ /\/#{dropbox_blog_dir}\/articles\/([a-z\-0-9]+)\/.+\.(?:jpg|png|gif|jpeg|svg)$/ && entry[1] != nil
-          # update article image
+        if entry[0] =~ /\/#{dropbox_blog_dir}\/articles\/([a-z\-0-9]+)\/.+\.(?:jpg|png|gif|jpeg|svg)$/
           path = entry[0]
           article_slug = $1
-          logger.info "Processing updated or new image for: #{article_slug}"
           file_name = Pathname.new(path).basename.to_s
-          key = "pictures/#{article_slug}/#{file_name}"
+          s3_object_key = "pictures/#{article_slug}/#{file_name}"
 
-          # get data
-          data, metadata = client.get_file_and_metadata(path)
+          if entry[1]
+            logger.info "Processing updated or new picture for: #{article_slug}"
+            data, metadata = client.get_file_and_metadata(path)
+            uploaded = bucket.objects[s3_object_key].write(data)
+            article = Article.find_or_make_temp(article_slug)
+            Picture.process_picture(file_name, uploaded.public_url.to_s, article)
+          else
+            logger.info "Removing deleted article picture for: #{article_slug}"
+            bucket.objects[s3_object_key].delete
+            article = Article.find_by_slug(article_slug)
+            Picture.destroy_by_file_name(file_name, article)
+          end
+        end
 
-          # select bucket
-          bucket = S3.buckets[ENV['S3_BUCKET']]
+        if entry[0] =~ /\/#{dropbox_blog_dir}\/projects\/public\/([a-z\-0-9]+)\/pictures\/.+\.(?:jpg|png|gif|jpeg|svg)$/
+          path = entry[0]
+          project_slug = $1
+          file_name = Pathname.new(path).basename.to_s
+          s3_object_key = "pictures/#{project_slug}/#{file_name}"
 
-          # upload data
-          uploaded = bucket.objects[key].write(data)
-
-          # update file
-          article = Article.find_by_slug(article_slug)
-          article.pictures.create(file_name: file_name, public_path: uploaded.public_url.to_s)
-
+          if entry[1]
+            logger.info "Processing updated or new picture for: #{project_slug}"
+            data, metadata = client.get_file_and_metadata(path)
+            uploaded = bucket.objects[s3_object_key].write(data)
+            project = Project.find_or_make_temp(project_slug)
+            Picture.process_picture(file_name, uploaded.public_url.to_s, project)
+          else
+            logger.info "Removing deleted article picture for: #{project_slug}"
+            bucket.objects[s3_object_key].delete
+            project = Project.find_by_slug(project_slug)
+            Picture.destroy_by_file_name(file_name, project)
+          end
         end
 
 

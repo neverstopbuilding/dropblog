@@ -10,8 +10,8 @@ class Picture < ActiveRecord::Base
     picture
   end
 
-  def self.destroy_by_file_name(file_name)
-    to_delete = self.find_by_file_name(file_name)
+  def self.destroy_by_file_name(file_name, document)
+    to_delete = document.pictures.find_by_file_name(file_name)
     to_delete.destroy if to_delete
   end
 end

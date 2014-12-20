@@ -1,0 +1,94 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.dropbox.com/1/delta
+    body:
+      encoding: US-ASCII
+      string: cursor=AAFB8j5Nb0ElxOfLygisIrTT7yeShCMHke_PYUQGwP8UJOCTK1KIfHAZ9JUSZq8ytP9YL18vBoZVSFbnFxmqppMhfihIDOWm4paFXC74IRdw_5gR0m7sWwaeOmueAwCe09U&path_prefix=%2Fdropblog-test
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - OfficialDropboxRubySDK/1.6.4
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Authorization:
+      - Bearer zxKD5LR01akAAAAAAAAu4MmgCGJ01_PMVg9CCdRhyRqFTDjwNeMx1HUO1B-3QZ32
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Sat, 20 Dec 2014 02:34:13 GMT
+      Content-Type:
+      - text/javascript
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - gvc=MTAzNzk0NjAxNjgwMDEzNjE1NjQ1MTMwMDQ2MzcxOTM1OTgzMTc3; expires=Thu, 19
+        Dec 2019 02:34:13 GMT; Path=/; httponly
+      X-Server-Response-Time:
+      - '63'
+      X-Dropbox-Request-Id:
+      - 2b7accdfef7ab5e5db586ca36dddbf6f
+      Pragma:
+      - no-cache
+      Cache-Control:
+      - no-cache
+      X-Dropbox-Http-Protocol:
+      - None
+      X-Frame-Options:
+      - SAMEORIGIN
+    body:
+      encoding: UTF-8
+      string: '{"has_more": false, "cursor": "AAGohK1TvrOIXprJd77YtNq4Z0rCiW48xzw7BQcrd6VmsR-IZdxJ8xk07eXWi_x9rYoOf9UIm7peISfvtcSclJrJ3Flab_Tyhp1-M16rEgQVy0T19sp3vV_bF2J3h1Gd3AY",
+        "entries": [["/dropblog-test/articles/picture-article/jason-fox-small.jpg",
+        null]], "reset": false}'
+    http_version: 
+  recorded_at: Sat, 20 Dec 2014 02:34:11 GMT
+- request:
+    method: delete
+    uri: https://never-stop-building-blog-development.s3.amazonaws.com/pictures/picture-article/jason-fox-small.jpg
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - ''
+      Accept-Encoding:
+      - ''
+      User-Agent:
+      - aws-sdk-ruby/1.60.1 ruby/2.1.5 x86_64-darwin14.0
+      Date:
+      - Sat, 20 Dec 2014 02:34:11 GMT
+      Authorization:
+      - AWS AKIAIN4P5GG4WU2JN6UQ:HZcLC5Y2ObsdnVO4IlKInDI5QbU=
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 204
+      message: No Content
+    headers:
+      X-Amz-Id-2:
+      - 3sB7e6iebHb0IvsgT3dFomEzWGNWuqdNIYiRgsfpgaAogQxow3nRsmB1kP2cyuxJ
+      X-Amz-Request-Id:
+      - FD2E735EF638C8B6
+      Date:
+      - Sat, 20 Dec 2014 02:34:14 GMT
+      Server:
+      - AmazonS3
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Sat, 20 Dec 2014 02:34:12 GMT
+recorded_with: VCR 2.9.3

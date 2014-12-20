@@ -35,6 +35,10 @@ class Document < ActiveRecord::Base
       title_match[1].titleize
     end
 
+    def temp_title_from_slug(slug)
+      slug.gsub!(/-/, ' ').titleize
+    end
+
     def strip_meta_from_content(content)
       content.sub(/^#\s?.+\n/, '').strip unless content.empty?
     end

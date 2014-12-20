@@ -98,12 +98,41 @@ RSpec.describe ProcessChangesJob, :type => :job do
 
   it 'will update an picture record for an article' do
     article = Article.create(title: 'Picture Article', slug: 'picture-article', content: 'asdf')
-    VCR.use_cassette('add-picture-to-article', record: :new_episodes) do
+    VCR.use_cassette('add-picture-to-article') do
       ProcessChangesJob.new.perform
       expect(article.pictures[0].file_name).to eq 'jason-fox-small.jpg'
       expect(article.pictures[0].public_path).to_not be_empty
     end
   end
 
+  it 'will create a temp article on adding a picture first' do
+    article_slug = 'picture-first-slug'
+    VCR.use_cassette('create-temp-article-from-picture') do
+      ProcessChangesJob.new.perform
+      article = Article.find_by_slug(article_slug)
+      expect(article.title).to eq 'Picture First Slug'
+      expect(article.pictures[0].file_name).to eq 'jason-fox-small.jpg'
+      expect(article.pictures[0].public_path).to_not be_empty
+    end
+  end
+
+  it 'will remove a picture when removed' do
+    article = Article.create(title: 'Picture Article', slug: 'picture-article', content: 'asdf')
+    article.pictures.create(file_name: 'jason-fox-small.jpg', public_path: 'some path')
+    VCR.use_cassette('remove-picture-from-article') do
+      ProcessChangesJob.new.perform
+      updated_article = Article.find_by_slug('picture-article')
+      expect(updated_article.pictures).to be_empty
+    end
+  end
+
+  it 'will update an picture record for a project' do
+    project = Project.create(title: 'Picture Article', slug: 'simple-project', content: 'asdf')
+    VCR.use_cassette('add-picture-to-project') do
+      ProcessChangesJob.new.perform
+      expect(project.pictures[0].file_name).to eq 'jason-fox-small.jpg'
+      expect(project.pictures[0].public_path).to_not be_empty
+    end
+  end
 
 end

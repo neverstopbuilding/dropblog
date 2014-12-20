@@ -72,7 +72,7 @@ class ProcessChangesJob < ActiveJob::Base
           if entry[1]
             logger.info "Processing updated or new picture for: #{article_slug}"
             data, metadata = client.get_file_and_metadata(path)
-            uploaded = bucket.objects[s3_object_key].write(data)
+            uploaded = bucket.objects[s3_object_key].write(data, acl: :public_read)
             article = Article.find_or_make_temp(article_slug)
             Picture.process_picture(file_name, uploaded.public_url.to_s, article)
           else
@@ -92,7 +92,7 @@ class ProcessChangesJob < ActiveJob::Base
           if entry[1]
             logger.info "Processing updated or new picture for: #{project_slug}"
             data, metadata = client.get_file_and_metadata(path)
-            uploaded = bucket.objects[s3_object_key].write(data)
+            uploaded = bucket.objects[s3_object_key].write(data, acl: :public_read)
             project = Project.find_or_make_temp(project_slug)
             Picture.process_picture(file_name, uploaded.public_url.to_s, project)
           else

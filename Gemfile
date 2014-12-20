@@ -22,6 +22,7 @@ gem 'sidekiq'
 gem 'dropbox-sdk'
 gem 'responders'
 gem 'rails_config'
+gem 'aws-sdk'
 
 group :development do
   gem 'better_errors'

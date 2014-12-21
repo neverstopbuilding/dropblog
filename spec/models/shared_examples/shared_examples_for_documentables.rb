@@ -64,7 +64,7 @@ shared_examples 'a documentable' do |model, factory|
     documentable = create(factory)
     documentable.content = "![some comment](http://cool.com/image.png)"
     documentable.save
-    expect(documentable.render).to eq "<p><img src=\"http://cool.com/image.png\" alt=\"some comment\" title=\"\"></p>\n"
+    expect(documentable.render).to eq "<p><div class=\"picture\"><img src=\"http://cool.com/image.png\" alt=\"some comment\" title=\"\"></div></p>\n"
   end
 
   it 'should pull out a basic unix date from the title string' do

@@ -1,2 +1,11 @@
 = render partial: 'layouts/document', locals: {document: @project}
-== render partial: 'layouts/documentable_summary', collection: @project.articles, as: :documentable
+- if @project.articles
+  .row.big-top-padding
+    .large-8.large-offset-2.columns.text-center
+      p
+        em If you enjoyed reading about this project, check out the related articles below:
+  == render partial: 'layouts/documentable_summary', collection: @project.articles, as: :documentable
+- content_for(:content_footer) do
+  .large-8.large-offset-2.columns.text-center
+    p
+      em A full list of projects can be found on the #{link_to 'Projects', projects_path} page.

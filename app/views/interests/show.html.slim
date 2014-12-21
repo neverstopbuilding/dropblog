@@ -1,0 +1,14 @@
+= content_for(:title) { @interest.titleize }
+.row
+  .half-width-centered
+    h3 Articles
+    - unless @articles.empty?
+      == render partial: 'layouts/documentable_summary', collection: @articles, as: :documentable
+    - else
+      p There are no articles in the "#{@interest}" interest at the moment.
+  .half-width-centered
+    h3 Projects
+    - unless @projects.empty?
+      == render partial: 'layouts/documentable_summary', collection: @projects, as: :documentable
+    - else
+      p There are no projects in the "#{@interest}" interest at the moment.

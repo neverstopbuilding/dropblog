@@ -17,6 +17,9 @@ Rails.application.routes.draw do
   get 'projects', to: 'projects#index', as: 'projects'
   get 'articles', to: 'articles#index', as: 'articles'
 
+  get 'interests', to: 'interests#index', as: 'interests'
+  get 'interests/:interest', to: 'interests#show', as: 'interest'
+
   namespace :api do
     get 'dropbox', to: 'dropbox#challenge'
     post 'dropbox', to: 'dropbox#webhook', format: :json

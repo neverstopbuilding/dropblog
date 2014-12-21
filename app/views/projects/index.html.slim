@@ -1,5 +1,2 @@
-h1 Projects
-
-- for project in @projects do
-  h2 = project.title
-  a href="#{short_project_path(project)}" =project.slug
+= content_for(:title) { 'Projects' }
+== render partial: 'layouts/documentable_summary', collection: @projects, as: :documentable

@@ -36,6 +36,12 @@ RSpec.describe Article, type: :model do
     expect(updated_article.title).to eq 'This Title'
   end
 
+  it 'defaults to a project category if one is not specified' do
+    project = create(:project, category: 'cat')
+    article = create(:article, project: project)
+    expect(article.interest).to eq 'cat'
+  end
+
   # TODO: these might be pulled out as they are rather similar with just different factories
 
   it 'should render an image short tag to an associated image path' do

@@ -53,7 +53,8 @@ shared_examples 'a documentable' do |model, factory|
   end
 
   it 'supports the recent scope' do
-    older = create(factory, updated_at: 5.years.ago)
+    older = build(factory, updated_at: 5.years.ago)
+    older.save
     newer = create(factory)
     expect(model.recent(1)).to eq [newer]
     expect(model.recent(2)).to eq [newer, older]
@@ -83,6 +84,24 @@ shared_examples 'a documentable' do |model, factory|
     expect(documentable.title).to eq 'The Real Title'
     expect(documentable.category).to eq 'software'
     expect(documentable.created_at).to eq Time.parse('2012-05-08')
+  end
+
+  it 'should provide a title picture' do
+    documentable = create(factory)
+    picture = build(:picture, updated_at: 3.days.ago)
+    documentable.pictures << picture
+    documentable.pictures << build(:picture, updated_at: 5.days.ago)
+    documentable.save
+    expect(documentable.title_picture.public_path).to eq picture.public_path
+  end
+
+  it 'should choose a title picture with the file name "title" of all others' do
+    documentable = create(factory)
+    documentable.pictures << create(:picture)
+    documentable.pictures << create(:picture, file_name: 'title.png')
+    documentable.pictures << create(:picture, file_name: 'title-something.jpg')
+    documentable.save
+    expect(documentable.title_picture.file_name).to eq 'title.png'
   end
 
 end

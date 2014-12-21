@@ -9,7 +9,7 @@ article
         - if document.interest
           |  in #{link_to document.interest.titleize, interest_path(document.interest)}
         - if document.project_article?
-          | , for the #{document.project.title} project
+          | , for the #{link_to document.project.title, polymorphic_url([:short, document])} project
   .row
     .full-width
       == document.render

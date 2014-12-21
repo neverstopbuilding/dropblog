@@ -68,11 +68,11 @@ class Document < ActiveRecord::Base
     def extract_title_from_content(content)
       title_match = /^#\s?(.+)\n/.match(content)
       return nil unless title_match
-      title_match[1].titleize
+      title_match[1]
     end
 
     def temp_title_from_slug(slug)
-      slug.gsub!(/-/, ' ').titleize
+      slug.gsub!(/-/, ' ')
     end
 
     def strip_meta_from_content(content)

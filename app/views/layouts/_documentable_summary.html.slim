@@ -1,7 +1,8 @@
 h4
   = link_to documentable.title, polymorphic_url([:short, documentable])
 p
-  = documentable.updated_type
-  = documentable.updated_at
+  | #{documentable.updated_type} #{documentable.updated_at.strftime("%B %e, %Y")}
+  - if documentable.interest
+    |  in #{link_to documentable.interest.titleize, interest_path(documentable.interest)}
 p
-  = truncate(documentable.content, length: 150, separator: ' ') { link_to "Read More", polymorphic_url([:short, documentable]) }
+  = truncate(documentable.snippet, length: 150, separator: ' ') { link_to "Read More", polymorphic_url([:short, documentable]) }

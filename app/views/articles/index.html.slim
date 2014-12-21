@@ -1,4 +1,2 @@
-h1 Articles
-
-- for article in @articles do
-  h2=link_to article.title, short_article_path(article)
+= content_for(:title) { 'Articles' }
+== render partial: 'layouts/documentable_summary', collection: @articles, as: :documentable

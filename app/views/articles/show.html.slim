@@ -1,2 +1,2 @@
 = content_for(:title) { @article.title }
-== @article.render
+= render partial: 'layouts/document', locals: {document: @article}

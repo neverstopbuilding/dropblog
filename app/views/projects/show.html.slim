@@ -1,3 +1,2 @@
-= content_for(:title) { @project.title }
 = render partial: 'layouts/document', locals: {document: @project}
 == render partial: 'layouts/documentable_summary', collection: @project.articles, as: :documentable

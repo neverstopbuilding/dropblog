@@ -14,7 +14,7 @@ class Article < Document
     end
   end
 
-  scope :of_interest, ->(interest) { joins(:project).where('projects_documents.category = :category OR documents.category = :category', category: interest) }
+  scope :of_interest, ->(interest) { joins('LEFT JOIN documents projects_documents ON projects_documents.id = documents.document_id').where('projects_documents.category = :category OR documents.category = :category', category: interest) }
 
   def pictures
     #Override parent method to return correct picture set

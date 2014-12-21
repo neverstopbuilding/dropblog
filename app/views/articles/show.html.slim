@@ -1,1 +1,16 @@
 = render partial: 'layouts/document', locals: {document: @article}
+- content_for(:content_footer) do
+  .small-2.columns.text-left
+    p
+      - if @article.previous
+        = link_to fa_icon('caret-left') + ' PREV', short_article_path(@article.previous), rel: 'prev'
+  .small-8.columns.text-center
+    p
+      em
+        | If you enjoyed this article, you might like others related to the #{link_to @article.interest.titleize, interest_path(@article.interest)} interest.
+        - if @article.project
+          |  This article is also part of the #{link_to @article.project.title, short_project_path(@article.project)} project.
+  .small-2.columns.text-right
+    p
+      - if @article.next
+        = link_to fa_icon('caret-right') + ' NEXT', short_article_path(@article.next), rel: 'next'

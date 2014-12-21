@@ -1,12 +1,15 @@
 - @title = capture { content_for?(:title) ? yield(:title) : 'No Title' }
-- @title_picture_path = capture { content_for(:title_picture_path) ? yield(:title_picture_path) : image_url('design/default-title.png')}
+- @title_picture_path = capture { content_for?(:title_picture_path) ? yield(:title_picture_path) : image_url('design/default-title.png')}
 = content_for :content do
   header.page style="background-image: url(#{@title_picture_path})" title="#{@title}"
     .row
       .full-width-centered
         h1 = @title
-  section
+  section.page-body
     .row
       .full-width
         = yield
+  - if content_for?(:content_footer)
+    footer.row.content-footer
+      = yield(:content_footer)
 = render template: 'layouts/application'

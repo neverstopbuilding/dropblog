@@ -66,6 +66,10 @@ $dark-blue: #000022;
     padding-bottom: 1em;
 }
 
+.big-top-padding {
+    padding-top: 5em;
+}
+
 // Modifications of Top Bar
 .top-bar-section li:not(.has-form) a:not(.button) {
     background: none;
@@ -120,6 +124,11 @@ $dark-blue: #000022;
     }
 }
 
+section.page-body {
+    padding-top: 3em;
+    padding-bottom: 3em;
+}
+
 header.page{
     height: 20em;
     @include background-size(cover);
@@ -145,8 +154,11 @@ header.page{
     }
 }
 
+.content-footer {
+    padding-bottom: 3em;
+}
+
 .content-header {
-    padding-top: 3em;
     padding-bottom: 3em;
 }
 
@@ -161,12 +173,24 @@ header.page{
     text-align: center;
     padding-left: 2em;
     padding-right: 2em;
-    p, li {
+    pre, code {
+        text-align: left;
+    }
+    p{
         text-align: left;
         font-family: $readable-font-family;
         font-weight: 300;
         font-size: 1.3em;
         line-height: 1.8em;
+    }
+    li {
+        font-family: $readable-font-family;
+        font-weight: 300;
+        text-align: left;
+    }
+    ul {
+        text-align: left;
+        list-style: square;
     }
     h1, h2, h3, h4, h5, h6 {
         margin-top: 1.8em;
@@ -178,54 +202,17 @@ header.page{
 }
 
 .site-footer {
-    background-color: $dark-red;
     padding-top: 1em;
     small {
         font-weight: 200;
-        color: #7E2A2A;
         font-size: 80%;
     }
 }
 
 a.social-link {
-    color: #7E2A2A;
+    color: #444;
     @include single-transition(all 0.5s ease 0s);
     &:hover {
-        color: #ddd;
+        color: #000;
     }
 }
-
-
-// .article-content {
-//     img {
-//         text-align: center;
-//     }
-//     h1, h2, h3, h4, h5, h6 {
-//         font-weight: 500;
-//         margin-bottom: rem-calc($content-spacing);
-//     }
-//     h2 {
-//         font-size: rem-calc(39);
-//     }
-//     h3 {
-//         font-size: rem-calc(31);
-//     }
-//     p, li {
-//         font-family: "Merriweather", sans-serif;
-//         font-weight: 300;
-//     }
-//     p {
-//         font-size: rem-calc(24);
-//         line-height: rem-calc($content-spacing);
-//         margin-bottom: rem-calc($content-spacing);
-//     }
-//     ul {
-//         list-style: square;
-//         margin-bottom: rem-calc($content-spacing);
-//         margin-left: rem-calc($content-spacing);
-//     }
-//     li {
-//         font-size: 1.3em;
-//     }
-// }
-

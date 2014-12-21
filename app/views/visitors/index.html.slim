@@ -27,3 +27,8 @@ section.content-preview
     .half-width-centered
       h3 Active Projects
       == render partial: 'layouts/documentable_summary', collection: @projects, as: :documentable
+footer.row.content-footer
+  .large-8.large-offset-2.columns.text-center
+    p
+      em
+        | For a full list of available articles, check out the #{link_to 'Articles', articles_path} page. For all the projects I'm working on check out the #{link_to 'Projects', projects_path} page.

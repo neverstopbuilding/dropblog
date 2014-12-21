@@ -43,7 +43,7 @@ RSpec.describe Project, type: :model do
 
   it 'should render an image short tag to an associated image path' do
     project = create(:project_with_picture)
-    expect(project.render).to include "<p><img src=\"#{project.pictures[0].public_path}\" alt=\"\" title=\"\"></p>\n"
+    expect(project.render).to include "<p><div class=\"picture\"><img src=\"#{project.pictures[0].public_path}\" alt=\"\" title=\"\"></div></p>\n"
   end
 
   it 'should not render an image if the image is not found' do

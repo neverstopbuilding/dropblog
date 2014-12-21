@@ -1,14 +1,21 @@
 = content_for(:title) { @interest.titleize }
 .row
-  .half-width-centered
-    h3 Articles
-    - unless @articles.empty?
+  - if !@articles.empty? && @projects.empty?
+    .full-width-centered
+      h3 Related Articles
       == render partial: 'layouts/documentable_summary', collection: @articles, as: :documentable
-    - else
-      p There are no articles in the "#{@interest}" interest at the moment.
-  .half-width-centered
-    h3 Projects
-    - unless @projects.empty?
+  - elsif @articles.empty? && !@projects.empty?
+    .full-width-centered
+      h3 Related Projects
       == render partial: 'layouts/documentable_summary', collection: @projects, as: :documentable
-    - else
-      p There are no projects in the "#{@interest}" interest at the moment.
+  - else
+    .half-width-centered
+      h3 Related Articles
+      == render partial: 'layouts/documentable_summary', collection: @articles, as: :documentable
+    .half-width-centered
+      h3 Related Projects
+      == render partial: 'layouts/documentable_summary', collection: @projects, as: :documentable
+
+
+
+

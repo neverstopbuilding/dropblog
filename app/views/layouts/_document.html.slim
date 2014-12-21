@@ -1,17 +1,18 @@
 article
-  header.row
+  header.row.content-header
     .full-width-centered
-      span.by-line
+      .by-line
         | First published on #{document.created_at.strftime("%B %e, %Y")}
         - if document.been_updated?
           | , last updated #{time_ago_in_words(document.updated_at)} ago
         |  by Jason Fox
-        - if document.interest
-          |  in #{link_to document.interest.titleize, interest_path(document.interest)}
+      .by-line
         - if document.project_article?
-          | , for the #{link_to document.project.title, polymorphic_url([:short, document])} project
+          | Working on the #{link_to document.project.title, polymorphic_url([:short, document])} project.
+        - if document.interest
+          |  Pursuing an interest in #{link_to document.interest.titleize, interest_path(document.interest)}.
   .row
-    .full-width
+    .full-width.content
       == document.render
 / ---
 / layout: page

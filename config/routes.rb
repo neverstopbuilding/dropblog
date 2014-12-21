@@ -17,6 +17,8 @@ Rails.application.routes.draw do
   get 'projects', to: 'projects#index', as: 'projects'
   get 'articles', to: 'articles#index', as: 'articles'
 
+  get '/project/:slug', to: redirect('/%{slug}')
+
   get 'interests', to: 'interests#index', as: 'interests'
   get 'interests/:interest', to: 'interests#show', as: 'interest'
 

@@ -48,7 +48,7 @@ class Document < ActiveRecord::Base
   def render
     renderer = Dropblog::Redcarpet::InsertImageRenderer.new
     renderer.pictures = self.pictures
-    markdown = Redcarpet::Markdown.new(renderer, autolink: true, tables: true)
+    markdown = Redcarpet::Markdown.new(renderer, autolink: true, tables: true, fenced_code_blocks: true)
     markdown.render content
   end
 

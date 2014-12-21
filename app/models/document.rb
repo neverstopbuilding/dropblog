@@ -14,7 +14,7 @@ class Document < ActiveRecord::Base
   alias_attribute :interest, :category
 
   def extract_meta_data_from_title
-    meta_match = /^(?:(\d{4}-\d{2}-\d{2})\s)?(.+?)(?:\s\((\w+)\))?$/.match(title)
+    meta_match = /^(?:(\d{4}\-\d{2}\-\d{2})\s)?(.+?)(?:\s\((\w+)\))?$/.match(title)
     if meta_match
       self.created_at = Time.parse(meta_match[1]) if meta_match[1]
       self.category = meta_match[3].downcase if meta_match[3]
@@ -39,6 +39,7 @@ class Document < ActiveRecord::Base
   end
 
   def snippet(length = 150)
+    return '' unless content
     require 'redcarpet/render_strip'
     renderer = Redcarpet::Render::StripDown.new
     markdown = Redcarpet::Markdown.new(renderer, autolink: true, tables: true)
@@ -46,6 +47,7 @@ class Document < ActiveRecord::Base
   end
 
   def render
+    return '' unless content
     renderer = Dropblog::Redcarpet::InsertImageRenderer.new
     renderer.pictures = self.pictures
     markdown = Redcarpet::Markdown.new(renderer, autolink: true, tables: true, fenced_code_blocks: true)

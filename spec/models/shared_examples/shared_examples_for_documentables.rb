@@ -24,6 +24,16 @@ shared_examples 'a documentable' do |model, factory|
     expect(documentable.to_param).to eq documentable.slug
   end
 
+  it 'should return an empty string for snippet with no content' do
+    documentable = build(factory, content: nil)
+    expect(documentable.snippet).to eq ''
+  end
+
+  it 'should render nothing for empty content' do
+    documentable = build(factory, content: nil)
+    expect(documentable.render).to eq ''
+  end
+
   it 'should render markdown content' do
     expect(build(factory, content: '# Title').render).to eq "<h1>Title</h1>\n"
   end

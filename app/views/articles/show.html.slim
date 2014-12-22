@@ -13,4 +13,5 @@
   .small-2.columns.text-right
     p
       - if @article.next
-        = link_to fa_icon('caret-right') + ' NEXT', short_article_path(@article.next), rel: 'next'
+        a href="#{short_article_path(@article.next)}" rel="next"
+          | NEXT #{fa_icon('caret-right')}

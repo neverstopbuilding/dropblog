@@ -1,2 +1,10 @@
 = content_for(:title) { 'Projects' }
-== render partial: 'layouts/documentable_summary', collection: @projects, as: :documentable
+.row
+  .full-width-centered
+    p Here are all projects organized by the month they were started.
+- @projects.group_by(&:month_created).each do |month_created, output|
+  .row.pad-2-bottom
+    .full-width-centered
+      h3
+        = month_created
+      == render partial: 'layouts/documentable_summary', collection: output, as: :documentable

@@ -15,6 +15,26 @@
 //= require turbolinks
 //= require foundation
 //= require_tree .
-$(function() {
-  $(document).foundation();
-});
+// $(function () {
+//   $(document).foundation();
+// });
+
+pageTitleResize = function () {
+  if ($("#page-title").length > 0) {
+    var fontSize = 300;
+    var maxHeight = $("#page-title-container").height() - 40;
+    var maxWidth = $("#page-title-container").width() - 25;
+    do {
+      $("#page-title h1").css('font-size', fontSize + "px");
+      fontSize -= 3;
+      titleHeight = $("#page-title h1").height();
+      titleWidth = $("#page-title h1 span").width();
+      bottom = (maxHeight - titleHeight) / 2;
+      $("#page-title").css('bottom', bottom + "px");
+    } while (titleHeight > maxHeight || titleWidth > maxWidth);
+  }
+};
+
+$(window).resize(pageTitleResize);
+$(document).ready(pageTitleResize);
+$(document).on('page:load', pageTitleResize);

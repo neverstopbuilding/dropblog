@@ -1,8 +1,10 @@
-h4
-  = link_to documentable.title, polymorphic_url([:short, documentable])
-p
-  | #{documentable.updated_type} #{documentable.updated_at.strftime("%B %e, %Y")}
-  - if documentable.interest
-    |  in #{link_to documentable.interest.titleize, interest_path(documentable.interest)}
-p
-  = truncate(documentable.snippet, length: 150, separator: ' ') { link_to "Read More", polymorphic_url([:short, documentable]) }
+- @summary_picture_path = capture { title_picture_path(documentable) || image_url('design/default-title.png')}
+.document-summary
+  article.row style="background-image: url(#{@summary_picture_path});"
+    .large-12.columns
+      h3 = link_to documentable.title, polymorphic_url([:short, documentable])
+      p.info
+        | #{documentable.updated_type} #{documentable.updated_at.strftime("%B %e, %Y")}
+        - if documentable.interest
+          |  in #{link_to documentable.interest.titleize, interest_path(documentable.interest)}
+      p.summary = truncate(documentable.snippet, length: 150, separator: ' ') { link_to " read more", polymorphic_url([:short, documentable])}

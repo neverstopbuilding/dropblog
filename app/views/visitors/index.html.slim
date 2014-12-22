@@ -1,10 +1,7 @@
-/ TODO: Add video background here: http://demosthenes.info/blog/777/Create-Fullscreen-HTML5-Page-Background-Video
-section.front-banner
-  = video_tag poster: 'design/static-banner.png', autoplay: true, loop:true
+header.page style="background-image: url(#{image_url('design/static-banner.jpg')})"
   .row
     .full-width-centered
-      h1
-        = image_tag 'design/large-logo.png', alt: 'Never Stop Building'
+      h1 = image_tag 'design/large-logo.png', alt: 'Never Stop Building'
 section.intro
   .row
     .full-width-centered
@@ -19,7 +16,7 @@ section.about
       = fa_icon 'code 4x'
       h3 Software Consulting
       p Whether you are a start-up or large firm we can provide process analysis, coaching, and architectural guidance. We think of software as another craft, and bring the same care to it.
-section.content-preview
+section.content-preview.pad-2-bottom
   .row
     .half-width-centered
       h3 Recent Articles

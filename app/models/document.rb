@@ -44,6 +44,14 @@ class Document < ActiveRecord::Base
     slug
   end
 
+  def month_created
+    created_at.strftime("%B, %Y")
+  end
+
+  def month_updated
+    updated_at.strftime("%B, %Y")
+  end
+
   def snippet(length = 150)
     return '' unless content
     require 'redcarpet/render_strip'

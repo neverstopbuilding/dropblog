@@ -18,7 +18,7 @@ $code-font-weight: inherit;
 $blockquote-cite-font-color: lighten($header-font-color, 40%);
 
 // TOP BAR SETTINGS
-$topbar-bg-color: rgba(0,0,0,.65);
+$topbar-bg-color: rgba(0,0,0,.85);
 $topbar-title-weight: 200;
 $topbar-dropdown-bg: none;
 $topbar-dropdown-link-bg: none;
@@ -36,6 +36,10 @@ $readable-font-family: "Merriweather", sans-serif;
 
 $dark-red: #440000;
 $dark-blue: #000022;
+
+p {
+    text-rendering: optimizeLegibility;
+}
 
 @mixin full-width-centered {
     @extend .large-12;
@@ -75,31 +79,44 @@ $dark-blue: #000022;
 // Modifications of Top Bar
 .top-bar-section li:not(.has-form) a:not(.button) {
     background: none;
+    text-align: center;
     @include single-transition(all 0.5s ease 0s);
     &:hover {
-        background: rgba(0, 0, 0, 0.8);
+        background: rgba(0, 0, 0, 0.85);
         color: #ffffff;
     }
 }
 
-.top-bar.expanded ul.right li {
-    background-color: rgba(0, 0, 0, 0.65);
-}
-
-.top-bar .name h1 a {
-    width: 100%;
-    //Show on small devices
-    @include single-transition(all 0.5s ease 0s);
-    &:hover {
-        color: #ffffff;
+.top-bar.expanded {
+    margin-bottom: 48px;
+    background-color: #ccc;
+    ul.title-area {
+        background-color: rgba(0, 0, 0, 0.85);
+    }
+    .top-bar-section ul li {
+        background-color: rgba(0, 0, 0, 0.85);
     }
 }
 
-nav.top-bar {
-    text-align:center;
+a.home-icon i {
+    position: relative;
+    top: 4px;
 }
-section.top-bar-section {
-    display: inline-block;
+
+.top-bar .toggle-topbar{
+    top: 7%;
+    left: 46%;
+}
+
+nav:not(.expanded) {
+.top-bar-section ul {display: table; margin: 0 auto;}
+.top-bar-section ul li {
+    display: table-cell;
+    }
+}
+
+.no-overflow{
+    overflow-x: hidden;
 }
 
 .intro {
@@ -107,18 +124,29 @@ section.top-bar-section {
     padding-top: 2em;
     padding-bottom: 2em;
     margin-bottom: 0em;
+    p, h1, h2, h3, h4, h5, h6 {
+        font-weight: 100;
+        color: #ddd;
+    }
     h2 {
-        font-size: 2em;
+        font-size: 2.4em;
         line-height: 1.2em;
         letter-spacing: 5px;
-        font-weight: 100;
-        color: #fff;
+    }
+    p {
+
+        font-size: 1.5em;
+        line-height: 1.6em;
+        letter-spacing: 2px;
     }
 }
 
 .about {
     background-color: #fff;
     padding-top: 3em;
+    ul li img {
+        max-height: 300px;
+    }
 }
 
 .content-preview {
@@ -128,6 +156,8 @@ section.top-bar-section {
 section.page-body {
     padding-top: 3em;
     padding-bottom: 3em;
+    padding-left: .5em;
+    padding-right: .5em;
 }
 
 header.page{
@@ -212,6 +242,8 @@ header.page{
 .site-footer {
     padding-top: 1em;
     small {
+        padding-left: 1em;
+        padding-right: 1em;
         font-weight: 200;
         font-size: 80%;
     }

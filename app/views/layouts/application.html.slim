@@ -5,16 +5,17 @@ html
     title
       = content_for?(:title) ? yield(:title) : 'Never Stop Building'
     meta name="description" content="#{content_for?(:description) ? yield(:description) : 'Dropblog'}"
-    == stylesheet_link_tag 'application', 'http://fonts.googleapis.com/css?family=Merriweather:400,300,700'
+    == stylesheet_link_tag 'application', '//fonts.googleapis.com/css?family=Merriweather:400,300,700'
     == stylesheet_link_tag 'application', :media => 'all', 'data-turbolinks-track' => true
     / Modernizr is required for Zurb Foundation
     == javascript_include_tag 'vendor/modernizr'
     == javascript_include_tag 'application', 'data-turbolinks-track' => true
     == csrf_meta_tags
   body
-    header
-      == render 'layouts/navigation'
-    main[role="main"]
-      == render 'layouts/messages'
-      == content_for?(:content) ? yield(:content) : yield
-      == render 'layouts/footer'
+    .no-overflow
+      header
+        == render 'layouts/navigation'
+      main[role="main"]
+        == render 'layouts/messages'
+        == content_for?(:content) ? yield(:content) : yield
+        == render 'layouts/footer'

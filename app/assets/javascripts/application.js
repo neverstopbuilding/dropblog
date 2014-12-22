@@ -15,9 +15,9 @@
 //= require turbolinks
 //= require foundation
 //= require_tree .
-// $(function () {
-//   $(document).foundation();
-// });
+$(function () {
+  $(document).foundation();
+});
 
 pageTitleResize = function () {
   if ($("#page-title").length > 0) {

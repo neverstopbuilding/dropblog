@@ -6,6 +6,9 @@
       .full-width-centered id="page-title"
         h1
           span = @title
+  -if content_for?(:intro)
+    section.intro
+      = yield(:intro)
   section.page-body
     .row
       .full-width

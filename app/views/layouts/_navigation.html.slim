@@ -2,10 +2,9 @@
 nav.top-bar[data-topbar]
   ul.title-area
     li.name
-      = link_to 'Home', root_path
-    li.toggle-topbar.menu-icon
+    li.toggle-topbar
       a[href="#"]
-        Menu
+        =fa_icon('bars 2x')
   .top-bar-section
     ul
       == render 'layouts/navigation_links'

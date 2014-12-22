@@ -2,9 +2,10 @@
 - @title_picture_path = capture { content_for?(:title_picture_path) ? yield(:title_picture_path) : image_url('design/default-title.png')}
 = content_for :content do
   header.page style="background-image: url(#{@title_picture_path})" title="#{@title}"
-    .row
-      .full-width-centered
-        h1 = @title
+    .row id="page-title-container"
+      .full-width-centered id="page-title"
+        h1
+          span = @title
   section.page-body
     .row
       .full-width

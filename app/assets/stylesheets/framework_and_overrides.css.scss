@@ -56,6 +56,8 @@ $dark-blue: #000022;
 
 .half-width-centered {
     @include half-width-centered;
+    padding-right: 1.5em;
+    padding-left: 1.5em;
 }
 
 .pad-2-bottom {
@@ -93,28 +95,18 @@ $dark-blue: #000022;
     }
 }
 
-.front-banner {
-    video {
-        position: absolute;
-        right: 0;
-        min-width: 100%;
-        width: auto;
-        height: auto;
-        z-index: -100;
-        background: url(image_path("design/static-banner.png")) no-repeat;
-        @include background-size(cover);
-    }
-    img{
-        min-width: 15%;
-        width: 26%;
-    }
+nav.top-bar {
+    text-align:center;
+}
+section.top-bar-section {
+    display: inline-block;
 }
 
 .intro {
     background-color: $dark-blue;
     padding-top: 2em;
     padding-bottom: 2em;
-    margin-bottom: 2em;
+    margin-bottom: 0em;
     h2 {
         font-size: 2em;
         line-height: 1.2em;
@@ -122,6 +114,15 @@ $dark-blue: #000022;
         font-weight: 100;
         color: #fff;
     }
+}
+
+.about {
+    background-color: #fff;
+    padding-top: 3em;
+}
+
+.content-preview {
+    padding-top: 3em;
 }
 
 section.page-body {
@@ -149,6 +150,13 @@ header.page{
                 color: #ffffff;
                 letter-spacing: 3px;
                 @include text-shadow(0px 0px 25px black, 0px 0px 8px black);
+                img {
+                    display: inline-block;
+                    vertical-align: middle;
+                    position: relative;
+                    bottom: -6.2em;
+                    height: 16em;
+                }
             }
         }
     }
@@ -216,3 +224,141 @@ a.social-link {
         color: #000;
     }
 }
+
+//Summary
+.document-summary {
+    margin-top: 1em;
+    & > .row {
+        @include background-size(cover);
+        position: relative;
+        height: 27em;
+        font-size: 1.2em;
+        @media #{$small} {
+            height: inherit;
+            padding-top: 1.2em;
+        }
+        & > .columns {
+            background-color: rgba(0, 0, 0, 0.9);
+            // position: absolute;
+            text-align: center;
+            bottom: 0em;
+            @media #{$small} {
+                position: inherit;
+                text-align: left;
+            }
+            a {
+            color: #ccc;
+            @include single-transition(all 0.5s ease 0s);
+            &:hover {
+                color: #fff;
+                }
+            }
+            h3 {
+                font-weight: 100;
+            }
+            .info {
+                color: #777777;
+                font-size: .8em;
+                font-weight: 200;
+                a {
+                    font-weight: 200;
+                    font-size: inherit;
+                    color: #555;
+                }
+            }
+            .summary {
+                color: #fff;
+                font-size: .8em;
+                font-family: $readable-font-family;
+                a {
+                    font-size: .8em;
+                }
+
+            }
+        }
+    }
+}
+
+
+// .preview-image {
+
+//     position: relative;
+//     height: 27em;
+//     font-size: 1.2em;
+//     @media #{$small} {
+//         height: inherit;
+//         padding-left: 25%;
+//     }
+//     &.row {
+//         margin-bottom: 2em;
+//     }
+//     & > .columns {
+//         position: absolute;
+//         text-align: center;
+//         bottom: 0em;
+//         @media #{$small} {
+//             position: inherit;
+//             text-align: left;
+//         }
+//     }
+//     .light {
+//         color: #777777;
+//         font-size: .8em;
+//         font-weight: 200;
+//         a {
+//             font-weight: 200;
+//             font-size: inherit;
+//             color: #555;
+//         }
+//     }
+//     p {
+//         a {
+//             font-size: .8em;
+//         }
+//     }
+// }
+
+// .light {
+//     font-size: .8em;
+//     font-weight: 200;
+//     color: #aaaaaa;
+// }
+
+// .trans {
+//     background-color: rgba(0, 0, 0, 0.85);
+// }
+
+// .dark {
+//     font-weight: 100;
+//     color: #fff;
+//     p, h1, h2, h3, h4, h5, h6 {
+//         font-weight: 100;
+//         color: #fff;
+//     }
+//     p {
+//         font-size: 1em;
+//         line-height: 1.6em;
+//         margin-bottom: 1.5em;
+//         font-weight: 200;
+//         color: #ddd;
+//     }
+//     a {
+//         color: #ccc;
+//         @include single-transition(all 0.5s ease 0s);
+//         &:hover {
+//             color: #fff;
+//         }
+//     }
+//     .red {
+//         a {
+//             color: #2E0606;
+//             @include single-transition(all 0.5s ease 0s);
+//             &:hover {
+//                 color: #7E2A2A;
+//             }
+//         }
+//     }
+//     p.content {
+//         font-family: "Merriweather", sans-serif;
+//     }
+// }

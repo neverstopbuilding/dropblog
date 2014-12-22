@@ -235,11 +235,11 @@ a.social-link {
         font-size: 1.2em;
         @media #{$small} {
             height: inherit;
-            padding-top: 1.2em;
+            padding-top: 10em;
         }
         & > .columns {
             background-color: rgba(0, 0, 0, 0.9);
-            // position: absolute;
+            position: absolute;
             text-align: center;
             bottom: 0em;
             @media #{$small} {

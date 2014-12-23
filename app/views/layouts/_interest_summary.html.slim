@@ -1,2 +1,6 @@
-h4
-  = link_to interest.titleize, interest_path(interest)
+- picture_path = capture { interest[:picture_path] || image_url('design/default-title.png')}
+li.interest-summary
+  / .row style="background-color: #{string_color(interest)}"
+  .row style="background-image: url(#{picture_path});"
+    .full-width-centered
+      h3 = link_to interest[:interest].titleize, interest_path(interest[:interest])

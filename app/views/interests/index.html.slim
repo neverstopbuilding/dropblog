@@ -1,2 +1,5 @@
 = content_for(:title) { 'Interests' }
-== render partial: 'layouts/interest_summary', collection: @interests, as: :interest
+.row
+  .full-width-centered
+    ul.large-block-grid-4.medium-block-grid-4.small-block-grid-2.text-center
+      == render partial: 'layouts/interest_summary', collection: @interests, as: :interest

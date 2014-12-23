@@ -1,5 +1,5 @@
 = render partial: 'layouts/document', locals: {document: @project}
-- if @project.articles
+- unless @project.articles.empty?
   .row.big-top-padding
     .large-8.large-offset-2.columns.text-center
       p

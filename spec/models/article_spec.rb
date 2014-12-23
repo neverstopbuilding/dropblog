@@ -56,4 +56,13 @@ RSpec.describe Article, type: :model do
     expect(article.render).to eq ''
   end
 
+  it 'should return the first picture found in the article if in a project' do
+    project = create(:project_with_picture_article)
+    picture = project.pictures[0]
+    project.pictures << create(:picture)
+    project.save
+    article = project.articles[0]
+    expect(article.title_picture).to eq picture
+  end
+
 end

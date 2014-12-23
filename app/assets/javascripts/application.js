@@ -35,6 +35,15 @@ pageTitleResize = function () {
   }
 };
 
+handleSocialLink = function () {
+  $('.social-button').on('click', function () {
+    window.open(this.href, '', 'menubar=no, toolbar=no, resizable=yes, scrollbars=yes, height=600, width=600');
+    return false;
+  });
+};
+
 $(window).resize(pageTitleResize);
 $(document).ready(pageTitleResize);
 $(document).on('page:load', pageTitleResize);
+$(document).ready(handleSocialLink);
+$(document).on('page:load', handleSocialLink);

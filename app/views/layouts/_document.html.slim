@@ -10,7 +10,7 @@ article
         |  by Jason Fox
       .by-line
         - if document.project_article?
-          | Working on the #{link_to document.project.title, polymorphic_url([:short, document])} project.
+          | Working on the #{link_to document.project.title, polymorphic_url([:short, document.project])} project.
         - if document.interest
           |  Pursuing an interest in #{link_to document.interest.titleize, interest_path(document.interest)}.
   .row

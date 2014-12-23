@@ -13,7 +13,9 @@ class ProcessChangesJob < ActiveJob::Base
     client = DropboxClient.new(access_token)
     bucket = S3.buckets[ENV['S3_BUCKET']]
 
-    if (Rails.env == 'development' || Rails.env == 'test') && !ENV['TRAVIS']
+    if ENV['TRAVIS']
+      delta = client.delta('cursor', "/#{dropbox_blog_dir}")
+    elsif (Rails.env == 'development' || Rails.env == 'test')
       cursor = File.open('cursor.txt', 'rb') { |f| f.read }.strip.chomp
       delta = client.delta(cursor, "/#{dropbox_blog_dir}")
       File.open('cursor.txt', 'w+') { |f| f.write(delta['cursor']) }

@@ -33,6 +33,17 @@ class Article < Document
     self.class.next_by_date(self.created_at).first
   end
 
+  def title_picture
+    if pictures
+      if project
+        file_match = content.match(/!\[.*?\]\((.*?)\)/)
+        pictures.where(file_name: Pathname.new(file_match[1]).basename.to_s).first if file_match
+      else
+        pictures.where('file_name ~* ?', '^title\.').first || pictures.first
+      end
+    end
+  end
+
   class << self
 
     def find_or_make_temp(slug)

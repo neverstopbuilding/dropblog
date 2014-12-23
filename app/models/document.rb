@@ -34,12 +34,6 @@ class Document < ActiveRecord::Base
     methods.include?(:project) && self.project
   end
 
-  def title_picture
-    if pictures
-      pictures.where('file_name ~* ?', '^title\.').first || pictures.first
-    end
-  end
-
   def to_param
     slug
   end

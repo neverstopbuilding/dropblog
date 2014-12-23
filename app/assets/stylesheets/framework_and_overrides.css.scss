@@ -267,7 +267,9 @@ a.social-link {
         font-size: 1.2em;
         @media #{$small} {
             height: inherit;
-            padding-top: 10em;
+            padding-top: 7em;
+            padding-bottom: 1em;
+            border: 1px solid #ddd;
         }
         & > .columns {
             background-color: rgba(0, 0, 0, 0.9);

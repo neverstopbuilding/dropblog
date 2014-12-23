@@ -27,7 +27,7 @@ $topbar-link-weight: 200;
 
 // OTHER SETTINGS
 $readable-font-family: "Merriweather", sans-serif;
-
+@import "highlights";
 @import "foundation";
 @import "font-awesome";
 @import "compass/css3/transition";
@@ -348,4 +348,6 @@ a.social-link {
         }
     }
 }
+
+
 

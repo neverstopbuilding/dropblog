@@ -91,8 +91,8 @@ RSpec.describe ProcessChangesJob, :type => :job do
       ProcessChangesJob.new.perform
       expect(Project.find_by_slug('project-slug-before-change')).to be_nil
       project = Project.find_by_slug('project-slug-after-change')
-      expect(project.articles[0].title).to eq 'Article 2'
-      expect(project.articles[1].title).to eq 'Article 1'
+      expect(project.articles[0].title).to eq 'Article 1'
+      expect(project.articles[1].title).to eq 'Article 2'
     end
   end
 

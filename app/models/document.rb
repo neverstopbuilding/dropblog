@@ -56,7 +56,12 @@ class Document < ActiveRecord::Base
 
   def render
     return '' unless content
-    renderer = Dropblog::Redcarpet::InsertImageRenderer.new
+      render_options = {
+        line_numbers: true,
+        inline_theme: 'github'
+      }
+
+    renderer = Dropblog::Redcarpet::InsertImageRenderer.new(render_options)
     renderer.pictures = self.pictures
     markdown = Redcarpet::Markdown.new(renderer, autolink: true, tables: true, fenced_code_blocks: true)
     markdown.render content

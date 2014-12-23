@@ -1,9 +1,16 @@
+
+
 module Dropblog
   module Redcarpet
     class InsertImageRenderer < ::Redcarpet::Render::HTML
+      include Rouge::Plugins::Redcarpet
 
       def pictures=(pictures)
         @pictures = pictures
+      end
+
+      def block_code(code, language)
+        Rouge.highlight(code, language || 'text', 'html')
       end
 
       def image(link, title, alt_text)

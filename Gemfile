@@ -23,6 +23,7 @@ gem 'dropbox-sdk'
 gem 'responders'
 gem 'rails_config'
 gem 'aws-sdk', '< 2'
+gem 'rouge'
 
 group :development do
   gem 'better_errors'

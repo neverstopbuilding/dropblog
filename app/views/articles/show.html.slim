@@ -7,9 +7,10 @@
   .small-8.columns.text-center
     p
       em
-        | If you enjoyed this article, you might like others related to the #{link_to @article.interest.titleize, interest_path(@article.interest)} interest.
+        - if @article.interest
+          | If you enjoyed this article, you might like others related to the #{link_to @article.interest.titleize, interest_path(@article.interest)} interest.
         - if @article.project
-          |  This article is also part of the #{link_to @article.project.title, short_project_path(@article.project)} project.
+          |  This article is part of the #{link_to @article.project.title, short_project_path(@article.project)} project.
   .small-2.columns.text-right
     p
       - if @article.next

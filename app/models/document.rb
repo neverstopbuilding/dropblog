@@ -5,7 +5,6 @@ class Document < ActiveRecord::Base
   validates :title, :slug, presence: true
   validates :slug, uniqueness: true
 
-
   scope :recent, ->(how_many) { order(updated_at: :desc).limit(how_many) }
   scope :of_interest, ->(interest) { where(category: interest) }
 

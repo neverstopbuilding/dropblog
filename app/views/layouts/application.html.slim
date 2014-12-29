@@ -4,7 +4,7 @@ html
     meta[name="viewport" content="width=device-width, initial-scale=1.0"]
     title
       = content_for?(:title) ? yield(:title) : 'Never Stop Building'
-    meta name="description" content="#{content_for?(:description) ? yield(:description) : 'Dropblog'}"
+    meta name="description" content="#{content_for?(:description) ? yield(:description) : 'Never Stop Building'}"
     == stylesheet_link_tag 'application', '//fonts.googleapis.com/css?family=Merriweather:400,300,700'
     == stylesheet_link_tag 'application', :media => 'all', 'data-turbolinks-track' => true
     / Modernizr is required for Zurb Foundation

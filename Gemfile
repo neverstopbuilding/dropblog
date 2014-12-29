@@ -24,6 +24,7 @@ gem 'responders'
 gem 'rails_config'
 gem 'aws-sdk', '< 2'
 gem 'rouge'
+gem 'lograge'
 
 group :development do
   gem 'better_errors'

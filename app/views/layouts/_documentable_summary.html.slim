@@ -2,7 +2,7 @@
 .document-summary
   article.row style="background-image: url(#{@summary_picture_path});"
     .large-12.columns
-      h3 = link_to documentable.title, polymorphic_url([:short, documentable])
+      h3 = link_to documentable.title.titleize, polymorphic_url([:short, documentable])
       p.info
         | #{documentable.updated_type} #{documentable.updated_at.strftime("%B %e, %Y")}
         - if documentable.interest

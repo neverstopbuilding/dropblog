@@ -25,6 +25,8 @@ gem 'rails_config'
 gem 'aws-sdk', '< 2'
 gem 'rouge'
 gem 'lograge'
+gem 'fog', '~>1.20', require: 'fog/aws/storage'
+gem 'asset_sync'
 
 group :development do
   gem 'better_errors'

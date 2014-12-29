@@ -1,16 +1,27 @@
 doctype html
-html
+html lang="en"
   head
     meta[name="viewport" content="width=device-width, initial-scale=1.0"]
-    title
+    title property="og:title"
       = content_for?(:title) ? yield(:title) : 'Never Stop Building'
-    meta name="description" content="#{content_for?(:description) ? yield(:description) : 'Never Stop Building'}"
+    meta name="description" content="#{content_for?(:description) ? yield(:description) : 'Never Stop Building'}" property="og:description"
+    meta charset="utf-8"
+    meta name="author" content="#{Settings.author}"
+    meta name="viewport" content="width=device-width, initial-scale=1"
+    meta name="HandheldFriendly" content="True"
+    meta name="MobileOptimized" content="320"
+    meta name="google-site-verification" content="pbSGBfIzQE8RHV7p-VLLoate8pJ1P26EiUbSy_B1Os4"
+    meta name="alexaVerifyID" content="XfmiNGbk4cll3f_rgofOLGtW9Vc"
+    meta property="og:site_name" content="Never Stop Building"
+
     == stylesheet_link_tag 'application', '//fonts.googleapis.com/css?family=Merriweather:400,300,700'
     == stylesheet_link_tag 'application', :media => 'all', 'data-turbolinks-track' => true
     / Modernizr is required for Zurb Foundation
     == javascript_include_tag 'vendor/modernizr'
     == javascript_include_tag 'application', 'data-turbolinks-track' => true
     == csrf_meta_tags
+    link href="https://plus.google.com/#{Settings.google_plus_publisher}" rel="publisher"
+    link rel="author" href="/humans.txt"
   body
     .no-overflow
       header

@@ -1,5 +1,6 @@
 = content_for(:title) { document.title.titleize }
 = content_for(:title_picture_path) { title_picture_path(document) }
+= content_for(:description) { truncate(document.snippet, length: 150, separator: ' ') }
 article
   header.row.content-header
     .full-width-centered

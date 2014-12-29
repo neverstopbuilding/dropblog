@@ -14,6 +14,10 @@ end
 
 Rails.application.routes.draw do
 
+  constraints subdomain: 'www' do
+    get ':any', to: redirect(subdomain: nil, path: '/%{any}'), any: /.*/
+  end
+
   get 'projects', to: 'projects#index', as: 'projects'
   get 'articles', to: 'articles#index', as: 'articles'
 

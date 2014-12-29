@@ -91,6 +91,7 @@ GEM
     docile (1.1.5)
     dropbox-sdk (1.6.4)
       json
+    dynamic_sitemaps (2.0.0)
     em-websocket (0.5.1)
       eventmachine (>= 0.12.9)
       http_parser.rb (~> 0.6.0)
@@ -416,6 +417,7 @@ DEPENDENCIES
   compass-rails
   database_cleaner
   dropbox-sdk
+  dynamic_sitemaps
   factory_girl_rails
   faker
   figaro (>= 1.0.0.rc1)

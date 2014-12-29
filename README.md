@@ -71,11 +71,18 @@ dropbox_access_token: ~~~
 dropbox_app_key: ~~~
 dropbox_app_secret: ~~~
 dropbox_blog_dir: dropblog-test
+AWS_ACCESS_KEY_ID: ~~~
+AWS_SECRET_ACCESS_KEY: ~~~
+S3_BUCKET: ~~~
 
 production:
   dropbox_blog_dir: never-stop-building
   DOMAIN_NAME: ~~~
   SECRET_KEY_BASE: ~~~
+  S3_BUCKET: ~~~
+  FOG_PROVIDER: AWS
+  FOG_DIRECTORY: ~~~
+  ASSET_SYNC_GZIP_COMPRESSION: true
 
 development:
   REDISTOGO_URL: 'redis://localhost:6379'

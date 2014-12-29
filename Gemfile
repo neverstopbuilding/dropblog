@@ -27,6 +27,7 @@ gem 'rouge'
 gem 'lograge'
 gem 'fog', '~>1.20', require: 'fog/aws/storage'
 gem 'asset_sync'
+gem 'dynamic_sitemaps'
 
 group :development do
   gem 'better_errors'

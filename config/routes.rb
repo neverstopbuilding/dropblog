@@ -36,6 +36,8 @@ Rails.application.routes.draw do
 
   root to: 'visitors#index'
 
+  get 'sitemap.xml' => 'sitemaps#index', :format => 'xml', :as => :sitemap
+
   constraints(AuthorUrlConstrainer.new) do
     get '/:id', to: "projects#show", as: 'short_project'
   end

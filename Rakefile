@@ -6,7 +6,8 @@ require File.expand_path('../config/application', __FILE__)
 Rails.application.load_tasks
 
 namespace :sitemap do
- task :symlink do
-    system("cp #{Rails.root}/public/sitemaps/sitemap.xml #{Rails.root}/public/sitemap.xml")
- end
+  require 'sitemap_generator'
+  task :ping do
+    SitemapGenerator::Sitemap.ping_search_engines('http://neverstopbuilding.com/sitemap.xml')
+  end
 end

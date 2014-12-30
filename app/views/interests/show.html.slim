@@ -1,4 +1,5 @@
 = content_for(:title) { @interest.titleize }
+= content_for(:description) { "Here are a variety of articles and projects related to the #{@interest.titleize} interest." }
 .row
   - if !@articles.empty? && @projects.empty?
     .full-width-centered

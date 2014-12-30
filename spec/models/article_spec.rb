@@ -12,7 +12,7 @@ RSpec.describe Article, type: :model do
 
   it 'should render a project level image for a project article' do
     project = create(:project_with_picture_article)
-    expect(project.articles[0].render).to include "<p><div class=\"picture\"><img src=\"#{project.pictures[0].public_path}\" alt=\"\" title=\"\"></div></p>\n"
+    expect(project.articles[0].render).to include "<p><div class=\"picture\"><img src=\"#{project.pictures[0].public_path}\" alt=\"\" title=\"\" /></div></p>\n"
   end
 
   it 'can be created with raw content and a slug' do
@@ -46,7 +46,7 @@ RSpec.describe Article, type: :model do
 
   it 'should render an image short tag to an associated image path' do
     article = create(:article_with_picture)
-    expect(article.render).to include "<p><div class=\"picture\"><img src=\"#{article.pictures[0].public_path}\" alt=\"\" title=\"\"></div></p>\n"
+    expect(article.render).to include "<p><div class=\"picture\"><img src=\"#{article.pictures[0].public_path}\" alt=\"\" title=\"\" /></div></p>\n"
   end
 
   it 'should not render an image if the image is not found' do

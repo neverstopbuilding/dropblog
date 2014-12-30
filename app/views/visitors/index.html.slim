@@ -1,3 +1,4 @@
+= content_for(:description) { 'At Never Stop Building we are dedicated to delivering well made artifacts, be they software modules, furniture, or machined parts, we have you covered.' }
 header.page style="background-image: url(#{image_url('design/static-banner.jpg')})"
   .row
     .full-width-centered
@@ -10,11 +11,13 @@ section.about
   .row
     .half-width-centered
       = fa_icon 'gears 4x'
-      h3 Custom Fabrication
+      a href="#{services_path}"
+        h3 Custom Fabrication
       p Building is at our core, we specialize in doing what others say shouldn't be done. If you have an idea, we can help you build it. Welding, machining, electronics prototyping are all part of the fun.
     .half-width-centered
       = fa_icon 'code 4x'
-      h3 Software Consulting
+      a href="#{consulting_path}"
+        h3 Software Consulting
       p Whether you are a start-up or large firm we can provide process analysis, coaching, and architectural guidance. We think of software as another craft, and bring the same care to it.
 section.content-preview.pad-2-bottom
   .row

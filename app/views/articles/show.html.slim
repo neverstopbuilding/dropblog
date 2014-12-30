@@ -3,7 +3,7 @@
   .small-2.columns.text-left
     p
       - if @article.previous
-        = link_to fa_icon('caret-left') + ' PREV', short_article_path(@article.previous), rel: 'prev'
+        = link_to fa_icon('caret-left') + ' PREV', short_article_path(@article.previous), rel: 'prev', title: 'see previous article'
   .small-8.columns.text-center
     p
       em
@@ -14,5 +14,5 @@
   .small-2.columns.text-right
     p
       - if @article.next
-        a href="#{short_article_path(@article.next)}" rel="next"
+        a href="#{short_article_path(@article.next)}" rel="next", title: 'see next article'
           | NEXT #{fa_icon('caret-right')}

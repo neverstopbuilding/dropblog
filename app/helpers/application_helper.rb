@@ -12,17 +12,17 @@ module ApplicationHelper
 
   def facebook_link(document)
     url = polymorphic_url([:short, document])
-    link_to 'Facebook', "//www.facebook.com/sharer.php?u=#{url}&t=#{document.title}", class: 'social-button'
+    link_to 'Facebook', "//www.facebook.com/sharer.php?u=#{url}&t=#{document.title}", class: 'social-button', title: 'share on facebook'
   end
 
   def twitter_link(document)
     url = polymorphic_url([:short, document])
-    link_to 'Twitter', "//twitter.com/intent/tweet?url=#{url}&text=#{document.title}&via=jasonrobertfox", class: 'xml plain social-button'
+    link_to 'Twitter', "//twitter.com/intent/tweet?url=#{url}&text=#{document.title}&via=jasonrobertfox", class: 'xml plain social-button', title: 'share on twitter'
   end
 
   def google_plus_link(document)
     url = polymorphic_url([:short, document])
-    link_to 'Google Plus', "//plus.google.com/share?url=#{url}", class: 'social-button'
+    link_to 'Google Plus', "//plus.google.com/share?url=#{url}", class: 'social-button', title: 'share on google plus'
   end
 
   private

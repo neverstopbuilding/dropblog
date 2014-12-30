@@ -8,6 +8,8 @@ Rails.application.load_tasks
 namespace :sitemap do
   require 'sitemap_generator'
   task :ping do
-    SitemapGenerator::Sitemap.ping_search_engines('http://neverstopbuilding.com/sitemap.xml')
+    if Time.now.thursday?
+      SitemapGenerator::Sitemap.ping_search_engines('http://neverstopbuilding.com/sitemap.xml')
+    end
   end
 end

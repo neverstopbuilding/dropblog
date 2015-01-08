@@ -15,4 +15,5 @@ ActiveSupport::Inflector.inflections do |inflect|
   inflect.acronym 'LCD'
   inflect.acronym 'DTOx'
   inflect.acronym 'DTO'
+  inflect.acronym 'CNC'
 end

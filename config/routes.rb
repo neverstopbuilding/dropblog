@@ -18,6 +18,9 @@ Rails.application.routes.draw do
     get ':any', to: redirect(subdomain: nil, path: '/%{any}'), any: /.*/
   end
 
+  # Redirect atom to home page indefinitly for legacy requests
+  get 'atom.xml', to: redirect('/'), format: 'xml'
+
   get 'projects', to: 'projects#index', as: 'projects'
   get 'articles', to: 'articles#index', as: 'articles'
 

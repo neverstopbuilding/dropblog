@@ -15,7 +15,7 @@ class Document < ActiveRecord::Base
   def extract_meta_data_from_title
     meta_match = /^(?:(\d{4}\-\d{2}\-\d{2})\s)?(.+?)(?:\s\((\w+)\))?$/.match(title)
     if meta_match
-      self.created_at = Time.parse(meta_match[1]) if meta_match[1]
+      self.created_at = parse_date(meta_match[1]) if meta_match[1]
       self.category = meta_match[3].downcase if meta_match[3]
       self.title = meta_match[2].titleize
     end
@@ -90,5 +90,16 @@ class Document < ActiveRecord::Base
     def strip_meta_from_content(content)
       content.sub(/^#\s?.+\n/, '').strip unless content.empty?
     end
+  end
+
+  private
+
+  def parse_date(date_string)
+    Time.parse(date_string)
+  rescue ArgumentError => e
+    raise e unless e.message == 'argument out of range'
+    message = "The date provided: '#{date_string}' is likely not in the correct format: YYYY-MM-DD"
+    logger.error(message)
+    raise ArgumentError, message
   end
 end

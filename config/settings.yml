@@ -2,10 +2,10 @@ company_name: Never Stop Building LLC
 author: Jason Fox
 google_plus_publisher: https://plus.google.com/+Neverstopbuilding
 address:
-  street: 3720 Hickory Avenue
+  street: 901 South Streeper Street
   city: Baltimore
   state: MD
-  zip_code: 21211
+  zip_code: 21224
 phone_number: (747) 666-5369
 social_links:
   - name: twitter
@@ -29,4 +29,3 @@ social_links:
   - name: google plus
     link: //plus.google.com/109774408645971700391?rel=author
     icon: google-plus
-

@@ -30,6 +30,45 @@ SET default_tablespace = '';
 SET default_with_oids = false;
 
 --
+-- Name: delayed_jobs; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE TABLE delayed_jobs (
+    id integer NOT NULL,
+    priority integer DEFAULT 0 NOT NULL,
+    attempts integer DEFAULT 0 NOT NULL,
+    handler text NOT NULL,
+    last_error text,
+    run_at timestamp without time zone,
+    locked_at timestamp without time zone,
+    failed_at timestamp without time zone,
+    locked_by character varying,
+    queue character varying,
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone
+);
+
+
+--
+-- Name: delayed_jobs_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE delayed_jobs_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: delayed_jobs_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE delayed_jobs_id_seq OWNED BY delayed_jobs.id;
+
+
+--
 -- Name: documents; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -111,6 +150,13 @@ CREATE TABLE schema_migrations (
 -- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
+ALTER TABLE ONLY delayed_jobs ALTER COLUMN id SET DEFAULT nextval('delayed_jobs_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
 ALTER TABLE ONLY documents ALTER COLUMN id SET DEFAULT nextval('documents_id_seq'::regclass);
 
 
@@ -119,6 +165,14 @@ ALTER TABLE ONLY documents ALTER COLUMN id SET DEFAULT nextval('documents_id_seq
 --
 
 ALTER TABLE ONLY pictures ALTER COLUMN id SET DEFAULT nextval('pictures_id_seq'::regclass);
+
+
+--
+-- Name: delayed_jobs_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+--
+
+ALTER TABLE ONLY delayed_jobs
+    ADD CONSTRAINT delayed_jobs_pkey PRIMARY KEY (id);
 
 
 --
@@ -135,6 +189,13 @@ ALTER TABLE ONLY documents
 
 ALTER TABLE ONLY pictures
     ADD CONSTRAINT pictures_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: delayed_jobs_priority; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX delayed_jobs_priority ON delayed_jobs USING btree (priority, run_at);
 
 
 --
@@ -173,19 +234,19 @@ CREATE UNIQUE INDEX unique_schema_migrations ON schema_migrations USING btree (v
 
 
 --
--- Name: fk_rails_02aac3c346; Type: FK CONSTRAINT; Schema: public; Owner: -
+-- Name: fk_rails_0419e325ce; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY pictures
-    ADD CONSTRAINT fk_rails_02aac3c346 FOREIGN KEY (document_id) REFERENCES documents(id);
+    ADD CONSTRAINT fk_rails_0419e325ce FOREIGN KEY (document_id) REFERENCES documents(id);
 
 
 --
--- Name: fk_rails_539390703b; Type: FK CONSTRAINT; Schema: public; Owner: -
+-- Name: fk_rails_a2d52241aa; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY documents
-    ADD CONSTRAINT fk_rails_539390703b FOREIGN KEY (document_id) REFERENCES documents(id);
+    ADD CONSTRAINT fk_rails_a2d52241aa FOREIGN KEY (document_id) REFERENCES documents(id);
 
 
 --
@@ -211,4 +272,6 @@ INSERT INTO schema_migrations (version) VALUES ('20141219181532');
 INSERT INTO schema_migrations (version) VALUES ('20141219182154');
 
 INSERT INTO schema_migrations (version) VALUES ('20141219182200');
+
+INSERT INTO schema_migrations (version) VALUES ('20150326222313');
 

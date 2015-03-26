@@ -10,11 +10,20 @@ default: &default
   pool: 5
   template: template0
 
+# development:
+#   <<: *default
+#   database: dropblog_development
+#   username: dropblog
+#   password: secret
+
+
 development:
   <<: *default
-  database: dropblog_development
-  username: dropblog
-  password: secret
+  host: ec2-54-204-31-33.compute-1.amazonaws.com
+  database: d945h2029nshhd
+  port: 5432
+  username: wfauusbdircvkl
+  password: 7nLIvSZlbYzrzxgDWy_rZtnsdE
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".

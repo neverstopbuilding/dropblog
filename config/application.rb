@@ -40,5 +40,6 @@ module Dropblog
     # For Foundation 5
     config.assets.precompile += %w( vendor/modernizr )
 
+    config.active_job.queue_adapter = :sidekiq
   end
 end

@@ -14,5 +14,5 @@
   .small-2.columns.text-right
     p
       - if @article.next
-        a href="#{short_article_path(@article.next)}" rel="next", title: 'see next article'
+        a href="#{short_article_path(@article.next)}" rel="next" title="see next article"
           | NEXT #{fa_icon('caret-right')}

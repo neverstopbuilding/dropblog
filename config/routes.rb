@@ -29,8 +29,9 @@ Rails.application.routes.draw do
   get 'interests', to: 'interests#index', as: 'interests'
   get 'interests/:interest', to: 'interests#show', as: 'interest'
 
-  get 'services', to: 'visitors#services'
-  get 'consulting', to: 'visitors#consulting'
+  get 'services', to: redirect('/prototyping')
+  get 'consulting', to: redirect('/prototyping')
+  get 'prototyping', to: 'visitors#prototyping'
 
   namespace :api do
     get 'dropbox', to: 'dropbox#challenge'

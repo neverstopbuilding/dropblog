@@ -4,11 +4,7 @@ class VisitorsController < ApplicationController
     @projects = Project.recent(5)
   end
 
-  def consulting
-    render layout: 'page'
-  end
-
-  def services
+  def prototyping
     render layout: 'page'
   end
 end

@@ -5,7 +5,8 @@ class Document < ActiveRecord::Base
   validates :title, :slug, presence: true
   validates :slug, uniqueness: true
 
-  scope :recent, ->(how_many) { order(updated_at: :desc).limit(how_many) }
+  scope :recent, ->(how_many) { order(created_at: :desc).limit(how_many) }
+  scope :recently_updated, ->(how_many) { order(updated_at: :desc).limit(how_many) }
   scope :of_interest, ->(interest) { where(category: interest) }
 
   before_validation :extract_meta_data_from_title

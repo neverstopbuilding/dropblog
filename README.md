@@ -1,5 +1,5 @@
-#Never Stop Building: The Blog 2.0
-##Now with DropBlog!
+# Never Stop Building: The Blog 2.0
+## Now with DropBlog!
 
 [![Build Status](https://travis-ci.org/neverstopbuilding/dropblog.svg?branch=master)](https://travis-ci.org/neverstopbuilding/dropblog) [![Code Climate](https://codeclimate.com/github/neverstopbuilding/dropblog/badges/gpa.svg)](https://codeclimate.com/github/neverstopbuilding/dropblog) [![Test Coverage](https://codeclimate.com/github/neverstopbuilding/dropblog/badges/coverage.svg)](https://codeclimate.com/github/neverstopbuilding/dropblog)
 
@@ -7,7 +7,7 @@ Project documentation can be found at http://www.neverstopbuilding.com/dropblog
 
 
 
-###Configuration
+### Configuration
 Most of the variables are stored in a `application.yml` file and used with figaro:
 
 ```
@@ -38,3 +38,15 @@ development:
 Be sure to restart spring if you update the variables locally. And for loading them to heroku:
 
     figaro heroku:set -e production
+
+### Development
+
+- Clone the repository
+- `bundle install`
+- Ensure postgres is installed
+- Create a new user `sudo -u postgres createuser --interactive`
+- `sudo -i -u postgres` to log in to the postgress user, then `psql` to create a db terminal
+- `ALTER USER "dropblog" WITH PASSWORD 'secret';`
+- Then run `rake db:create`
+- And `rake db:migrate`
+

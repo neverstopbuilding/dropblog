@@ -1,5 +1,6 @@
 # A sample Guardfile
 # More info at https://github.com/guard/guard#readme
+require 'socket'
 
 guard :bundler do
   watch('Gemfile')
@@ -7,7 +8,10 @@ guard :bundler do
   # watch(/^.+\.gemspec/)
 end
 
-guard 'rails', force_run: true, host: '0.0.0.0' do
+ip_list = Socket.ip_address_list.map(&:ip_address) - ['127.0.0.1']
+bind_ip = ip_list.first || '0.0.0.0'
+
+guard 'rails', force_run: true, host: bind_ip do
   watch('Gemfile.lock')
   watch(%r{^(config|lib)/.*})
 end

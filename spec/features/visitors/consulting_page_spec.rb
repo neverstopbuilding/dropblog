@@ -1,7 +1,7 @@
 feature 'Consulting page' do
 
-  scenario 'basic content' do
+  scenario 'redirect old links to consulting page to the prototyping page' do
     visit consulting_path
-    expect(page).to have_content 'Software with a Craftsman\'s Spirit'
+    expect(page).to have_content "Prototyping with a Craftsman's Spirit"
   end
 end

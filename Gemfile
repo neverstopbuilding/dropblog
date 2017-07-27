@@ -19,7 +19,7 @@ gem 'pg'
 gem 'timers'
 gem 'redis'
 gem 'delayed_job_active_record'
-gem 'dropbox-sdk'
+gem 'dropbox_api'
 gem 'responders'
 gem 'rails_config'
 gem 'aws-sdk', '< 2'
@@ -49,6 +49,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'vcr'
   gem 'webmock'
+  gem 'mock_redis'
 end
 group :production do
   gem 'rails_12factor'

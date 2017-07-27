@@ -1,0 +1,273 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.dropboxapi.com/2/files/list_folder
+    body:
+      encoding: UTF-8
+      string: '{"recursive":true,"include_deleted":true,"include_media_info":false,"path":"/dropblog-test"}'
+    headers:
+      Authorization:
+      - Bearer zxKD5LR01akAAAAAAACy7PROSgKhAtZdPVq5-QyVgAKL3Dw_BvE-SUE3vSFSfVo3
+      User-Agent:
+      - Faraday v0.12.2
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Thu, 27 Jul 2017 00:09:18 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept-Encoding
+      Cache-Control:
+      - no-cache
+      Pragma:
+      - no-cache
+      X-Content-Type-Options:
+      - nosniff
+      X-Dropbox-Http-Protocol:
+      - None
+      X-Dropbox-Request-Id:
+      - f2ac110df528031a77d012f9f0aab5ad
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Server-Response-Time:
+      - '868'
+    body:
+      encoding: UTF-8
+      string: '{"entries": [{".tag": "folder", "name": "dropblog-test", "path_lower":
+        "/dropblog-test", "path_display": "/dropblog-test", "id": "id:sLXoYGJuQ2sAAAAAAABsGQ"},
+        {".tag": "folder", "name": "projects", "path_lower": "/dropblog-test/projects",
+        "path_display": "/dropblog-test/projects", "id": "id:sLXoYGJuQ2sAAAAAAABsGw"},
+        {".tag": "folder", "name": "mow-lawn", "path_lower": "/dropblog-test/projects/mow-lawn",
+        "path_display": "/dropblog-test/projects/mow-lawn", "id": "id:sLXoYGJuQ2sAAAAAAABsHQ"},
+        {".tag": "folder", "name": "articles", "path_lower": "/dropblog-test/projects/mow-lawn/articles",
+        "path_display": "/dropblog-test/projects/mow-lawn/articles", "id": "id:sLXoYGJuQ2sAAAAAAABsHw"},
+        {".tag": "deleted", "name": "untitled folder", "path_lower": "/dropblog-test/projects/mow-lawn/untitled
+        folder", "path_display": "/dropblog-test/projects/mow-lawn/untitled folder"},
+        {".tag": "folder", "name": "images", "path_lower": "/dropblog-test/projects/mow-lawn/images",
+        "path_display": "/dropblog-test/projects/mow-lawn/images", "id": "id:sLXoYGJuQ2sAAAAAAABsIQ"},
+        {".tag": "deleted", "name": "first-mow.md", "path_lower": "/dropblog-test/projects/mow-lawn/articles/first-mow.md",
+        "path_display": "/dropblog-test/projects/mow-lawn/articles/first-mow.md"},
+        {".tag": "deleted", "name": "untitled folder", "path_lower": "/dropblog-test/untitled
+        folder", "path_display": "/dropblog-test/untitled folder"}, {".tag": "folder",
+        "name": "articles", "path_lower": "/dropblog-test/articles", "path_display":
+        "/dropblog-test/articles", "id": "id:sLXoYGJuQ2sAAAAAAABtAg"}, {".tag": "folder",
+        "name": "new-article-slug", "path_lower": "/dropblog-test/articles/new-article-slug",
+        "path_display": "/dropblog-test/articles/new-article-slug", "id": "id:sLXoYGJuQ2sAAAAAAABtVA"},
+        {".tag": "deleted", "name": "article.md", "path_lower": "/dropblog-test/articles/one-off-article-slug/article.md",
+        "path_display": "/dropblog-test/articles/one-off-article-slug/article.md"},
+        {".tag": "deleted", "name": "one-off-article-slug", "path_lower": "/dropblog-test/articles/one-off-article-slug",
+        "path_display": "/dropblog-test/articles/one-off-article-slug"}, {".tag":
+        "folder", "name": "updated-article-slug", "path_lower": "/dropblog-test/articles/updated-article-slug",
+        "path_display": "/dropblog-test/articles/updated-article-slug", "id": "id:sLXoYGJuQ2sAAAAAAABtWw"},
+        {".tag": "deleted", "name": "article.md", "path_lower": "/dropblog-test/articles/changed-article-slug/article.md",
+        "path_display": "/dropblog-test/articles/changed-article-slug/article.md"},
+        {".tag": "deleted", "name": "changed-article-slug", "path_lower": "/dropblog-test/articles/changed-article-slug",
+        "path_display": "/dropblog-test/articles/changed-article-slug"}, {".tag":
+        "deleted", "name": "article.md", "path_lower": "/dropblog-test/articles/existing-article-to-delete/article.md",
+        "path_display": "/dropblog-test/articles/existing-article-to-delete/article.md"},
+        {".tag": "deleted", "name": "existing-article-to-delete", "path_lower": "/dropblog-test/articles/existing-article-to-delete",
+        "path_display": "/dropblog-test/articles/existing-article-to-delete"}, {".tag":
+        "deleted", "name": "untitled folder", "path_lower": "/dropblog-test/projects/untitled
+        folder", "path_display": "/dropblog-test/projects/untitled folder"}, {".tag":
+        "deleted", "name": "simple-project", "path_lower": "/dropblog-test/projects/simple-project",
+        "path_display": "/dropblog-test/projects/simple-project"}, {".tag": "deleted",
+        "name": "some-article.md", "path_lower": "/dropblog-test/projects/active/temp-project-slug/articles/some-article.md",
+        "path_display": "/dropblog-test/projects/active/temp-project-slug/articles/some-article.md"},
+        {".tag": "deleted", "name": "some-article.md", "path_lower": "/dropblog-test/projects/rename/temp-project-slug/articles/some-article.md",
+        "path_display": "/dropblog-test/projects/rename/temp-project-slug/articles/some-article.md"},
+        {".tag": "deleted", "name": "updated-project-slug.md", "path_lower": "/dropblog-test/projects/rename/temp-project-slug/articles/updated-project-slug.md",
+        "path_display": "/dropblog-test/projects/rename/temp-project-slug/articles/updated-project-slug.md"},
+        {".tag": "deleted", "name": "updated-project-slug-changed.md", "path_lower":
+        "/dropblog-test/projects/rename/temp-project-slug/articles/updated-project-slug-changed.md",
+        "path_display": "/dropblog-test/projects/rename/temp-project-slug/articles/updated-project-slug-changed.md"},
+        {".tag": "deleted", "name": "updated-project-slug-rechanged.md", "path_lower":
+        "/dropblog-test/projects/rename/temp-project-slug/articles/updated-project-slug-rechanged.md",
+        "path_display": "/dropblog-test/projects/rename/temp-project-slug/articles/updated-project-slug-rechanged.md"},
+        {".tag": "deleted", "name": "project.md", "path_lower": "/dropblog-test/projects/rename/temp-project-slug/project.md",
+        "path_display": "/dropblog-test/projects/rename/temp-project-slug/project.md"},
+        {".tag": "deleted", "name": "articles", "path_lower": "/dropblog-test/projects/rename/temp-project-slug/articles",
+        "path_display": "/dropblog-test/projects/rename/temp-project-slug/articles"},
+        {".tag": "deleted", "name": "project.md", "path_lower": "/dropblog-test/projects/rename/simple-project/project.md",
+        "path_display": "/dropblog-test/projects/rename/simple-project/project.md"},
+        {".tag": "deleted", "name": "articles", "path_lower": "/dropblog-test/projects/rename/simple-project/articles",
+        "path_display": "/dropblog-test/projects/rename/simple-project/articles"},
+        {".tag": "deleted", "name": "temp-project-slug", "path_lower": "/dropblog-test/projects/rename/temp-project-slug",
+        "path_display": "/dropblog-test/projects/rename/temp-project-slug"}, {".tag":
+        "deleted", "name": "simple-project", "path_lower": "/dropblog-test/projects/rename/simple-project",
+        "path_display": "/dropblog-test/projects/rename/simple-project"}, {".tag":
+        "deleted", "name": "rename", "path_lower": "/dropblog-test/projects/rename",
+        "path_display": "/dropblog-test/projects/rename"}, {".tag": "folder", "name":
+        "public", "path_lower": "/dropblog-test/projects/public", "path_display":
+        "/dropblog-test/projects/public", "id": "id:sLXoYGJuQ2sAAAAAAABt_w"}, {".tag":
+        "deleted", "name": "updated-project-slug-rechanged.md", "path_lower": "/dropblog-test/projects/active/temp-project-slug/articles/updated-project-slug-rechanged.md",
+        "path_display": "/dropblog-test/projects/active/temp-project-slug/articles/updated-project-slug-rechanged.md"},
+        {".tag": "deleted", "name": "project.md", "path_lower": "/dropblog-test/projects/active/temp-project-slug/project.md",
+        "path_display": "/dropblog-test/projects/active/temp-project-slug/project.md"},
+        {".tag": "deleted", "name": "articles", "path_lower": "/dropblog-test/projects/active/temp-project-slug/articles",
+        "path_display": "/dropblog-test/projects/active/temp-project-slug/articles"},
+        {".tag": "deleted", "name": "project.md", "path_lower": "/dropblog-test/projects/active/simple-project/project.md",
+        "path_display": "/dropblog-test/projects/active/simple-project/project.md"},
+        {".tag": "deleted", "name": "articles", "path_lower": "/dropblog-test/projects/active/simple-project/articles",
+        "path_display": "/dropblog-test/projects/active/simple-project/articles"},
+        {".tag": "deleted", "name": "temp-project-slug", "path_lower": "/dropblog-test/projects/active/temp-project-slug",
+        "path_display": "/dropblog-test/projects/active/temp-project-slug"}, {".tag":
+        "deleted", "name": "simple-project", "path_lower": "/dropblog-test/projects/active/simple-project",
+        "path_display": "/dropblog-test/projects/active/simple-project"}, {".tag":
+        "deleted", "name": "active", "path_lower": "/dropblog-test/projects/active",
+        "path_display": "/dropblog-test/projects/active"}, {".tag": "folder", "name":
+        "simple-project", "path_lower": "/dropblog-test/projects/public/simple-project",
+        "path_display": "/dropblog-test/projects/public/simple-project", "id": "id:sLXoYGJuQ2sAAAAAAABuAA"},
+        {".tag": "folder", "name": "articles", "path_lower": "/dropblog-test/projects/public/simple-project/articles",
+        "path_display": "/dropblog-test/projects/public/simple-project/articles",
+        "id": "id:sLXoYGJuQ2sAAAAAAABt_g"}, {".tag": "deleted", "name": "updated-project-slug-rechanged.md",
+        "path_lower": "/dropblog-test/projects/public/temp-project-slug/articles/updated-project-slug-rechanged.md",
+        "path_display": "/dropblog-test/projects/public/temp-project-slug/articles/updated-project-slug-rechanged.md"},
+        {".tag": "deleted", "name": "slug-before-change.md", "path_lower": "/dropblog-test/projects/public/temp-project-slug/articles/slug-before-change.md",
+        "path_display": "/dropblog-test/projects/public/temp-project-slug/articles/slug-before-change.md"},
+        {".tag": "deleted", "name": "project.md", "path_lower": "/dropblog-test/projects/public/temp-project-slug/project.md",
+        "path_display": "/dropblog-test/projects/public/temp-project-slug/project.md"},
+        {".tag": "deleted", "name": "articles", "path_lower": "/dropblog-test/projects/public/temp-project-slug/articles",
+        "path_display": "/dropblog-test/projects/public/temp-project-slug/articles"},
+        {".tag": "deleted", "name": "temp-project-slug", "path_lower": "/dropblog-test/projects/public/temp-project-slug",
+        "path_display": "/dropblog-test/projects/public/temp-project-slug"}, {".tag":
+        "deleted", "name": "slug-before-change.md", "path_lower": "/dropblog-test/projects/public/project-for-article-slug-change/articles/slug-before-change.md",
+        "path_display": "/dropblog-test/projects/public/project-for-article-slug-change/articles/slug-before-change.md"},
+        {".tag": "deleted", "name": "slug-after-change.md", "path_lower": "/dropblog-test/projects/public/project-for-article-slug-change/articles/slug-after-change.md",
+        "path_display": "/dropblog-test/projects/public/project-for-article-slug-change/articles/slug-after-change.md"},
+        {".tag": "deleted", "name": "project.md", "path_lower": "/dropblog-test/projects/public/project-for-article-slug-change/project.md",
+        "path_display": "/dropblog-test/projects/public/project-for-article-slug-change/project.md"},
+        {".tag": "deleted", "name": "articles", "path_lower": "/dropblog-test/projects/public/project-for-article-slug-change/articles",
+        "path_display": "/dropblog-test/projects/public/project-for-article-slug-change/articles"},
+        {".tag": "deleted", "name": "project-for-article-slug-change", "path_lower":
+        "/dropblog-test/projects/public/project-for-article-slug-change", "path_display":
+        "/dropblog-test/projects/public/project-for-article-slug-change"}, {".tag":
+        "deleted", "name": "slug-after-change.md", "path_lower": "/dropblog-test/projects/public/project-slug-before-change/articles/slug-after-change.md",
+        "path_display": "/dropblog-test/projects/public/project-slug-before-change/articles/slug-after-change.md"},
+        {".tag": "deleted", "name": "article-1 copy.md", "path_lower": "/dropblog-test/projects/public/project-slug-before-change/articles/article-1
+        copy.md", "path_display": "/dropblog-test/projects/public/project-slug-before-change/articles/article-1
+        copy.md"}, {".tag": "folder", "name": "project-slug-after-change", "path_lower":
+        "/dropblog-test/projects/public/project-slug-after-change", "path_display":
+        "/dropblog-test/projects/public/project-slug-after-change", "id": "id:sLXoYGJuQ2sAAAAAAABuAw"},
+        {".tag": "deleted", "name": "article-1.md", "path_lower": "/dropblog-test/projects/public/project-slug-before-change/articles/article-1.md",
+        "path_display": "/dropblog-test/projects/public/project-slug-before-change/articles/article-1.md"},
+        {".tag": "deleted", "name": "article-2.md", "path_lower": "/dropblog-test/projects/public/project-slug-before-change/articles/article-2.md",
+        "path_display": "/dropblog-test/projects/public/project-slug-before-change/articles/article-2.md"},
+        {".tag": "deleted", "name": "project.md", "path_lower": "/dropblog-test/projects/public/project-slug-before-change/project.md",
+        "path_display": "/dropblog-test/projects/public/project-slug-before-change/project.md"},
+        {".tag": "deleted", "name": "articles", "path_lower": "/dropblog-test/projects/public/project-slug-before-change/articles",
+        "path_display": "/dropblog-test/projects/public/project-slug-before-change/articles"},
+        {".tag": "deleted", "name": "project-slug-before-change", "path_lower": "/dropblog-test/projects/public/project-slug-before-change",
+        "path_display": "/dropblog-test/projects/public/project-slug-before-change"},
+        {".tag": "folder", "name": "articles", "path_lower": "/dropblog-test/projects/public/project-slug-after-change/articles",
+        "path_display": "/dropblog-test/projects/public/project-slug-after-change/articles",
+        "id": "id:sLXoYGJuQ2sAAAAAAABuBA"}, {".tag": "deleted", "name": "jason-fox-small.jpg",
+        "path_lower": "/dropblog-test/articles/image-article/jason-fox-small.jpg",
+        "path_display": "/dropblog-test/articles/image-article/jason-fox-small.jpg"},
+        {".tag": "folder", "name": "picture-article", "path_lower": "/dropblog-test/articles/picture-article",
+        "path_display": "/dropblog-test/articles/picture-article", "id": "id:sLXoYGJuQ2sAAAAAAABulA"},
+        {".tag": "deleted", "name": "article.md", "path_lower": "/dropblog-test/articles/image-article/article.md",
+        "path_display": "/dropblog-test/articles/image-article/article.md"}, {".tag":
+        "deleted", "name": "image-article", "path_lower": "/dropblog-test/articles/image-article",
+        "path_display": "/dropblog-test/articles/image-article"}, {".tag": "deleted",
+        "name": "untitled folder", "path_lower": "/dropblog-test/articles/untitled
+        folder", "path_display": "/dropblog-test/articles/untitled folder"}, {".tag":
+        "folder", "name": "picture-first-slug", "path_lower": "/dropblog-test/articles/picture-first-slug",
+        "path_display": "/dropblog-test/articles/picture-first-slug", "id": "id:sLXoYGJuQ2sAAAAAAABumg"},
+        {".tag": "deleted", "name": "jason-fox-small.jpg", "path_lower": "/dropblog-test/articles/picture-article/jason-fox-small.jpg",
+        "path_display": "/dropblog-test/articles/picture-article/jason-fox-small.jpg"},
+        {".tag": "deleted", "name": "untitled folder", "path_lower": "/dropblog-test/projects/public/simple-project/untitled
+        folder", "path_display": "/dropblog-test/projects/public/simple-project/untitled
+        folder"}, {".tag": "folder", "name": "pictures", "path_lower": "/dropblog-test/projects/public/simple-project/pictures",
+        "path_display": "/dropblog-test/projects/public/simple-project/pictures",
+        "id": "id:sLXoYGJuQ2sAAAAAAABunA"}, {".tag": "deleted", "name": "application.yml",
+        "path_lower": "/dropblog-test/application.yml", "path_display": "/dropblog-test/application.yml"},
+        {".tag": "deleted", "name": "development-ignored-application.yml", "path_lower":
+        "/dropblog-test/development-ignored-application.yml", "path_display": "/dropblog-test/development-ignored-application.yml"},
+        {".tag": "deleted", "name": "New folder", "path_lower": "/dropblog-test/projects/new
+        folder", "path_display": "/dropblog-test/projects/New folder"}, {".tag": "folder",
+        "name": "recursive", "path_lower": "/dropblog-test/projects/recursive", "path_display":
+        "/dropblog-test/projects/recursive", "id": "id:sLXoYGJuQ2sAAAAAAARjLg"}, {".tag":
+        "deleted", "name": "test.txt", "path_lower": "/dropblog-test/projects/recursive/test.txt",
+        "path_display": "/dropblog-test/projects/recursive/test.txt"}, {".tag": "file",
+        "name": "first-mow-up.md", "path_lower": "/dropblog-test/projects/mow-lawn/articles/first-mow-up.md",
+        "path_display": "/dropblog-test/projects/mow-lawn/articles/first-mow-up.md",
+        "id": "id:sLXoYGJuQ2sAAAAAAABs_Q", "client_modified": "2014-11-18T04:21:38Z",
+        "server_modified": "2014-12-02T05:15:06Z", "rev": "bc0e900db7498", "size":
+        63, "content_hash": "d16432731be57d98330964162904584568b7eb878fa7529aa2b9a51587cb282e"},
+        {".tag": "file", "name": "second.md", "path_lower": "/dropblog-test/projects/mow-lawn/articles/second.md",
+        "path_display": "/dropblog-test/projects/mow-lawn/articles/second.md", "id":
+        "id:sLXoYGJuQ2sAAAAAAABs_w", "client_modified": "2014-12-02T05:16:30Z", "server_modified":
+        "2014-12-02T05:16:33Z", "rev": "bc0ed00db7498", "size": 0, "content_hash":
+        "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"}, {".tag":
+        "file", "name": "second.xo", "path_lower": "/dropblog-test/projects/mow-lawn/articles/second.xo",
+        "path_display": "/dropblog-test/projects/mow-lawn/articles/second.xo", "id":
+        "id:sLXoYGJuQ2sAAAAAAABtAA", "client_modified": "2014-12-02T05:16:35Z", "server_modified":
+        "2014-12-02T05:16:38Z", "rev": "bc0ef00db7498", "size": 0, "content_hash":
+        "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"}, {".tag":
+        "file", "name": "article.md", "path_lower": "/dropblog-test/articles/new-article-slug/article.md",
+        "path_display": "/dropblog-test/articles/new-article-slug/article.md", "id":
+        "id:sLXoYGJuQ2sAAAAAAABtVw", "client_modified": "2014-12-04T19:57:19Z", "server_modified":
+        "2014-12-04T19:57:29Z", "rev": "bc16200db7498", "size": 63, "content_hash":
+        "83df4f5a2cf39ba1b38dc394c9b949114206f079f860148f121554fab933e95f"}, {".tag":
+        "file", "name": "article.md", "path_lower": "/dropblog-test/articles/updated-article-slug/article.md",
+        "path_display": "/dropblog-test/articles/updated-article-slug/article.md",
+        "id": "id:sLXoYGJuQ2sAAAAAAABtXA", "client_modified": "2014-12-04T20:00:14Z",
+        "server_modified": "2014-12-04T20:33:45Z", "rev": "bc17400db7498", "size":
+        52, "content_hash": "3bf8bf7720529cdfb45b091d1ee683e1ffd7912ee999a3e55bf61b9ce699c540"},
+        {".tag": "file", "name": "project.md", "path_lower": "/dropblog-test/projects/public/simple-project/project.md",
+        "path_display": "/dropblog-test/projects/public/simple-project/project.md",
+        "id": "id:sLXoYGJuQ2sAAAAAAABuAg", "client_modified": "2014-12-17T21:55:51Z",
+        "server_modified": "2014-12-17T23:28:44Z", "rev": "bc2a900db7498", "size":
+        16, "content_hash": "250da961d86eab3e926ef981c94a55cc03eca5853fac7cb3678dd1bd634f06e2"},
+        {".tag": "file", "name": "project.md", "path_lower": "/dropblog-test/projects/public/project-slug-after-change/project.md",
+        "path_display": "/dropblog-test/projects/public/project-slug-after-change/project.md",
+        "id": "id:sLXoYGJuQ2sAAAAAAABuBw", "client_modified": "2014-12-17T23:01:02Z",
+        "server_modified": "2014-12-17T23:53:51Z", "rev": "bc2ce00db7498", "size":
+        28, "content_hash": "81e38c9094da83fe077b36a5bc20f36296eed80671eaa7c9399f477d7a496380"},
+        {".tag": "file", "name": "article-1.md", "path_lower": "/dropblog-test/projects/public/project-slug-after-change/articles/article-1.md",
+        "path_display": "/dropblog-test/projects/public/project-slug-after-change/articles/article-1.md",
+        "id": "id:sLXoYGJuQ2sAAAAAAABuCQ", "client_modified": "2014-12-17T23:50:56Z",
+        "server_modified": "2014-12-17T23:53:51Z", "rev": "bc2cf00db7498", "size":
+        61, "content_hash": "6275434a28d704946903a0ad1c12ac0881c44a140469e5b7baa033b30edfc99f"},
+        {".tag": "file", "name": "article-2.md", "path_lower": "/dropblog-test/projects/public/project-slug-after-change/articles/article-2.md",
+        "path_display": "/dropblog-test/projects/public/project-slug-after-change/articles/article-2.md",
+        "id": "id:sLXoYGJuQ2sAAAAAAABuCg", "client_modified": "2014-12-17T23:50:56Z",
+        "server_modified": "2014-12-17T23:53:51Z", "rev": "bc2d000db7498", "size":
+        61, "content_hash": "6275434a28d704946903a0ad1c12ac0881c44a140469e5b7baa033b30edfc99f"},
+        {".tag": "file", "name": "article.md", "path_lower": "/dropblog-test/articles/picture-article/article.md",
+        "path_display": "/dropblog-test/articles/picture-article/article.md", "id":
+        "id:sLXoYGJuQ2sAAAAAAABumQ", "client_modified": "2014-12-19T23:15:04Z", "server_modified":
+        "2014-12-19T23:15:16Z", "rev": "bc3f000db7498", "size": 44, "content_hash":
+        "d4f607a94ff7fef0a3520157870827180ec18bb1036bbc075b2b102c2759bebd"}, {".tag":
+        "file", "name": "jason-fox-small.jpg", "path_lower": "/dropblog-test/articles/picture-first-slug/jason-fox-small.jpg",
+        "path_display": "/dropblog-test/articles/picture-first-slug/jason-fox-small.jpg",
+        "id": "id:sLXoYGJuQ2sAAAAAAABumw", "client_modified": "2014-12-19T23:11:56Z",
+        "server_modified": "2014-12-20T01:54:43Z", "rev": "bc3f500db7498", "size":
+        5524, "content_hash": "ee3ea2dfaa7a407353735981d69fe4dc323b16178345eb0a7ea5d50bddffa638"},
+        {".tag": "file", "name": "jason-fox-small.jpg", "path_lower": "/dropblog-test/projects/public/simple-project/pictures/jason-fox-small.jpg",
+        "path_display": "/dropblog-test/projects/public/simple-project/pictures/jason-fox-small.jpg",
+        "id": "id:sLXoYGJuQ2sAAAAAAABunQ", "client_modified": "2014-12-19T23:11:56Z",
+        "server_modified": "2014-12-20T02:53:32Z", "rev": "bc3fa00db7498", "size":
+        5524, "content_hash": "ee3ea2dfaa7a407353735981d69fe4dc323b16178345eb0a7ea5d50bddffa638"}],
+        "cursor": "AAE5WFJwuVk4MObobTUzwBc8qNn82JSPD1pNGRf2S2cDqjQH-IcMUh2kTX91TrFpfA3SoWlbsp0XKgF9tJGjU4UFkx1pS2TVdG6ofbG7HrY91IUchOkh2BGeB9RY0h4LPPp6Gk8Ak6JSr-fu5-oFbkKEaG9_cSgAbs4qjaqZurx0MalrrnQDczzJxMTl5oBq2qzhHz0LRSQ_ozVU_4PPLsDH",
+        "has_more": false}'
+    http_version: 
+  recorded_at: Thu, 27 Jul 2017 00:09:16 GMT
+recorded_with: VCR 2.9.3

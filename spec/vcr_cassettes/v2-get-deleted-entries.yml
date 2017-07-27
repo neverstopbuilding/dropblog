@@ -1,0 +1,59 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.dropboxapi.com/2/files/list_folder/continue
+    body:
+      encoding: UTF-8
+      string: '{"cursor":"AAE5WFJwuVk4MObobTUzwBc8qNn82JSPD1pNGRf2S2cDqjQH-IcMUh2kTX91TrFpfA3SoWlbsp0XKgF9tJGjU4UFkx1pS2TVdG6ofbG7HrY91IUchOkh2BGeB9RY0h4LPPp6Gk8Ak6JSr-fu5-oFbkKEaG9_cSgAbs4qjaqZurx0MalrrnQDczzJxMTl5oBq2qzhHz0LRSQ_ozVU_4PPLsDH"}'
+    headers:
+      Authorization:
+      - Bearer zxKD5LR01akAAAAAAACy7PROSgKhAtZdPVq5-QyVgAKL3Dw_BvE-SUE3vSFSfVo3
+      User-Agent:
+      - Faraday v0.12.2
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Thu, 27 Jul 2017 00:11:31 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept-Encoding
+      Cache-Control:
+      - no-cache
+      Pragma:
+      - no-cache
+      X-Content-Type-Options:
+      - nosniff
+      X-Dropbox-Http-Protocol:
+      - None
+      X-Dropbox-Request-Id:
+      - a85002d844dae55dfb9f45c68a743fc9
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Server-Response-Time:
+      - '180'
+    body:
+      encoding: UTF-8
+      string: '{"entries": [{".tag": "deleted", "name": "recursive", "path_lower":
+        "/dropblog-test/projects/recursive", "path_display": "/dropblog-test/projects/recursive"}],
+        "cursor": "AAHjAwLfyVYKVVsJFWvllStpAJp6P4PCYkBe4s0CVHod9Lg-x5S_EHfmiYdCjmfWaJ3J2Cie_RPESCHOHNkaqYOShlBUAd9KrtUcaKL3tK7Z4bbJ0eRgfUWGLan-xXUaSokvi9e1xH1lGNfKTPzVqV1yi9CDbKvpFqx24mKtoQRx1arbgX6zXaTKhq_wMncLTHzpRp7QP66r0WMOEuLHMQGp",
+        "has_more": false}'
+    http_version:
+  recorded_at: Thu, 27 Jul 2017 00:11:30 GMT
+recorded_with: VCR 2.9.3

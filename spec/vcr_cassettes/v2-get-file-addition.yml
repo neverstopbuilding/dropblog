@@ -1,0 +1,65 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.dropboxapi.com/2/files/list_folder/continue
+    body:
+      encoding: UTF-8
+      string: '{"cursor":"AAE5WFJwuVk4MObobTUzwBc8qNn82JSPD1pNGRf2S2cDqjQH-IcMUh2kTX91TrFpfA3SoWlbsp0XKgF9tJGjU4UFkx1pS2TVdG6ofbG7HrY91IUchOkh2BGeB9RY0h4LPPp6Gk8Ak6JSr-fu5-oFbkKEaG9_cSgAbs4qjaqZurx0MalrrnQDczzJxMTl5oBq2qzhHz0LRSQ_ozVU_4PPLsDH"}'
+    headers:
+      Authorization:
+      - Bearer zxKD5LR01akAAAAAAACy7PROSgKhAtZdPVq5-QyVgAKL3Dw_BvE-SUE3vSFSfVo3
+      User-Agent:
+      - Faraday v0.12.2
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Thu, 27 Jul 2017 00:56:28 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept-Encoding
+      Cache-Control:
+      - no-cache
+      Pragma:
+      - no-cache
+      X-Content-Type-Options:
+      - nosniff
+      X-Dropbox-Http-Protocol:
+      - None
+      X-Dropbox-Request-Id:
+      - c70d188c470e1eb4242560626c19ca65
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Server-Response-Time:
+      - '212'
+    body:
+      encoding: UTF-8
+      string: '{"entries": [{".tag": "deleted", "name": "New Text Document.txt", "path_lower": "/dropblog-test/projects/public/simple-project/articles/new
+        text document.txt", "path_display": "/dropblog-test/projects/public/simple-project/articles/New
+        Text Document.txt"}, {".tag": "file", "name": "something-cool.md", "path_lower":
+        "/dropblog-test/projects/public/simple-project/articles/something-cool.md",
+        "path_display": "/dropblog-test/projects/public/simple-project/articles/something-cool.md",
+        "id": "id:sLXoYGJuQ2sAAAAAAARjMA", "client_modified": "2017-07-27T00:54:53Z",
+        "server_modified": "2017-07-27T00:55:05Z", "rev": "17e37400db7498", "size":
+        0, "content_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"}],
+        "cursor": "AAGEJnJfUt8bgSKXLkU98ovxgDd2fPJdN3nDOUXbfmWPVZLNnYyiIYq2FnD58QTpyKijgw7bZskHMxbNOWJZ-bVmPOzcG4cLyAtCz59yGTcfEWbaL9uHgEuqSKE4viK7XQIoTev6u0KlL6jE9OQPJh3ExIbXvnWssTJC6PrjvuyIJzg9lVuPf9PAYSMcoSI0piOOrTDsURGMU1JkWAM5F-Cq",
+        "has_more": false}'
+    http_version:
+  recorded_at: Thu, 27 Jul 2017 00:56:27 GMT
+recorded_with: VCR 2.9.3

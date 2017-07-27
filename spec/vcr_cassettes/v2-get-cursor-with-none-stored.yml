@@ -1,0 +1,61 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.dropboxapi.com/2/files/list_folder
+    body:
+      encoding: UTF-8
+      string: '{"recursive":false,"include_media_info":false,"include_deleted":false,"path":"/dropblog-test"}'
+    headers:
+      Authorization:
+      - Bearer zxKD5LR01akAAAAAAACy7PROSgKhAtZdPVq5-QyVgAKL3Dw_BvE-SUE3vSFSfVo3
+      User-Agent:
+      - Faraday v0.12.2
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Wed, 26 Jul 2017 23:46:48 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept-Encoding
+      Cache-Control:
+      - no-cache
+      Pragma:
+      - no-cache
+      X-Content-Type-Options:
+      - nosniff
+      X-Dropbox-Http-Protocol:
+      - None
+      X-Dropbox-Request-Id:
+      - 3988e573dbb33a27b82bd6766c2c1047
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Server-Response-Time:
+      - '252'
+    body:
+      encoding: UTF-8
+      string: '{"entries": [{".tag": "folder", "name": "projects", "path_lower": "/dropblog-test/projects",
+        "path_display": "/dropblog-test/projects", "id": "id:sLXoYGJuQ2sAAAAAAABsGw"},
+        {".tag": "folder", "name": "articles", "path_lower": "/dropblog-test/articles",
+        "path_display": "/dropblog-test/articles", "id": "id:sLXoYGJuQ2sAAAAAAABtAg"}],
+        "cursor": "AAEhU7tSxIVx-oi7W8WmZaTwcjZgNRtyOAgnCti_lzqRmaKQEr4TBlMxPO4g7fwWesvlBKjomsPxMyV9XGs0kH61CB5bIZvdeGx9wUF7hX9q2EH_LKxnIFTNeFb2EKI6W1RMnA7YkAUn1YA4IUVRhLRL78bU8Ym6wmMA-yfvMYuXZL-O3ZY-hTl4K1fXYZbg2Z4vqKoo2hflkjMK7NVa9Qzd",
+        "has_more": false}'
+    http_version: 
+  recorded_at: Wed, 26 Jul 2017 23:46:45 GMT
+recorded_with: VCR 2.9.3
